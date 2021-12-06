@@ -83,3 +83,9 @@ production:
   database: gaffex-project_production
   username: gaffex-project
   password: <%= ENV['GAFFEX-PROJECT_DATABASE_PASSWORD'] %>
+
+staging:
+    <<: *default
+    database: gaffex-project_production
+    username: gaffex-project
+    password: <%= ENV['GAFFEX-PROJECT_DATABASE_PASSWORD'] %>
