@@ -1,0 +1,63 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 5.2
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+  Exclude:
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'script/**/*'
+    - 'config/environments/*.rb'
+    - 'bin/*'
+
+  Rails:
+    Enabled: True
+
+  Metrics/BlockLength:
+    Exclude:
+      - 'spec/**/*.rb'
+      - 'Guardfile'
+      - 'vendor/bundle'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/ClassStructure:
+  Enabled: true
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/InlineComment:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
