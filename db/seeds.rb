@@ -23,10 +23,8 @@ User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456")
         protocol: Faker::Lorem.paragraph_by_chars,
         results: Faker::Lorem.paragraph_by_chars,
         conclusion: Faker::Lorem.paragraph_by_chars,
-        10.times do 
-            reference.create()
+        reference: Faker::Internet.url
         end
     )
-
 end
 
