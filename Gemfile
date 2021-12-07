@@ -61,6 +61,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
+  # manage api keys locally
+  gem 'dotenv'
+
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
