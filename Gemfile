@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 gem 'devise'
+gem 'faker'
 
 # aws s3 gem
 gem 'aws-sdk-s3'
