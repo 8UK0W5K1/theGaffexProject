@@ -25,12 +25,11 @@ User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456")
         results: Faker::Lorem.paragraph_by_chars,
         conclusion: Faker::Lorem.paragraph_by_chars,
         reference: Faker::Internet.url
-        tag: 
+        tag: [Approuved, Not Approuved, NEED REWIEW].sample
         end
     )
 end
 
 # Table Tags
 
-tag = [Approuved, Not Approuved, NEED REWIEW]
-
+tag = 
