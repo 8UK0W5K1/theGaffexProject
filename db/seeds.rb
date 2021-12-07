@@ -13,4 +13,20 @@ User.destroy_all
 User.create(email: "francis@gmail.com", password: "123456")
 User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456")
 
+# Table Articles
+
+10.times do |article|
+    article = Article.create(
+        title: Faker::Movie.title,
+        abstract: Faker::Lorem.paragraph,
+        introduction: Faker::Lorem.paragraph_by_chars,
+        protocol: Faker::Lorem.paragraph_by_chars,
+        results: Faker::Lorem.paragraph_by_chars,
+        conclusion: Faker::Lorem.paragraph_by_chars,
+        10.times do 
+            reference.create()
+        end
+    )
+
+end
 
