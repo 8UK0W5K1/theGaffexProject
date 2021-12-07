@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 2021_12_07_105523) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "type"
+    t.bigint "user_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_tags_on_article_id"
+    t.index ["user_id"], name: "index_tags_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -64,4 +74,5 @@ ActiveRecord::Schema.define(version: 2021_12_07_105523) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+
 end
