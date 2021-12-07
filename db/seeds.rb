@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Article.destroy_all
 
 # Table Users
 
@@ -24,7 +25,10 @@ User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456")
         results: Faker::Lorem.paragraph_by_chars,
         conclusion: Faker::Lorem.paragraph_by_chars,
         reference: Faker::Internet.url
+        tag: 
         end
     )
 end
+
+# Table Tags
 
