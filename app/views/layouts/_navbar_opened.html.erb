@@ -1,5 +1,5 @@
 <div
-  class="d-flex flex-column flex-shrink-0 pt-3 bg-light sticky-top"
+  class="d-flex flex-column flex-shrink-0 py-3 bg-light sticky-top"
   style="width: 14em; height: 100vh;"
 >
   <a
@@ -14,12 +14,12 @@
           text-decoration-none
         "
   >
-    <span class="fs-4 ms-2 me-2">    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M8 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M8 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M6 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M14 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M12 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M14 18a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M18 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M20 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M18 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/></g></svg>Gaffex</span>
+    <span class="fs-4 ms-2 me-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M8 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M8 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M6 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M14 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M12 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M14 18a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M18 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M20 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M18 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/></g></svg>Gaffex</span>
   </a>
   <hr/>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item mt-3">
-      <a href="#" class="nav-link" aria-current="page">
+      <a href="<%= root_path %>" class="nav-link" aria-current="page">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
           <path d="M12 20c-4.4 0-8-3.6-8-8s3.6-8 8-8s8 3.6 8 8s-3.6 8-8 8m0-18C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-1 12h2v3h3v-5h2l-6-5l-6 5h2v5h3v-3" fill="currentColor"/>
         </svg>
@@ -36,36 +36,5 @@
     </li>
   </ul>
   <hr/>
-  <div class="dropdown">
-    <a
-      href="#"
-      class="
-            d-flex
-            align-items-center
-            link-dark
-            text-decoration-none
-            dropdown-toggle
-          "
-      id="dropdownUser2"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      <img
-        src="https://github.com/mdo.png"
-        alt=""
-        class="ms-4 rounded-circle me-2"
-        width="38"
-        height="38"
-        />
-      <strong>User </strong>
-    </a>
-    <ul
-      class="dropdown-menu text-small shadow"
-      aria-labelledby="dropdownUser2"
-      style=""
-    >
-      <li><a class="dropdown-item" href="#">Profile</a></li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
-    </ul>
-  </div>
+  <%= render 'layouts/user_dropdown_opened' %>
 </div>
