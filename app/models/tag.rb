@@ -1,5 +1,5 @@
 class Tag < ApplicationRecord
-belongs_to :user, index: true
-belongs_to :article, index: true
+belongs_to :user
+belongs_to :article
 
 end
