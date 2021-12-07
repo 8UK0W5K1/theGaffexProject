@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
   def welcome_email(user)
     @user = user
     @url = 'https://the-gaffex-project.herokuapp.com/users/sign_in'
-    mail(to: @user.email, subjet: 'bienvenue sur Gaffex !')
+    mail(to: @user.email, subject: 'bienvenue sur Gaffex !')
   end
 end
