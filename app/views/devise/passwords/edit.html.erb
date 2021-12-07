@@ -1,24 +1,25 @@
-<h2>Change your password</h2>
+<div class="container mt-4 mb-2 text-center">
+    <h3>Modifier votre mot de passe</h3>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
+  <div class="field mt-2">
+    <%= f.label :password, "Nouveau mot de passe" %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, class: 'form-control-lg', autofocus: true, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field mt-2">
+    <%= f.label :password_confirmation, "Confirmation du mot de passe" %><br />
+    <%= f.password_field :password_confirmation, class: 'form-control-lg', autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  <div class="actions m-2">
+    <%= f.submit "Modifier le mot de passe", class:"btn btn-lg btn-secondary border-primary m-2" %>
   </div>
 <% end %>
 
