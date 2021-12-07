@@ -6,7 +6,7 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field mt-2">
-    <%= f.label :password, "Nouveau mot de passe" %><br />
+    <%= f.label :password, "Nouveau mot de passe", class:"mt-3" %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
@@ -14,7 +14,7 @@
   </div>
 
   <div class="field mt-2">
-    <%= f.label :password_confirmation, "Confirmation du mot de passe" %><br />
+    <%= f.label :password_confirmation, "Confirmation du mot de passe", class:"mt-3" %><br />
     <%= f.password_field :password_confirmation, class: 'form-control-lg', autocomplete: "new-password" %>
   </div>
 
