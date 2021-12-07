@@ -30,6 +30,6 @@ User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456")
     )
 end
 
-# Table Tags
+# Table Tags for Users
 
-tag = 
+user_id = tag
