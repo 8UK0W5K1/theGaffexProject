@@ -22,11 +22,11 @@ puts " two users"
     article = Article.create(
         user: User.all[rand(0..1)],
         title: Faker::Movie.title,
-        summary: Faker::Lorem.paragraph(sentence_count: 5),
-        introduction: Faker::Lorem.paragraph(sentence_count: 10),
-        protocol: Faker::Lorem.paragraph(sentence_count: 30),
-        result: Faker::Lorem.paragraph(sentence_count: 20),
-        conclusion: Faker::Lorem.paragraph(sentence_count: 15),
+        summary: Faker::Lorem.paragraph(sentence_count: 10),
+        introduction: Faker::Lorem.paragraph(sentence_count: 20),
+        protocol: Faker::Lorem.paragraph(sentence_count: 60),
+        result: Faker::Lorem.paragraph(sentence_count: 40),
+        conclusion: Faker::Lorem.paragraph(sentence_count: 30),
         references: Faker::Internet.url
     )
 end
