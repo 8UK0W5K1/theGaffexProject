@@ -11,25 +11,27 @@ Article.destroy_all
 
 # Table Users
 
-User.create(email: "francis@gmail.com", password: "123456")
-User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456")
+user_first = User.create(email: "francis@gmail.com", password: "123456", first_name: "Francis", last_name: "Fake")
+user_second = User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456", first_name: "Chuck", last_name: "Norris")
 
 # Table Articles
 
 10.times do |article|
     article = Article.create(
         title: Faker::Movie.title,
-        abstract: Faker::Lorem.paragraph,
+        summary: Faker::Lorem.paragraph,
         introduction: Faker::Lorem.paragraph_by_chars,
         protocol: Faker::Lorem.paragraph_by_chars,
         results: Faker::Lorem.paragraph_by_chars,
         conclusion: Faker::Lorem.paragraph_by_chars,
         reference: Faker::Internet.url
-        tag: [Approuved, Not Approuved, NEED REWIEW].sample
         end
     )
 end
 
-# Table Tags for Users
+# Table Tag
 
-user_id = tag
+Article.all.each do |article|
+    Tag.create (user: user_first, article: article, tag_name: ["Approuved", "Not Approuved", "Need Rewiew"].sample)
+    Tag.create (user: user_second, article: article, tag_name: ["Approuved", "Not Approuved", "Need Rewiew"].sample)    
+end
