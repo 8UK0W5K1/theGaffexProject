@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_12_07_132211) do
     t.text "references"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "summary"
+    t.text "summary"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
