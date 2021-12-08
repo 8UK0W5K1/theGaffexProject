@@ -1,0 +1,34 @@
+  <% @articles.each_with_index  do |article,index| %>
+    <div class=" preview-article row mt-4" id="<%=index%>">
+
+        <div class="col-4 border-primary">
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMu_7Zrv8wPEw2zvfLT3FOcYBjNJCOy1bKQ&usqp=CAU' alt='img exemple' class="img-thumbnail"/>
+        </div>        
+
+        <div class="col-5">
+            <h4><%=article.title%></h4>
+            <p class="text-end fst-italic fs-6"><%=article.user.first_name%> <%=article.user.last_name%></p>
+            <p class="text-start"><%=article.short_summary%></p>
+        </div>
+
+        <div class="card border-light col-3">
+            <div class="d-flex justify-content-around">
+                <span class="badge rounded-pill bg-success ">Approved <span class="badge rounded-pill bg-primary">1</span></span>                
+                <span class="badge rounded-pill bg-warning">Need Review <span class="badge rounded-pill bg-primary">1</span></span>
+                <span class="badge rounded-pill bg-danger">Not Approved <span class="badge rounded-pill bg-primary">1</span></span>
+            </div>
+            
+            <div class="position-absolute bottom-0 start-50 translate-middle-x">
+                <div class="m-3">
+                   <a href="<%=article_path(article.id)%>" class="btn btn-primary">Voir article</a>
+                </div>
+            </div>           
+        </div>
+
+    </div>
+
+    <%if index == 5%>
+        <%break%>
+    <%end%>
+
+<%end%>
