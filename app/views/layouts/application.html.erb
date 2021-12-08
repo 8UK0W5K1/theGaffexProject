@@ -11,13 +11,9 @@
 <body>
 <div class="row d-flex">
   <%= render 'layouts/navbar_closed' %>
-  <div class="col-11">
-      <%= render 'layouts/header' %>
-      </div>
-    <div class="offset-2 col-8 mx-auto">
-    <%= yield %>
-  </div>
+  <%= yield %>
 </div>
+
 <style>html {
     overflow-x: hidden;
 }</style>
