@@ -11,7 +11,10 @@
 <body>
 <div class="row d-flex">
   <%= render 'layouts/navbar_closed' %>
+  <div class="col">
   <%= yield %>
+  <%=render 'layouts/footer'%>
+  </div>
 </div>
 
 <style>html {
