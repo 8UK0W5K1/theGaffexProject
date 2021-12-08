@@ -5,7 +5,7 @@
     <div class="card border-secondary p-4 justify-content-center bg-light above-small ">
 
       <div class="row align-items-start">
-        
+
 
           <div class="card border-light col-3 bg-light">
           <% if @article.user.avatar.attached? %>
@@ -19,9 +19,9 @@
               <%= @article.user.last_name%></em></h5>
             </div>
           </div>
-      
-        
-        <div class="col d-flex justify-content-end me-4"> 
+
+
+        <div class="col d-flex justify-content-end me-4">
           <div class="card border-light  col-3">
             <div class="d-flex justify-content-around bg-light ">
               <a href="#"><span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:approved]%></span></span></a>
@@ -30,61 +30,59 @@
             </div>
           </div>
         </div>
-        
+
       </div>
 
-      <div class="card border-light bg-light ">
+      <div class="text-center card border-light bg-light ">
         <p><br></p>
-        <h3><b><center><%= @article.title%><center></b><h3>
-      </div> 
+        <h3><b><%= @article.title%></b></h3>
+      </div>
 
-     
 
-      <div class="card border-secondary p-0 m-50 bg-light ">  
+
+      <div class="card border-secondary p-0 m-50 bg-light ">
         <div class="card-header-summary">Résumé</div>
         <div class="card-body-summary justify-content-center">
           <%= simple_format(@article.summary)%>
         </div>
-      </div>  
+      </div>
 
-  
 
-      <div class="card border-light p-4 justify-content-center bg-light ">  
+
+      <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Protocole</div>
         <div class="card-body justify-content-center">
           <%= simple_format(@article.protocol)%>
-        </div> 
-      </div> 
+        </div>
+      </div>
 
-    
-      <div class="card border-light p-4 justify-content-center bg-light ">  
+
+      <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Résultats</div>
         <div class="card-body justify-content-center">
           <%= simple_format(@article.result)%>
-        </div>  
-      </div> 
-      
-    
+        </div>
+      </div>
 
-      <div class="card border-light p-4 justify-content-center bg-light ">  
+
+
+      <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Conclusion</div>
         <div class="card-body justify-content-center">
           <%= simple_format(@article.conclusion)%>
-        </div>  
-      </div> 
+        </div>
+      </div>
 
-      
 
-      <div class="card border-light p-4 justify-content-center bg-light ">  
+
+      <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Références</div>
         <div class="card-body justify-content-center">
           <%= simple_format(@article.references)%>
-        </div>  
+        </div>
       </div>
 
       </div>
     </div>
   </div>
-</div>
 
- 
