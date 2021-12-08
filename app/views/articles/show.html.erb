@@ -1,21 +1,39 @@
 <div class="mt-5 offset-2 col-6"  style="position: absolute; left: 90px; right: 100px; width: auto" >
 <h1>Articles#show</h1>
 <p>Find me in app/views/articles/show.html.erb</p>
-
-<%= @article.title%>
-<br><br>
-<%= @article.user.first_name%>
-
-<%= @article.user.last_name%>
-<br><br>
-<%= @article.summary%>
-<br><br>
-<%= @article.protocol%>
-<br><br>
-<%= @article.result%>
-<br><br>
-<%= @article.conclusion%>
-<br><br>
-<%= @article.references%>
-
 </div>
+
+<div class="col">
+  <!--render small header-->
+  <div class="offset-2 col-8 mx-auto">
+    <div class="card border-secondary p-4 justify-content-center bg-light ">
+
+      <div class="card border-light col-3">
+        <div class="d-flex justify-content-around bg-light ">
+          <span class="badge rounded-pill bg-success ">Approved <span class="badge rounded-pill bg-primary">1</span></span>                
+          <span class="badge rounded-pill bg-warning">Need Review <span class="badge rounded-pill bg-primary">1</span></span>
+          <span class="badge rounded-pill bg-danger">Not Approved <span class="badge rounded-pill bg-primary">1</span></span>
+        </div>
+      </div>
+
+        <%= @article.title%>
+      <br><br>
+      <%= @article.user.first_name%>
+
+      <%= @article.user.last_name%>
+      <br><br>
+      <%= @article.summary%>
+      <br><br>
+      <%= @article.protocol%>
+      <br><br>
+      <%= @article.result%>
+      <br><br>
+      <%= @article.conclusion%>
+      <br><br>
+      <%= @article.references%>
+
+      </div>
+    </div>
+  </div>
+</div>
+
