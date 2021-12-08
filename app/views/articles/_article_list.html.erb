@@ -1,29 +1,30 @@
-  <% @articles.each do |article| %>
-    <div class = "preview-article row">
-        <div class = "col">
-            <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMu_7Zrv8wPEw2zvfLT3FOcYBjNJCOy1bKQ&usqp=CAU' alt= 'img exemple'/>
+  <% @articles.each_with_index  do |article,index| %>
+    <div class="preview-article row mt-4" id="<%=index%>"">
+
+        <div class="col-4">
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMu_7Zrv8wPEw2zvfLT3FOcYBjNJCOy1bKQ&usqp=CAU' alt='img exemple'/>
+        </div>        
+
+        <div class="col-5">
+            <h4><%=article.title%></h4>
+            <p class="text-end fst-italic fs-6"><%=article.user.first_name%> <%=article.user.last_name%></p>
+            <p class="text-start"><%=article.short_summary%></p>
         </div>
 
-        
-
-        <div class = "col">
-            <p><%=article.title%></p>
-            <p><%=article.user.first_name%> <%=article.user.last_name%></p>
-            <p><%=article.short_summary%></p>
-        </div>
-        <div class="col">
+        <div class="col-3">
             <div class="">
                 <span class="badge rounded-pill bg-success">Approved</span>                
                 <span class="badge rounded-pill bg-warning">Need Review</span>
                 <span class="badge rounded-pill bg-danger">Not Approved</span>
             </div>
 
-            <button type="button" class="btn btn-primary"><a href="<%=article_path(article.id)%>"></a>voir article</button>
-
-
-            
+            <button type="button" class="btn btn-primary"><a href="<%=article_path(article.id)%>"></a>voir article</button>            
         </div>
 
     </div>
 
+    <%if index == 5%>
+        <%break%>
     <%end%>
+
+<%end%>
