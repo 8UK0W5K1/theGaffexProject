@@ -13,14 +13,14 @@
 
         <div class="card border-light col-3">
             <div class="d-flex justify-content-around">
-                <span class="badge rounded-pill bg-success ">Approved</span>                
-                <span class="badge rounded-pill bg-warning">Need Review</span>
-                <span class="badge rounded-pill bg-danger">Not Approved</span>
+                <span class="badge rounded-pill bg-success ">Approved <span class="badge rounded-pill bg-primary">1</span></span>                
+                <span class="badge rounded-pill bg-warning">Need Review <span class="badge rounded-pill bg-primary">1</span></span>
+                <span class="badge rounded-pill bg-danger">Not Approved <span class="badge rounded-pill bg-primary">1</span></span>
             </div>
             
             <div class="position-absolute bottom-0 start-50 translate-middle-x">
                 <div class="m-3">
-                    <button type="button" class="btn btn-primary" ><a href="<%=article_path(article.id)%>"></a>Voir article</button> 
+                   <a href="<%=article_path(article.id)%>" class="btn btn-primary">Voir article</a>
                 </div>
             </div>           
         </div>
