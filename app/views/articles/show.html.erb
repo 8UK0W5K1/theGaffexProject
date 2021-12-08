@@ -1,21 +1,24 @@
-<div class="mt-5 offset-2 col-6"  style="position: absolute; left: 90px; right: 100px; width: auto" >
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="col">
+  <%= render 'layouts/header_small' %>
+  <div class="mt-5 offset-2 col-6" style="position: absolute; left: 90px; right: 100px; width: auto">
+    <h1>Articles#show</h1>
+    <p>Find me in app/views/articles/show.html.erb</p>
 
-<%= @article.title%>
-<br><br>
-<%= @article.user.first_name%>
+    <%= @article.title %>
+    <br><br>
+    <%= @article.user.first_name %>
 
-<%= @article.user.last_name%>
-<br><br>
-<%= @article.summary%>
-<br><br>
-<%= @article.protocol%>
-<br><br>
-<%= @article.result%>
-<br><br>
-<%= @article.conclusion%>
-<br><br>
-<%= @article.references%>
+    <%= @article.user.last_name %>
+    <br><br>
+    <%= @article.summary %>
+    <br><br>
+    <%= @article.protocol %>
+    <br><br>
+    <%= @article.result %>
+    <br><br>
+    <%= @article.conclusion %>
+    <br><br>
+    <%= @article.references %>
 
+  </div>
 </div>
