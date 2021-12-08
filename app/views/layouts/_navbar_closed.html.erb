@@ -1,8 +1,9 @@
+
 <div
   id="nav-closed"
-  class="d-flex flex-column flex-shrink-0 py-3 bg-light sticky-top"
-  style="width: 7em; height: 100vh;"
->
+  class="col-1 d-flex flex-column flex-shrink-0 py-3 bg-light sticky-top"
+  style="height: 100vh;"
+> 
   <a
     id='nav-closed-toggler'
     class="
@@ -40,8 +41,8 @@
 
 <div
   id="nav-opened"
-  class="flex-column flex-shrink-0 py-3 bg-light sticky-top"
-  style="display: none; width: 14em; height: 100vh;"
+  class="col-2 flex-column flex-shrink-0 py-3 bg-light sticky-top"
+  style="display: none; height: 100vh;"
 >
   <a
     id='nav-opened-toggler'
@@ -57,7 +58,7 @@
   >
     <span class="fs-4 ms-2 me-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M8 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M8 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M6 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M14 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M12 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M14 18a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M18 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/><path d="M20 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0z" fill="currentColor"/><path d="M18 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="currentColor"/></g></svg>Gaffex</span>
   </a>
-  <hr class="ms-2 me-2"/>
+  <hr class="ms-2"/>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item mt-3">
       <a href="<%= root_path %>" class="nav-link" aria-current="page">
@@ -76,7 +77,7 @@
       </a>
     </li>
   </ul>
-  <hr class="ms-2 me-2"/>
+  <hr class="ms-2"/>
   <%= render 'layouts/user_dropdown_opened' %>
 </div>
 
