@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GaffexProject</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
-
-  <body>
+<head>
+  <title>GaffexProject</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+<div class="row d-flex">
+  <%= render 'layouts/navbar_closed' %>
+  <div class="offset-2 col-4 mx-auto">
     <%= yield %>
-  </body>
+  </div>
+</div>
+<style>html {
+    overflow-x: hidden;
+}</style>
+</body>
 </html>
