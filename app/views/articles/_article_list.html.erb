@@ -1,7 +1,7 @@
   <% @articles.each_with_index  do |article,index| %>
     <div class=" preview-article row mt-4" id="<%=index%>">
 
-        <div class="col-4 border-primary">
+        <div class="d-flex justify-content-center col-4 border-primary">
             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMu_7Zrv8wPEw2zvfLT3FOcYBjNJCOy1bKQ&usqp=CAU' alt='img exemple' class="img-thumbnail"/>
         </div>        
 
@@ -11,28 +11,18 @@
             <p class="text-start"><%=article.short_summary%></p>
         </div>
 
-        <div class="card border-light col-3 bg-light">
-            <div class="d-flex justify-content-center p-1">
-                <div row="d-flex">
-                <p>
-                    <span class="badge rounded-pill bg-success pt-0">Approved <span class="badge rounded-pill bg-primary">1</span></span>
-                    <span class="badge rounded-pill bg-warning pt-0">Need Review <span class="badge rounded-pill bg-primary">1</span></span>                             
-                </p>
-                <p class="d-flex justify-content-center p-0">
-                    <span class="badge rounded-pill bg-danger">Not Approved <span class="badge rounded-pill bg-primary">1</span></span>
-                </p>
-                </div>
-            </div>
-                <div row>
-            <div class="d-flex justify-content-center">
-                <div class="m-0 p-0 ">
-                    
-                        <a href="<%=article_path(article.id)%>" class="btn btn-primary">Voir article</a>
-                </div>  
+        <div class="card border-light col-3 bg-light mt-3 ">
+            <div class="d-flex justify-content-center ">
+                <div row="">
+                    <span class="badge rounded-pill bg-success"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary">1</span></span>
+                    <span class="badge rounded-pill bg-warning"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary">1</span></span>                             
+                    <span class="badge rounded-pill bg-danger"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary">1</span></span>              
                 </div>
             </div>           
+                <div class="d-flex justify-content-center mt-4">                   
+                    <a href="<%=article_path(article.id)%>" class="btn btn-primary hover">Voir article</a>                            
+            </div>                     
         </div>
-
     </div>
 
     <%if index == 5%>
