@@ -1,17 +1,14 @@
 <div class="col">
   <%= render 'layouts/header' %>
-
-
-  <div class="offset-2 col-8 mx-auto text-center">
-    <h1>Articles#index</h1>
-    <p>Find me in app/views/articles/index.html.erb</p>
-
-    <% @articles.each do |article| %>
-
-      <p><%= article.title %></p>
-      <p><%= article.user.first_name %> <%= article.user.last_name %></p>
-      <a href="<%= article_path(article.id) %>">Voir Article</a>
-
-    <% end %>
+  <div class="offset-2 col-8 mx-auto">
+    <div class="card border-secondary p-4 justify-content-center ">
+    <%=render 'article_list'%>
+    </div>
   </div>
 </div>
+
+
+
+
+
+
