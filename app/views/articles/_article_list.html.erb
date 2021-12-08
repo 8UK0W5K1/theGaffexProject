@@ -1,11 +1,11 @@
   <% @articles.each_with_index  do |article,index| %>
     <div class=" preview-article row mt-4" id="<%=index%>">
 
-        <div class="d-flex justify-content-center col-4 border-primary">
+        <div class="d-flex justify-content-center col-2 col-md-4 border-primary">
             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMu_7Zrv8wPEw2zvfLT3FOcYBjNJCOy1bKQ&usqp=CAU' alt='img exemple' class="img-thumbnail"/>
         </div>        
 
-        <div class="col-5">
+        <div class="col">
             <h4><%=article.title%></h4>
             <p class="text-end fst-italic fs-6"><%=article.user.first_name%> <%=article.user.last_name%></p>
             <p class="text-start"><%=article.short_summary%></p>
