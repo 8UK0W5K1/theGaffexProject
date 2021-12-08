@@ -1,36 +1,41 @@
 <div class="dropdown">
-  <a
-    href="#"
-    class="
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item mt-3">
+      <a
+        href="#"
+        class="
             d-flex
+            justify-content-center
             align-items-center
             link-dark
             text-decoration-none
             dropdown-toggle
           "
-    id="dropdownUser2"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    <% if user_signed_in? && current_user.avatar.attached? %>
-      <%= image_tag(current_user.avatar, class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
-    <% elsif user_signed_in? %>
-      <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
-    <% else %>
-      <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
-    <% end %>
-  </a>
-  <ul
-    class="dropdown-menu text-small shadow"
-    aria-labelledby="dropdownUser2"
-    style=""
-  >
-    <% if user_signed_in? %>
-      <li><a class="dropdown-item" href="<%= edit_user_registration_path(current_user.id) %>">Profil</a></li>
-      <li><%= link_to 'Me Déconnecter', destroy_user_session_path(current_user.id), class: 'dropdown-item', method: 'delete' %></li>
-    <% else %>
-      <li><a class="dropdown-item" href="<%= new_user_session_path %>">Me Connecter</a></li>
-      <li><a class="dropdown-item" href="<%= new_user_registration_path %>">M'Inscrire</a></li>
-    <% end %>
+        id="dropdownUser2"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <% if user_signed_in? && current_user.avatar.attached? %>
+          <%= image_tag(current_user.avatar, class: 'rounded-circle', width: 38, height: 38) %>
+        <% elsif user_signed_in? %>
+          <%= image_tag(asset_path('default_avatar.png'), class: 'rounded-circle', width: 38, height: 38) %>
+        <% else %>
+          <%= image_tag(asset_path('default_avatar.png'), class: 'rounded-circle', width: 38, height: 38) %>
+        <% end %>
+      </a>
+      <ul
+        class="dropdown-menu text-small shadow"
+        aria-labelledby="dropdownUser2"
+        style=""
+      >
+        <% if user_signed_in? %>
+          <li><a class="dropdown-item" href="<%= edit_user_registration_path(current_user.id) %>">Profil</a></li>
+          <li><%= link_to 'Me Déconnecter', destroy_user_session_path(current_user.id), class: 'dropdown-item', method: 'delete' %></li>
+        <% else %>
+          <li><a class="dropdown-item" href="<%= new_user_session_path %>">Me Connecter</a></li>
+          <li><a class="dropdown-item" href="<%= new_user_registration_path %>">M'Inscrire</a></li>
+        <% end %>
+      </ul>
+    </li>
   </ul>
 </div>
