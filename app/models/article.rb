@@ -11,13 +11,12 @@ class Article < ApplicationRecord
   def   short_summary
     short_summary = ""
     word_array = self.summary.split("")
-    400.times do |index|
+    120.times do |index|
       if word_array[index] == nil
         break
       end
       short_summary += word_array[index]
     end
     short_summary +=  " ... "
-    short_summary
   end
 end
