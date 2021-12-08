@@ -35,6 +35,6 @@ end
 
 Article.all.each do |article|
     puts " tag_article created"
-    Tag.create(user: user_first, article: article, tag_name: ["Approuved", "Not Approuved", "Need Rewiew"].sample)
-    Tag.create(user: user_second, article: article, tag_name: ["Approuved", "Not Approuved", "Need Rewiew"].sample)    
+    Tag.create(user: user_first, article: article, tag_name: ["Approuved", "Not Approved", "Need Rewiew"].sample)
+    Tag.create(user: user_second, article: article, tag_name: ["Approuved", "Not Approved", "Need Rewiew"].sample)
 end
