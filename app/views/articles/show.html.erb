@@ -1,98 +1,91 @@
 
-  <div class="col">
-    <%= render 'layouts/header_small' %>
-    <div class="mt-5 offset-2 col-6"  style="position: absolute; left: 90px; right: 100px; width: auto" >
+<div class="col">
+  <%= render 'layouts/header_small' %>
+  <div class="offset-2 col-8 mx-auto">
+    <div class="card border-secondary p-4 justify-content-center bg-light above-small ">
 
-    <div class="offset-2 col-8 mx-auto">
-      <div class="card border-secondary p-4 justify-content-center bg-light above-small ">
-
-       <div class="row align-items-start">
-         
-
-            <div class="card border-light col-3 bg-light">
-
-              <img
-              class="ms-md-5 ms-0"
-              style="width: 5em"
-              src="<%= asset_path('profil.png') %>"
-              alt="profil"
-              />
-              <div class="ms-md-5 ms-0">
-                <h5><em><%= @article.user.first_name%>
-                <%= @article.user.last_name%></em></h5>
-              </div>
-            </div>
-       
-          
-          <div class="col d-flex"> 
-
-            <div class="card border-light col-3">
-              <div class="d-flex justify-content-around bg-light ">
-                <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:approved]%></span></span>
-                <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:need_review]%></span></span>
-                <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:not_approved]%></span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card border-light bg-light ">
-          <p><br></p>
-          <h3><center><%= @article.title%><center><h3>
-        </div> 
-
-        <div>   
-          <br><br> 
-        </div>
-
-        <div class="card border-secondary p-0 bg-light ">  
-          <div class="card-header">Résumé</div>
-          <div class="card-body justify-content-center">
-            <%= @article.summary%>
-          </div>
-        </div>  
-
-        <div>   
-          <br> 
-        </div>
-
-        <div class="card border-light p-4 justify-content-center bg-light ">  
-          <div class="card-header">Protocole</div>
-          <div class="card-body justify-content-center">
-            <%= @article.protocol%>
-          </div> 
-        </div> 
-
-        <div>   
-          <br> 
-        </div>
-
-        <div class="card border-light p-4 justify-content-center bg-light ">  
-          <div class="card-header">Résultats</div>
-          <div class="card-body justify-content-center">
-            <%= @article.result%>
-          </div>  
-        </div> 
+      <div class="row align-items-start">
         
-        <div>   
-            <br> 
-          </div>
-          <div class="card border-light p-4 justify-content-center bg-light ">  
-          <div class="card-header">Conclusion</div>
-        <%= @article.conclusion%>
-                </div>  
-        <div>   
-            <br> 
-          </div>
-          <div class="card border-light p-4 justify-content-center bg-light ">  
-          <div class="card-header">Références</div>
-        <%= @article.references%>
-                </div>  
 
+          <div class="card border-light col-3 bg-light">
+
+            <img
+            class="ms-md-5 ms-0"
+            style="width: 5em"
+            src="<%= asset_path('profil.png') %>"
+            alt="profil"
+            />
+            <div class="ms-md-5 ms-0">
+              <h5><em><%= @article.user.first_name%>
+              <%= @article.user.last_name%></em></h5>
+            </div>
+          </div>
+      
+        
+        <div class="col d-flex justify-content-end me-4"> 
+          <div class="card border-light  col-3">
+            <div class="d-flex justify-content-around bg-light ">
+              <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:approved]%></span></span>
+              <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:need_review]%></span></span>
+              <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:not_approved]%></span></span>
+            </div>
+          </div>
         </div>
+        
+      </div>
+
+      <div class="card border-light bg-light ">
+        <p><br></p>
+        <h3><b><center><%= @article.title%><center></b><h3>
+      </div> 
+
+     
+
+      <div class="card border-secondary p-0 m-50 bg-light ">  
+        <div class="card-header-summary">Résumé</div>
+        <div class="card-body-summary justify-content-center">
+          <%= simple_format(@article.summary)%>
+        </div>
+      </div>  
+
+  
+
+      <div class="card border-light p-4 justify-content-center bg-light ">  
+        <div class="card-header">Protocole</div>
+        <div class="card-body justify-content-center">
+          <%= simple_format(@article.protocol)%>
+        </div> 
+      </div> 
+
+    
+      <div class="card border-light p-4 justify-content-center bg-light ">  
+        <div class="card-header">Résultats</div>
+        <div class="card-body justify-content-center">
+          <%= simple_format(@article.result)%>
+        </div>  
+      </div> 
+      
+    
+
+      <div class="card border-light p-4 justify-content-center bg-light ">  
+        <div class="card-header">Conclusion</div>
+        <div class="card-body justify-content-center">
+          <%= simple_format(@article.conclusion)%>
+        </div>  
+      </div> 
+
+      
+
+      <div class="card border-light p-4 justify-content-center bg-light ">  
+        <div class="card-header">Références</div>
+        <div class="card-body justify-content-center">
+          <%= simple_format(@article.references)%>
+        </div>  
+      </div>
+
       </div>
     </div>
   </div>
-
-  </div>
 </div>
+
+ 
