@@ -13,7 +13,9 @@ Tag.destroy_all
 # Table Users
 
 user_first = User.create(email: "francis@gmail.com", password: "123456", first_name: "Francis", last_name: "Fake")
+user_first.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
 user_second = User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456", first_name: "Chuck", last_name: "Norris")
+user_second.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
 puts " two users"
 # Table Articles
 
@@ -35,6 +37,6 @@ end
 
 Article.all.each do |article|
     puts " tag_article created"
-    Tag.create(user: user_first, article: article, tag_name: ["Approuved", "Not Approuved", "Need Rewiew"].sample)
-    Tag.create(user: user_second, article: article, tag_name: ["Approuved", "Not Approuved", "Need Rewiew"].sample)    
+    Tag.create(user: user_first, article: article, tag_name: ["Approved", "Not Approved", "Need Rewiew"].sample)
+    Tag.create(user: user_second, article: article, tag_name: ["Approved", "Not Approved", "Need Rewiew"].sample)
 end
