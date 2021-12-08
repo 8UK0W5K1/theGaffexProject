@@ -11,16 +11,24 @@
             <p class="text-start"><%=article.short_summary%></p>
         </div>
 
-        <div class="card border-light col-3">
-            <div class="d-flex justify-content-around">
-                <span class="badge rounded-pill bg-success ">Approved <span class="badge rounded-pill bg-primary">1</span></span>                
-                <span class="badge rounded-pill bg-warning">Need Review <span class="badge rounded-pill bg-primary">1</span></span>
-                <span class="badge rounded-pill bg-danger">Not Approved <span class="badge rounded-pill bg-primary">1</span></span>
+        <div class="card border-light col-3 bg-light">
+            <div class="d-flex justify-content-center p-1">
+                <div row="d-flex">
+                <p>
+                    <span class="badge rounded-pill bg-success pt-0">Approved <span class="badge rounded-pill bg-primary">1</span></span>
+                    <span class="badge rounded-pill bg-warning pt-0">Need Review <span class="badge rounded-pill bg-primary">1</span></span>                             
+                </p>
+                <p class="d-flex justify-content-center p-0">
+                    <span class="badge rounded-pill bg-danger">Not Approved <span class="badge rounded-pill bg-primary">1</span></span>
+                </p>
+                </div>
             </div>
-            
-            <div class="position-absolute bottom-0 start-50 translate-middle-x">
-                <div class="m-3">
-                   <a href="<%=article_path(article.id)%>" class="btn btn-primary">Voir article</a>
+                <div row>
+            <div class="d-flex justify-content-center">
+                <div class="m-0 p-0 ">
+                    
+                        <a href="<%=article_path(article.id)%>" class="btn btn-primary">Voir article</a>
+                </div>  
                 </div>
             </div>           
         </div>
