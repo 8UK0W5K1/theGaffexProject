@@ -6,4 +6,13 @@ module ApplicationHelper
         
         tag_count = {approved: number_approved, not_approved: number_not_approved, need_review: number_need_review}
     end
+
+    def whith_tag(user,article)
+        tag = article.tags.find_by(user: user)
+        if tag != nil
+            return tag[:tag_name]
+        else
+            return nil
+        end
+    end  
 end
