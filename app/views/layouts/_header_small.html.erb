@@ -2,16 +2,18 @@
 <div
   class="py-4 text-center bg-light justify-content-start">
 
-    <div class="d-flex justify-content-start h-100">
-      <div class="ms-3">
-        <img src="<%= asset_path("logoGaffex.png") %>">
-      </div>
+  <div class="d-flex justify-content-start h-100">
+    <div class="ms-3">
+      <img src="<%= asset_path("logoGaffex.png") %>">
+    </div>
+    <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" %>
       <div class="offset-4 col-3 mt-3">
         <%= form_tag(url_for(controller: 'searches', action: 'index'), method: 'get', class: 'input-group w-auto ml-3') do %>
           <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
           <%= image_submit_tag('https://api.iconify.design/mdi/magnify.svg?color=%23757575', class: 'text-secondary ms-1') %>
         <% end %>
       </div>
-    </div>
+    <% end %>
+  </div>
 </div>
 <!-- Background image -->
