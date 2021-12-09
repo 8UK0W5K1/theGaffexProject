@@ -8,7 +8,7 @@
         <%= f.email_field :email, autofocus: true, class: 'form-control-lg', autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
       </div>
       <div class="actions m-2">
-        <%= f.submit "Envoyer les instructions", class: "btn btn-lg btn-secondary border-primary m-2" %>
+        <%= f.submit "Envoyer les instructions", class: "btn btn-lg btn-primary m-2" %>
       </div>
     <% end %>
     <%= render "devise/shared/links" %>
