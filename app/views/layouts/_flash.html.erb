@@ -1,0 +1,26 @@
+<div id="flash" class="d-flex justify-content-center align-items-center w-100">
+  <% flash.each do |type, msg| %>
+    <% if type == 'alert' %>
+      <div class="alert alert-danger w-60 border-0">
+        <span class="iconify" data-icon="mdi:information-outline"></span>
+        <span class="alert-text"><%= msg %></span>
+        <a id="close"><span class="iconify" data-icon="mdi:close"></span></a>
+      </div>
+
+    <% elsif type == 'notice' %>
+      <div class="alert alert-success w-60 border-0">
+        <span class="iconify" data-icon="mdi:information-outline"></span>
+        <span class="alert-text"><%= msg %></span>
+        <a id="close"><span class="iconify" data-icon="mdi:close"></span></a>
+      </div>
+
+    <% else %>
+      <div class="alert alert-info w-60 border-0">
+        <span class="iconify" data-icon="mdi:information-outline"></span>
+        <span class="alert-text"><%= msg %></span>
+        <a id="close"><span class="iconify" data-icon="mdi:close"></span></a>
+      </div>
+
+    <% end %>
+  <% end %>
+</div>

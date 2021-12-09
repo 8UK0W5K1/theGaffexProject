@@ -18,6 +18,7 @@
     <% else %>
       <%= render 'layouts/header_big' %>
     <% end %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
     <% if controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" %>
       <%= render "layouts/footer_sticky" %>
