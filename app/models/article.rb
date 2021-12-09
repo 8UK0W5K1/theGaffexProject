@@ -10,8 +10,7 @@ class Article < ApplicationRecord
   def self.search(keyword)
     Article.all.select do |article|
       article.match_article(keyword) ||
-        article.user.first_name.include?(keyword) ||
-        article.user.last_name.include?(keyword)
+        article.match_user(keyword)
     end
   end
 
@@ -23,6 +22,12 @@ class Article < ApplicationRecord
       result.include?(keyword) ||
       conclusion.include?(keyword) ||
       references.include?(keyword)
+  end
+
+  def match_user(keyword)
+    true if user.first_name.include?(keyword) ||
+      user.last_name.include?(keyword) ||
+      "#{user.first_name} #{user.last_name}".include?(keyword)
   end
 
   def short_summary
