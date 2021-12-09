@@ -14,9 +14,5 @@ module ApplicationHelper
         else
             return nil
         end
-    end
-
-    
-
-
+    end  
 end
