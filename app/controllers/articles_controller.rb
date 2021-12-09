@@ -16,9 +16,11 @@ class ArticlesController < ApplicationController
   def new; end
 
   def create
+    @user = current_user 
     @article = Article.create(
-
+      user: @user, title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references]
     )
+    redirect_to root_path
   end
 
 end
