@@ -8,28 +8,57 @@
     <% end %>
     <div class="d-flex justify-content-end mt-4">
       <ul class="pagination">
-        <li class="page-item disabled">
+        <li class="page-item disabled" id="btn-prev">
           <%= link_to '<<', articles_path(page: @page - 1), class: 'page-link' %>
         </li>
-        <li class="page-item active">
-          <%= link_to '1', articles_path(page: 1), class: 'page-link' %>
+        <li class="page-item" id="btn-<%= @page - 2 %>">
+          <%= link_to @page - 2, articles_path(page: @page - 2), class: 'page-link' %>
         </li>
-        <li class="page-item">
-          <%= link_to '2', articles_path(page: 2), class: 'page-link' %>
+        <li class="page-item" id="btn-<%= @page - 1 %>">
+          <%= link_to @page - 1, articles_path(page: @page - 1), class: 'page-link' %>
         </li>
-        <li class="page-item">
-          <%= link_to '3', articles_path(page: 3), class: 'page-link' %>
+        <li class="page-item" id="btn-<%= @page %>">
+          <%= link_to @page, articles_path(page: @page), class: 'page-link' %>
         </li>
-        <li class="page-item">
-          <%= link_to '4', articles_path(page: 4), class: 'page-link' %>
+        <li class="page-item" id="btn-<%= @page + 1 %>">
+          <%= link_to @page + 1, articles_path(page: @page + 1), class: 'page-link' %>
         </li>
-        <li class="page-item">
-          <%= link_to '5', articles_path(page: 5), class: 'page-link' %>
+        <li class="page-item" id="btn-<%= @page + 2 %>">
+          <%= link_to @page + 2, articles_path(page: @page + 2), class: 'page-link' %>
         </li>
-        <li class="page-item">
+        <li class="page-item" id="btn-next">
           <%= link_to '>>', articles_path(page: @page + 1), class: 'page-link' %>
         </li>
       </ul>
     </div>
   </div>
 </div>
+
+<script>
+    let params = new URLSearchParams(location.search);
+    switch (params.get('page')) {
+        case null:
+            document.querySelector('#btn--1').firstElementChild.textContent = '1';
+            document.querySelector('#btn-0').firstElementChild.textContent = '2';
+            document.querySelector('#btn-1').firstElementChild.textContent = '3';
+            document.querySelector('#btn-2').firstElementChild.textContent = '4';
+            document.querySelector('#btn-3').firstElementChild.textContent = '5';
+            break
+        case '1':
+            document.querySelector('#btn-' + (params.get('page') - 2)).firstElementChild.textContent = '1'
+            document.querySelector('#btn-' + (params.get('page') - 1)).firstElementChild.textContent = '2'
+            document.querySelector('#btn-' + params.get('page')).firstElementChild.textContent = '3'
+            document.querySelector('#btn-' + (params.get('page') + 1)).firstElementChild.textContent = '4'
+            document.querySelector('#btn-' + (params.get('page') + 2)).firstElementChild.textContent = '5'
+            break
+        case '2':
+            document.querySelector('#btn-' + (params.get('page') - 2)).firstElementChild.textContent = '2'
+            document.querySelector('#btn-' + (params.get('page') - 1)).firstElementChild.textContent = '3'
+            document.querySelector('#btn-' + params.get('page')).firstElementChild.textContent = '4'
+            document.querySelector('#btn-' + (params.get('page') + 1)).firstElementChild.textContent = '5'
+            document.querySelector('#btn-' + (params.get('page') + 2)).firstElementChild.textContent = '6'
+            break
+    }
+
+    if (params.get('page') !== null) document.querySelector('#btn-' + params.get('page')).classList.add('active')
+</script>
