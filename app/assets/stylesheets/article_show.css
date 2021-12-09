@@ -12,3 +12,7 @@
 .summary {
   margin: 2rem 5rem 2rem 5rem;
 }
+
+.card-body {
+  text-align: justify;
+}
