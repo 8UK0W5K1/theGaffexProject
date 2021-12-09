@@ -7,6 +7,7 @@
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1rem 3rem;
+  text-align: justify;
 }
 
 .summary {
@@ -20,4 +21,13 @@
 
 .card-body-references {
   text-align: justify;
+}
+
+.border-light {
+  border: none !important;
+}
+
+.badge-fake:hover {
+  box-shadow: 0 0 0 0.10rem #2c3e50;
+
 }
