@@ -10,6 +10,10 @@ class ArticlesController < ApplicationController
             end
 
     @articles = Article.all.reverse[((@page - 1) * 6)..(@page * 6 - 1)]
+    respond_to do |format|
+      format.html { render :index }
+      format.js
+    end
   end
 
   def show
