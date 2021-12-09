@@ -7,6 +7,17 @@ class Article < ApplicationRecord
   validates :title, :summary, :introduction, :protocol, :result, :conclusion, :references, presence: true
   validates :title, length: { minimum: 5, maximum: 140 }
 
+  def self.search(keyword)
+    Article.all.select do |article|
+      article.title.include?(keyword) ||
+      article.summary.include?(keyword) ||
+      article.introduction.include?(keyword) ||
+      article.protocol.include?(keyword) ||
+      article.result.include?(keyword) ||
+      article.conclusion.include?(keyword) ||
+      article.references.include?(keyword)
+    end
+  end
 
   def   short_summary
     short_summary = ""
