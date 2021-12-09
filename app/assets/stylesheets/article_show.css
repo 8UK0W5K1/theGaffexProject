@@ -6,12 +6,11 @@
 .card-body-summary {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 1rem 1rem; 
+  padding: 1rem 3rem;
 }
 
-.card-header-summary {
-  padding: 0.5rem 1rem;
-  margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+.summary {
+  margin: 2rem 5rem 2rem 5rem;
 }
+
+margin: 30px 80px 30px 80px;
