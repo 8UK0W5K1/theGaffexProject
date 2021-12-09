@@ -14,7 +14,11 @@
   <%= render 'layouts/navbar_closed' %>
   <div class="col">
   <%= yield %>
+  <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" %>
   <%=render 'layouts/footer'%>
+  <% else %>
+  <%= render "layouts/footer_sticky" %>
+  <% end%>
   </div>
 </div>
 
