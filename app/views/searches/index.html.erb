@@ -1,5 +1,5 @@
 <div class="offset-2 col-12 col-xl-8 mx-auto">
-  <div class="card border-secondary p-4 justify-content-center bg-light above">
+  <div class="card border-secondary p-4 justify-content-center bg-light above-small">
     <h4 class="text-center fw-blod mt-2 mb-3">Voici les <%= @results.count %> relstats de votre recherche de "<%= @keyword %>"</h4>
     <% @results.each_with_index do |article, index| %>
       <div class=" preview-article row mt-4" id="<%= index %>">
