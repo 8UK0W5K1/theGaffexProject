@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new]
+  
   def index
     @page = if params[:page].nil? || params[:page].to_i.zero?
               1
