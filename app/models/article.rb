@@ -15,7 +15,9 @@ class Article < ApplicationRecord
         article.protocol.include?(keyword) ||
         article.result.include?(keyword) ||
         article.conclusion.include?(keyword) ||
-        article.references.include?(keyword)
+        article.references.include?(keyword) ||
+        article.user.first_name.include?(keyword) ||
+        article.user.last_name.include?(keyword)
     end
   end
 
