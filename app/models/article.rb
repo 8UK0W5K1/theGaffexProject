@@ -9,16 +9,20 @@ class Article < ApplicationRecord
 
   def self.search(keyword)
     Article.all.select do |article|
-      article.title.include?(keyword) ||
-        article.summary.include?(keyword) ||
-        article.introduction.include?(keyword) ||
-        article.protocol.include?(keyword) ||
-        article.result.include?(keyword) ||
-        article.conclusion.include?(keyword) ||
-        article.references.include?(keyword) ||
+      article.check_article(keyword) ||
         article.user.first_name.include?(keyword) ||
         article.user.last_name.include?(keyword)
     end
+  end
+
+  def check_article(keyword)
+    true if title.include?(keyword) ||
+      summary.include?(keyword) ||
+      introduction.include?(keyword) ||
+      protocol.include?(keyword) ||
+      result.include?(keyword) ||
+      conclusion.include?(keyword) ||
+      references.include?(keyword)
   end
 
   def short_summary
