@@ -1,12 +1,12 @@
 <%= stylesheet_link_tag "article_index" %>
-<div class="offset-2 col-12 col-xl-8 mx-auto">
-  <div class="card border-secondary p-4 justify-content-center bg-light above">
+<div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above">
     <% if @articles.nil? %>
       <%= render 'no_more_articles' %>
     <% else %>
       <%= render 'article_list' %>
     <% end %>
-    <div class="d-flex justify-content-end mt-4">
+    <div id="paging" class="d-flex justify-content-end mt-4">
       <ul class="pagination">
         <li class="page-item disabled" id="btn-prev">
           <%= link_to '<<', articles_path(page: @page - 1), class: 'page-link', remote: true %>
@@ -37,11 +37,11 @@
 <%= javascript_include_tag 'paging' %>
 
 <script>
-  const ul = document.querySelector('ul.pagination');
-  const url = "<%= articles_path %>" + "?page="
-  const page = new URLSearchParams(location.search).get('page')
+    const ul = document.querySelector('ul.pagination');
+    const url = "<%= articles_path %>" + "?page="
+    const page = <%= @page %>
 
-  const p = new Paging(ul, url, page)
+    const p = new Paging(ul, url, page)
 
-  p.init()
+    p.init()
 </script>

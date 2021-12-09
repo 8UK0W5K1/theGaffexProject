@@ -1,0 +1,16 @@
+function reload() {
+    let paging = document.querySelector('#paging')
+
+    document.querySelector("#card").remove();
+    document.querySelector('#above-card').insertAdjacentHTML("afterbegin", '<div id="card" class="card border-secondary p-4 justify-content-center bg-light above"></div>')
+    <% if @articles.nil? %>
+    document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'no_more_articles' %>")
+    <% else %>
+    document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'article_list' %>")
+    <% end %>
+    document.querySelector('#card').insertAdjacentHTML('beforeend', '<div id="paging" class="d-flex justify-content-end mt-4">')
+    document.querySelector('#paging').insertAdjacentHTML('afterbegin', paging.innerHTML)
+    $('script').remove().appendTo('html');
+}
+
+reload()
