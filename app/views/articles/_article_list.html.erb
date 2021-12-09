@@ -1,32 +1,24 @@
-  <% @articles.each_with_index  do |article,index| %>
-    <div class=" preview-article row mt-4" id="<%=index%>">
-
-        <div class="d-flex justify-content-center col-2 col-md-4 border-primary">
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMu_7Zrv8wPEw2zvfLT3FOcYBjNJCOy1bKQ&usqp=CAU' alt='img exemple' class="img-thumbnail"/>
-        </div>        
-
-        <div class="col">
-            <h4><%=article.title%></h4>
-            <p class="text-end fst-italic fs-6"><%=article.user.first_name%> <%=article.user.last_name%></p>
-            <p class="text-start"><%=article.short_summary%></p>
-        </div>
-
-        <div class="card border-light col-3 bg-light mt-3 ">
-            <div class="d-flex justify-content-center ">
-                <div row="">
-                    <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%=tag_count(article)[:approved]%></span></span>
-                    <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%=tag_count(article)[:need_review]%></span></span>                             
-                    <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%=tag_count(article)[:not_approved]%></span></span>              
-                </div>
-            </div>           
-                <div class="d-flex justify-content-center mt-4">                   
-                    <a href="<%=article_path(article.id)%>" class="btn btn-primary hover">Voir article</a>                            
-            </div>                     
-        </div>
+<% @articles.each_with_index do |article, index| %>
+  <div class="preview-article row mt-4">
+    <div class="d-flex justify-content-center col-2 col-md-4 border-primary">
+      <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMu_7Zrv8wPEw2zvfLT3FOcYBjNJCOy1bKQ&usqp=CAU' alt='img exemple' class="img-thumbnail"/>
     </div>
-
-    <%if index == 5%>
-        <%break%>
-    <%end%>
-
-<%end%>
+    <div class="col">
+      <h4><%= article.title %></h4>
+      <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
+      <p class="text-start"><%= article.short_summary %></p>
+    </div>
+    <div class="card border-light col-3 bg-light mt-3 ">
+      <div class="d-flex justify-content-center ">
+        <div row="">
+          <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+          <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
+          <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <a href="<%= article_path(article.id) %>" class="btn btn-primary hover">Voir article</a>
+      </div>
+    </div>
+  </div>
+<% end %>

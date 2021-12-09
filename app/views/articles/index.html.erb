@@ -1,6 +1,25 @@
-  <%= stylesheet_link_tag "article_index" %>
-  <div class="offset-2 col-12 col-xl-8 mx-auto">
-    <div class="card border-secondary p-4 justify-content-center bg-light above">
-    <%=render 'article_list'%>
+<%= stylesheet_link_tag "article_index" %>
+<div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above">
+    <% if @articles.nil? %>
+      <%= render 'no_more_articles' %>
+    <% else %>
+      <%= render 'article_list' %>
+    <% end %>
+    <div id="paging" class="d-flex justify-content-end mt-4">
+      <%= render 'paging' %>
     </div>
   </div>
+</div>
+
+<%= javascript_include_tag 'paging' %>
+
+<script id='paging-script'>
+    let ul = document.querySelector('ul.pagination');
+    let url = "<%= articles_path %>" + "?page=";
+    let page = <%= @page %>;
+
+    let p = new Paging(ul, url, page)
+
+    p.init()
+</script>

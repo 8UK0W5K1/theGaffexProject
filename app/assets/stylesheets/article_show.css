@@ -17,6 +17,7 @@
 
 .card-body-references {
   text-align: justify;
+  text-indent: 0rem !important;
 }
 
 .border-light {
