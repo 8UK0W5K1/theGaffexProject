@@ -9,13 +9,13 @@ class Article < ApplicationRecord
 
   def self.search(keyword)
     Article.all.select do |article|
-      article.check_article(keyword) ||
+      article.match_article(keyword) ||
         article.user.first_name.include?(keyword) ||
         article.user.last_name.include?(keyword)
     end
   end
 
-  def check_article(keyword)
+  def match_article(keyword)
     true if title.include?(keyword) ||
       summary.include?(keyword) ||
       introduction.include?(keyword) ||
