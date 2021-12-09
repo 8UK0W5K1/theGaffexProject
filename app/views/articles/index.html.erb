@@ -7,29 +7,7 @@
       <%= render 'article_list' %>
     <% end %>
     <div id="paging" class="d-flex justify-content-end mt-4">
-      <ul class="pagination">
-        <li class="page-item disabled" id="btn-prev">
-          <%= link_to '<<', articles_path(page: 0), class: 'page-link', remote: true %>
-        </li>
-        <li class="page-item" id="btn-1">
-          <%= link_to '1', articles_path(page: 1), class: 'page-link', remote: true %>
-        </li>
-        <li class="page-item" id="btn-2">
-          <%= link_to '2', articles_path(page: 2), class: 'page-link', remote: true %>
-        </li>
-        <li class="page-item" id="btn-3">
-          <%= link_to '3', articles_path(page: 3), class: 'page-link', remote: true %>
-        </li>
-        <li class="page-item" id="btn-4">
-          <%= link_to '4', articles_path(page: 4), class: 'page-link', remote: true %>
-        </li>
-        <li class="page-item" id="btn-5">
-          <%= link_to '5', articles_path(page: 5), class: 'page-link', remote: true %>
-        </li>
-        <li class="page-item" id="btn-next">
-          <%= link_to '>>', articles_path(page: 2), class: 'page-link', remote: true %>
-        </li>
-      </ul>
+      <%= render 'paging' %>
     </div>
   </div>
 </div>
