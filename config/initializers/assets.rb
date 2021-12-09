@@ -20,3 +20,5 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "st
 Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
 
 Rails.application.config.assets.precompile += %w[nav-toggle.js]
+Rails.application.config.assets.precompile += %w[article_index.css]
+Rails.application.config.assets.precompile += %w[article_show.css]
