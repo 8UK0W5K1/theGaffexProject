@@ -1,11 +1,13 @@
-<div class="container mt-4 mb-2 text-center">
-    <h3>Modifier mon compte</h3>
+  <div class="offset-2 col-6 col-xl-6 mx-auto">
+    <div class="card text-center border-secondary py-4 bg-light above-small">
+    <div class="row">
+      <div class="col-6">
+          <h3>Modifier mon compte</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field mt-2">
-      <span class="iconify" data-icon="mdi:email" data-width="19"></span>
     <%= f.label :email, " Email", class:"mt-3"%></br>
     <%= f.email_field :email, autofocus: true, class: 'form-control-lg', autocomplete: "email" %>
   </div>
@@ -15,7 +17,6 @@
   <% end %>
 
   <div class="field mt-2">
-      <span class="iconify" data-icon="bx:bxs-lock" data-width="19"></span>
     <%= f.label :password, "Nouveau mot de passe", class:"mt-3"%></br> <i>(Laisser vide pour le conserver)</i><br />
     <%= f.password_field :password, class: 'form-control-lg', autocomplete: "new-password" %>
     <% if @minimum_password_length %>
@@ -36,14 +37,22 @@
   </div>
 
   <div class="actions mt-2">
-    <%= f.submit "Mise à jour", class: "m-2 btn btn-lg btn-secondary border-primary" %>
+    <%= f.submit "Mise à jour", class: "m-2 btn btn-lg btn-primary border-primary" %>
   </div>
 <% end %>
+</div>
+  <div class="vr"></div>
+      <div class="col-5 m-auto p-auto text-center align-content-center">
+    <h3 class="bt-5">Supprimer mon compte</h3>
+    <div class="mt-4">
+      <h6>Vous souhaitez quitter la communauté Gaffex?</h6>
+    </div>
+    <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Vous êtes sûr ?" }, class: "btn btn-lg btn-danger border-primary m-2", method: :delete %></p>
 
-<hr>
-<h3>Supprimer mon compte</h3>
-<p class="mt-2">Vous souhaitez quitter la communauté Gaffex? <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Vous êtes sûr ?" }, class: "btn btn-lg btn-danger border-primary m-2", method: :delete %></p>
+    <span class="mb-3"><%= link_to "Retour", :back%></span>
 
-<span class="mb-3"><%= link_to "Retour", :back%></span>
-
+      </div>
+    </div>
+    
+</div>
 </div>
