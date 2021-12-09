@@ -1,7 +1,6 @@
 class TagsController < ApplicationController
     def create 
         if user_signed_in?
-
             @article = Article.find(params[:article_id])
             @tag = @article.tags.find_by(user: current_user)            
             if @tag.nil?
@@ -9,7 +8,6 @@ class TagsController < ApplicationController
             else
                 @tag.update(tag_name: params[:tag_name])
             end
-
             redirect_to article_path(params[:article_id])
         else
             redirect_to new_user_session_path
