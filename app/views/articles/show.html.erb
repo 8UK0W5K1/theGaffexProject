@@ -1,6 +1,5 @@
-
+  <%= stylesheet_link_tag "article_show" %>
 <div class="col">
-  <%= render 'layouts/header_small' %>
   <div class="offset-2 col-8 mx-auto">
     <div class="card border-secondary p-4 justify-content-center bg-light above-small ">
 
@@ -20,13 +19,36 @@
             </div>
           </div>
 
-
-        <div class="col d-flex justify-content-end me-4">
-          <div class="card border-light  col-3">
+        <div class="col d-flex justify-content-end me-5 mt-2">
+          <div class="card border-light col-3 mt-2">
             <div class="d-flex justify-content-around bg-light ">
-              <a href="#"><span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:approved]%></span></span></a>
-              <a href="#"><span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:need_review]%></span></span></a>
-              <a href="#"><span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:not_approved]%></span></span></a>
+
+              <%if user_signed_in?%>        
+
+                <%if whith_tag(current_user,@article) == "Approved"%>
+                  <a href="<%=article_tag_path(@article.id, @article.tags.find_by(user: current_user).id)%>" data-method="delete"><span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:approved]%></span></span> 
+                <%else%>
+                  <a href="<%=article_tags_path(@article.id, :tag_name => "Approved")%>" data-method="post"><span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:approved]%></span></span> 
+                <%end%>                 
+
+                <%if whith_tag(current_user,@article) == "Need Review"%>
+                  <a href="<%=article_tag_path(@article.id, @article.tags.find_by(user: current_user).id)%>" data-method="delete"><span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: #2c3e50;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:need_review]%></span></span></a> 
+                <%else%>
+                  <a href="<%=article_tags_path(@article.id, :tag_name => "Need Review")%>" data-method="post"><span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:need_review]%></span></span></a>
+                <%end%>  
+                
+                <%if whith_tag(current_user,@article) == "Not Approved"%>
+                  <a href="<%=article_tag_path(@article.id, @article.tags.find_by(user: current_user).id)%>" data-method="delete"><span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:not_approved]%></span></span></a>
+                <%else%>
+                  <a href="<%=article_tags_path(@article.id, :tag_name => "Not Approved")%>" data-method="post"><span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:not_approved]%></span></span></a>
+                <%end%>                    
+                                         
+              <%else%>
+                <a href="<%=article_tags_path(@article.id)%>" data-method="post"><span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:approved]%></span></span></a>
+                <a href="<%=article_tags_path(@article.id)%>" data-method="post"><span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:need_review]%></span></span></a>
+               <a href="<%=article_tags_path(@article.id)%>" data-method="post"><span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:not_approved]%></span></span></a>
+              <%end%>
+
             </div>
           </div>
         </div>
@@ -39,11 +61,12 @@
       </div>
 
 
-
-      <div class="card border-secondary p-0 m-50 bg-light ">
-        <div class="card-header-summary">Résumé</div>
-        <div class="card-body-summary justify-content-center">
-          <%= simple_format(@article.summary)%>
+      <div class="summary">
+        <div class="card border-secondary p-0 m-50 bg-light ">
+          <div class="card-header">Résumé</div>
+          <div class="card-body-summary justify-content-center">
+            <%= simple_format(@article.summary)%>
+          </div>
         </div>
       </div>
 
@@ -52,7 +75,8 @@
       <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Protocole</div>
         <div class="card-body justify-content-center">
-          <%= simple_format(@article.protocol)%>
+          <br>
+            <%=simple_format(@article.protocol)%>
         </div>
       </div>
 
@@ -60,6 +84,7 @@
       <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Résultats</div>
         <div class="card-body justify-content-center">
+        <br>
           <%= simple_format(@article.result)%>
         </div>
       </div>
@@ -69,6 +94,7 @@
       <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Conclusion</div>
         <div class="card-body justify-content-center">
+        <br>
           <%= simple_format(@article.conclusion)%>
         </div>
       </div>
@@ -77,7 +103,8 @@
 
       <div class="card border-light p-4 justify-content-center bg-light ">
         <div class="card-header">Références</div>
-        <div class="card-body justify-content-center">
+        <div class="card-body-references justify-content-center">
+        <br>
           <%= simple_format(@article.references)%>
         </div>
       </div>
