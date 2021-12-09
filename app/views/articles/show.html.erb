@@ -25,7 +25,9 @@
           <div class="card border-light  col-3">
             <div class="d-flex justify-content-around bg-light ">
               <%if user_signed_in?%>
-                <a href="#">
+                <a href="<%=article_tags_path(@article.id)%>" data-method="post">
+
+                
                   <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved">
 
                     <%if whith_tag(current_user,@article) == "Approved"%>
