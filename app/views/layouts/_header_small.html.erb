@@ -6,6 +6,12 @@
       <div class="ms-3">
         <img src="<%= asset_path("logoGaffex.png") %>">
       </div>
+      <div class="offset-4 col-3 mt-3">
+        <%= form_tag(url_for(controller: 'searches', action: 'index'), method: 'get', class: 'input-group w-auto ml-3') do %>
+          <%= text_field_tag 'search', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
+          <%= image_submit_tag('https://api.iconify.design/mdi/magnify.svg?color=%23757575', class: 'text-secondary ms-1') %>
+        <% end %>
+      </div>
     </div>
 </div>
 <!-- Background image -->
