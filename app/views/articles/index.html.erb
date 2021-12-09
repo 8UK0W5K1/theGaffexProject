@@ -5,25 +5,25 @@
     <div class="d-flex justify-content-end mt-4">
       <ul class="pagination">
         <li class="page-item disabled">
-          <a class="page-link" href="#">&laquo;</a>
+          <%= link_to '<<', articles_path(page: @page - 1), class: 'page-link' %>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="#">1</a>
+          <%= link_to '1', articles_path(page: 1), class: 'page-link' %>
         </li>
         <li class="page-item">
-          <a class="page-link" href="#">2</a>
+          <%= link_to '2', articles_path(page: 2), class: 'page-link' %>
         </li>
         <li class="page-item">
-          <a class="page-link" href="#">3</a>
+          <%= link_to '3', articles_path(page: 3), class: 'page-link' %>
         </li>
         <li class="page-item">
-          <a class="page-link" href="#">4</a>
+          <%= link_to '4', articles_path(page: 4), class: 'page-link' %>
         </li>
         <li class="page-item">
-          <a class="page-link" href="#">5</a>
+          <%= link_to '5', articles_path(page: 5), class: 'page-link' %>
         </li>
         <li class="page-item">
-          <a class="page-link" href="#">&raquo;</a>
+          <%= link_to '>>', articles_path(page: @page + 1), class: 'page-link' %>
         </li>
       </ul>
     </div>
