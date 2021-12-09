@@ -2,12 +2,27 @@
 .card-body-summary {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 1rem 1rem; 
+  padding: 1rem 3rem;
+  text-align: justify;
 }
 
-.card-header-summary {
-  padding: 0.5rem 1rem;
-  margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+.summary {
+  margin: 2rem 5rem 2rem 5rem;
+}
+
+.card-body {
+  text-align: justify;
+  text-indent: 3rem;
+}
+
+.card-body-references {
+  text-align: justify;
+}
+
+.border-light {
+  border: none !important;
+}
+
+.badge-fake:hover {
+  box-shadow: 0 0 0 0.10rem #2c3e50;
 }
