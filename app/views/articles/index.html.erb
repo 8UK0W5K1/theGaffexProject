@@ -11,19 +11,19 @@
         <li class="page-item disabled" id="btn-prev">
           <%= link_to '<<', articles_path(page: @page - 1), class: 'page-link' %>
         </li>
-        <li class="page-item" id="btn-<%= @page - 2 %>">
+        <li class="page-item" id="btn-1">
           <%= link_to @page - 2, articles_path(page: @page - 2), class: 'page-link' %>
         </li>
-        <li class="page-item" id="btn-<%= @page - 1 %>">
+        <li class="page-item" id="btn-2">
           <%= link_to @page - 1, articles_path(page: @page - 1), class: 'page-link' %>
         </li>
-        <li class="page-item" id="btn-<%= @page %>">
+        <li class="page-item" id="btn-3">
           <%= link_to @page, articles_path(page: @page), class: 'page-link' %>
         </li>
-        <li class="page-item" id="btn-<%= @page + 1 %>">
+        <li class="page-item" id="btn-4">
           <%= link_to @page + 1, articles_path(page: @page + 1), class: 'page-link' %>
         </li>
-        <li class="page-item" id="btn-<%= @page + 2 %>">
+        <li class="page-item" id="btn-5">
           <%= link_to @page + 2, articles_path(page: @page + 2), class: 'page-link' %>
         </li>
         <li class="page-item" id="btn-next">
@@ -34,4 +34,14 @@
   </div>
 </div>
 
-<%= javascript_include_tag 'paging' %>
+<%= javascript_include_tag 'paging' %>ŝ
+
+<script>
+  const ul = document.querySelector('ul.pagination');
+  const url = "<%= articles_path %>" + "?page="
+  const page = new URLSearchParams(location.search).get('page')
+
+  const p = new Paging(ul, url, page)
+
+  p.init()
+</script>
