@@ -1,16 +1,18 @@
 <div class="text-center card border-light bg-light ">
+ <div id="summary">
         <p><br></p>
         <h3><b><%= @article.title%></b></h3>
       </div>
+    </div>
 
       <div class="summary">
         <div class="card border-secondary p-0 m-50 bg-light ">
-          <div id="summary">
+         
             <div class="card-header">Résumé</div>
             <div class="card-body-summary justify-content-center">
               <%= simple_format(@article.summary)%>
             </div>
-          </div>
+          
         </div>
       </div>
 
