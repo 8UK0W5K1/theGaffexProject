@@ -10,12 +10,12 @@ class Article < ApplicationRecord
   def self.search(keyword)
     Article.all.select do |article|
       article.title.include?(keyword) ||
-      article.summary.include?(keyword) ||
-      article.introduction.include?(keyword) ||
-      article.protocol.include?(keyword) ||
-      article.result.include?(keyword) ||
-      article.conclusion.include?(keyword) ||
-      article.references.include?(keyword)
+        article.summary.include?(keyword) ||
+        article.introduction.include?(keyword) ||
+        article.protocol.include?(keyword) ||
+        article.result.include?(keyword) ||
+        article.conclusion.include?(keyword) ||
+        article.references.include?(keyword)
     end
   end
 
