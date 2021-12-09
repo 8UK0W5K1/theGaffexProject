@@ -8,15 +8,14 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 5, maximum: 140 }
 
 
-  def   short_summary
-    short_summary = ""
-    word_array = self.summary.split("")
+  def short_summary
+    short_summary = ''
+    word_array = summary.split('')
     120.times do |index|
-      if word_array[index] == nil
-        break
-      end
+      break if word_array[index].nil?
+
       short_summary += word_array[index]
     end
-    short_summary +=  " ... "
+    short_summary += ' ... '
   end
 end
