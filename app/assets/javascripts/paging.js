@@ -9,6 +9,7 @@ class Paging {
         this.btn4 = ul.querySelector('#btn-4');
         this.btn5 = ul.querySelector('#btn-5');
         this.btnPrev = ul.querySelector('#btn-prev');
+        this.btnNext = ul.querySelector('#btn-next');
 
     }
 
@@ -23,6 +24,8 @@ class Paging {
     pageTwo() {
         this.btn2.classList.add('active');
         this.btnPrev.classList.remove('disabled');
+        this.btnPrev.firstElementChild.href = this.url + (this.page - 1).toString();
+        this.btnNext.firstElementChild.href = this.url + (this.page + 1).toString();
     }
 
     pageDefault() {
@@ -33,6 +36,8 @@ class Paging {
         this.btn3.firstElementChild.href = this.url + this.page.toString();
         this.btn4.firstElementChild.href = this.url + (this.page + 1).toString();
         this.btn5.firstElementChild.href = this.url + (this.page + 2).toString();
+        this.btnPrev.firstElementChild.href = this.url + (this.page - 1).toString();
+        this.btnNext.firstElementChild.href = this.url + (this.page + 1).toString();
     }
 
     pageDefaultText() {
