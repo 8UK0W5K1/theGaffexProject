@@ -1,7 +1,11 @@
 <%= stylesheet_link_tag "article_index" %>
 <div class="offset-2 col-12 col-xl-8 mx-auto">
   <div class="card border-secondary p-4 justify-content-center bg-light above">
-    <%= render 'article_list' %>
+    <% if @articles.nil? %>
+      <%= render 'no_more_articles' %>
+    <% else %>
+      <%= render 'article_list' %>
+    <% end %>
     <div class="d-flex justify-content-end mt-4">
       <ul class="pagination">
         <li class="page-item disabled">
