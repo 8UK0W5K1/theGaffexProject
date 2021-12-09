@@ -10,7 +10,14 @@ function reload() {
     <% end %>
     document.querySelector('#card').insertAdjacentHTML('beforeend', '<div id="paging" class="d-flex justify-content-end mt-4">')
     document.querySelector('#paging').insertAdjacentHTML('afterbegin', paging.innerHTML)
-    $('script').remove().appendTo('html');
 }
 
 reload()
+
+ul = document.querySelector('ul.pagination');
+url = "<%= articles_path %>" + "?page="
+page = <%= @page %>
+
+p = new Paging(ul, url, page)
+
+p.init()
