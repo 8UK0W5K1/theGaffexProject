@@ -15,4 +15,9 @@
 
 .card-body {
   text-align: justify;
+  text-indent: 3rem;
+}
+
+.card-body-references {
+  text-align: justify;
 }
