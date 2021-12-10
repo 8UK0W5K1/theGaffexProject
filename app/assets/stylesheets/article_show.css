@@ -37,6 +37,15 @@
   box-shadow:0.1rem 0 0.1rem 0 #f39c12 ;
 }
 
+.repertory_fixed {
+  position: absolute;
+  top: 37%;
+  left:16.5%;
+  z-index: 1;
+  background-color:#E5E9E9 !important;
+  box-shadow:0.1rem 0 0.1rem 0 #f39c12 ;
+}
+
 .list-repertory a {
   text-decoration: none;
   color:black;
