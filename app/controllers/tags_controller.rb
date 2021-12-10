@@ -9,12 +9,18 @@ class TagsController < ApplicationController
     else
       @tag.update(tag_name: params[:tag_name])
     end
-    redirect_to article_path(params[:article_id])
+    respond_to do |format|
+      format.html { redirect_to article_path(params[:article_id]) }
+      format.js
+    end
   end
 
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
-    redirect_to article_path(params[:article_id])
+    respond_to do |format|
+      format.html { redirect_to article_path(params[:article_id]) }
+      format.js
+    end
   end
 end
