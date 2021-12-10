@@ -46,4 +46,10 @@ class Article < ApplicationRecord
     end
     short_summary += ' ... '
   end
+
+  private
+
+  def attach_picture
+    picture.attach(params[:picture])
+  end
 end
