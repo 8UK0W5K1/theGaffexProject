@@ -1,6 +1,14 @@
 <%= stylesheet_link_tag "article_index" %>
 <div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
   <div id="card" class="card border-secondary p-4 justify-content-center bg-light above">
+    <div class="d-flex justify-content-center">
+      <div class=" col-5 my-2">
+        <%= form_tag(url_for(controller: 'searches', action: 'index'), method: 'get', class: 'input-group w-auto ml-3') do %>
+          <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
+          <%= image_submit_tag('https://api.iconify.design/mdi/magnify.svg?color=%212529', class: 'ms-2') %>
+        <% end %>
+      </div>
+    </div>
     <% if @articles.nil? %>
       <%= render 'no_more_articles' %>
     <% else %>
@@ -13,6 +21,12 @@
 </div>
 
 <%= javascript_include_tag 'paging' %>
+
+<% if @articles.nil? %>
+  <%= render 'layouts/footer_sticky' %>
+<% else %>
+  <%= render 'layouts/footer' %>
+<% end %>
 
 <script id='paging-script'>
     let ul = document.querySelector('ul.pagination');
