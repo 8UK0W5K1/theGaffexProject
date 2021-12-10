@@ -31,16 +31,16 @@
 .repertory {
   position: fixed;
   top: 37%; 
-  left:16.5%; 
+  left: 16.5%;
   z-index: 1;  
   background-color:#E5E9E9 !important;
   box-shadow:0.1rem 0 0.1rem 0 #f39c12 ;
 }
 
-.repertory_fixed {
+.repertory-fixed {
   position: absolute;
-  top: 37%;
-  left:16.5%;
+  top: 12%;
+  left: -11%;
   z-index: 1;
   background-color:#E5E9E9 !important;
   box-shadow:0.1rem 0 0.1rem 0 #f39c12 ;
