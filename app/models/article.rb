@@ -31,7 +31,8 @@ class Article < ApplicationRecord
   def self.match_user(keyword)
     Article.where(user: User.where('first_name ILIKE ?', "%#{keyword}%").or(
       User.where('last_name ILIKE ?', "%#{keyword}%").or(
-        User.where('first_name ILIKE ? AND last_name ILIKE ?', "%#{keyword.split(' ')[0]}%", "%#{keyword.split(' ')[1]}%")
+        User.where('first_name ILIKE ? AND last_name ILIKE ?', "%#{keyword.split(' ')[0]}%", 
+"%#{keyword.split(' ')[1]}%")
       )
     ))
   end
@@ -45,5 +46,14 @@ class Article < ApplicationRecord
       short_summary += word_array[index]
     end
     short_summary += ' ... '
+  end
+
+  def attach_picture(params)
+    if params[:picture].nil?
+      picture.attach(io: File.open('./app/assets/images/default_picture.jpg'), filename: 'default.jpg')
+    else
+      picture.attach(params[:picture])
+    end
+
   end
 end

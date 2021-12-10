@@ -31,6 +31,7 @@ puts " two users"
         conclusion: Faker::Lorem.paragraph(sentence_count: 30),
         references: Faker::Internet.url
     )
+    article.picture.attach(io: File.open('./app/assets/images/default_picture.jpg'), filename: 'default.jpg')
 end
 
 # Table Tag
