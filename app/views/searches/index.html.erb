@@ -30,3 +30,9 @@
     <% end %>
   </div>
 </div>
+
+<% if @results == [] %>
+  <%= render 'layouts/footer_sticky' %>
+<% else %>
+  <%= render 'layouts/footer' %>
+<% end %>
