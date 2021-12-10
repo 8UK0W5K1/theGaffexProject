@@ -2,7 +2,7 @@
   <div class="offset-2 col-8 mx-auto">
     <div class="card border-secondary p-4 text-center justify-content-center bg-light above-small ">
       <h3>Publier un article</h3>
-      <%= form_tag url_for(action: 'create', method: "post", class: 'text-center form-group,form-control') do %>
+      <%= form_tag(url_for(action: 'create'), method: "post", multipart: true, class: 'text-center form-group,form-control') do %>
         <%= label_tag 'Titre' %>
 
         <%= text_field_tag 'title', nil, class: "form-control" %>
@@ -28,7 +28,7 @@
 
         <%= label_tag "Ajouter une image a l'article", nil, class: 'mb-2' %>
         <br>
-        <%= file_field_tag :picture, class: '' %>
+        <%= file_field_tag :picture %>
         <br>
         <br>
         <%= submit_tag "Publier mon article", class: "mt-3 btn btn-lg btn btn-success" %>
