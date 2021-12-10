@@ -31,20 +31,12 @@
 .repertory {
   position: fixed;
   top: 37%; 
-  left: 16.5%;
+  left: 83.5%;
   z-index: 1;  
   background-color:#E5E9E9 !important;
   box-shadow:0.1rem 0 0.1rem 0 #f39c12 ;
 }
 
-.repertory-fixed {
-  position: absolute;
-  top: 12%;
-  left: -11%;
-  z-index: 1;
-  background-color:#E5E9E9 !important;
-  box-shadow:0.1rem 0 0.1rem 0 #f39c12 ;
-}
 
 .list-repertory a {
   text-decoration: none;

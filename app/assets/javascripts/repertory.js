@@ -1,29 +1,31 @@
 class Repertory {
     constructor(repertory) {
         this.repertory = repertory;
-        this.pin = repertory.querySelector('#icon')
+        this.pin = repertory.querySelector('#icon');
     }
 
     clickListener() {
         this.pin.addEventListener('click', () => {
-            if (this.repertory.classList.contains('repertory-fixed')) {
+            if (this.repertory.style.position === 'absolute') {
                 this.unFix();
-            } else {
+            } else {0
                 this.fix();
             }
         })
     }
 
     unFix() {
-        this.repertory.classList.remove('repertory-fixed');
-        this.repertory.classList.add('repertory');
         this.pin.firstElementChild.setAttribute('data-icon', 'mdi:pin')
+        this.repertory.style.position = 'fixed'
+        this.repertory.style.top = '37%'
+        this.repertory.style.left = '83.5%'
     }
 
     fix() {
-        this.repertory.classList.remove('repertory');
-        this.repertory.classList.add('repertory-fixed');
         this.pin.firstElementChild.setAttribute('data-icon', 'mdi:pin-off')
+        this.repertory.style.position = 'absolute'
+        this.repertory.style.top = '12%'
+        this.repertory.style.left = '97%'
     }
 }
 
