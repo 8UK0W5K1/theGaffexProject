@@ -2,9 +2,11 @@
 <div class="col">
   <div class="offset-2 col-8 mx-auto">
     <div class="card border-secondary p-4 justify-content-center bg-light above-small ">
-
-      <div class="card-header repertory">
-        <ol class="list-repertory my-2">
+      <div id="repertory" class="card-header repertory">
+        <div id="icon" class="float-end">
+          <span class="iconify" data-icon="mdi:pin"></span>
+        </div>
+        <ol class="list-repertory mt-3 mb-2">
           <a href="#summary">
             <li>Résumé</li>
           </a>
@@ -34,3 +36,4 @@
   </div>
 </div>
 
+<%= javascript_include_tag 'repertory' %>
