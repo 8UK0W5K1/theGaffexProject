@@ -15,19 +15,19 @@ class Article < ApplicationRecord
   end
 
   def match_article(keyword)
-    true if title.include?(keyword) ||
-      summary.include?(keyword) ||
-      introduction.include?(keyword) ||
-      protocol.include?(keyword) ||
-      result.include?(keyword) ||
-      conclusion.include?(keyword) ||
-      references.include?(keyword)
+    true if title.match?(/#{keyword}/i) ||
+      summary.match?(/#{keyword}/i) ||
+      introduction.match?(/#{keyword}/i) ||
+      protocol.match?(/#{keyword}/i) ||
+      result.match?(/#{keyword}/i) ||
+      conclusion.match?(/#{keyword}/i) ||
+      references.match?(/#{keyword}/i)
   end
 
   def match_user(keyword)
-    true if user.first_name.include?(keyword) ||
-      user.last_name.include?(keyword) ||
-      "#{user.first_name} #{user.last_name}".include?(keyword)
+    true if user.first_name.match?(/#{keyword}/i) ||
+      user.last_name.match?(/#{keyword}/i) ||
+      "#{user.first_name} #{user.last_name}".match?(/#{keyword}/i)
   end
 
   def short_summary
