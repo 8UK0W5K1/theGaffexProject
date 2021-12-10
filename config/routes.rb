@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'about_gaffex', to: 'static_pages#what_is_gaffex'
+  get 'about_us', to: 'static_pages#about_us'
+  get 'contact', to: 'static_pages#contact'
   root 'articles#index'
 
   resources :articles do
