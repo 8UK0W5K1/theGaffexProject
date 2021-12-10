@@ -16,6 +16,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
+    @article = Article.find(params[:article_id])
     @tag = Tag.find(params[:id])
     @tag.destroy
     respond_to do |format|

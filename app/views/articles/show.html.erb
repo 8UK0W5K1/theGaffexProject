@@ -5,18 +5,30 @@
 
       <div class="card-header repertory">
         <ol class="list-repertory my-2">
-          <a href="#summary"><li>Résumé</li></a> 
-          <a href="#introduction"><li>Introduction</li></a>
-          <a href="#protocol"><li>Protocole</li></a>
-          <a href="#results"><li>Résultats</li></a>
-          <a href="#conclusion"><li>Conclusion</li></a>
-          <a href="#references"> <li>Références</li></a>
+          <a href="#summary">
+            <li>Résumé</li>
+          </a>
+          <a href="#introduction">
+            <li>Introduction</li>
+          </a>
+          <a href="#protocol">
+            <li>Protocole</li>
+          </a>
+          <a href="#results">
+            <li>Résultats</li>
+          </a>
+          <a href="#conclusion">
+            <li>Conclusion</li>
+          </a>
+          <a href="#references">
+            <li>Références</li>
+          </a>
         </ol>
       </div>
-   
-     <%=render 'header_article_show'%>
-
-     <%=render 'details_article_show'%> 
+      <div id="article-header">
+        <%= render 'header_article_show' %>
+      </div>
+      <%= render 'details_article_show' %>
 
     </div>
   </div>
