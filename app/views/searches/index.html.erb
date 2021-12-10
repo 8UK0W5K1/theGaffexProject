@@ -1,5 +1,6 @@
 <div class="offset-2 col-12 col-xl-8 mx-auto">
-  <div class="card border-secondary p-4 justify-content-center bg-light above">
+  <div class="card border-secondary p-4 justify-content-center bg-light above-small">
+    <h4 class="text-center fw-blod mt-2 mb-3">Voici les <%= @results.count %> resultats de votre recherche de "<%= @keyword %>"</h4>
     <% @results.each_with_index do |article, index| %>
       <div class=" preview-article row mt-4" id="<%= index %>">
         <div class="d-flex justify-content-center col-2 col-md-4 border-primary">
@@ -23,9 +24,15 @@
           </div>
         </div>
       </div>
-      <% if index == 5 %>
+      <% if index == 20 %>
         <% break %>
       <% end %>
     <% end %>
   </div>
 </div>
+
+<% if @results == [] %>
+  <%= render 'layouts/footer_sticky' %>
+<% else %>
+  <%= render 'layouts/footer' %>
+<% end %>

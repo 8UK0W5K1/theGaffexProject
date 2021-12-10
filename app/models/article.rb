@@ -8,17 +8,32 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 5, maximum: 140 }
 
   def self.search(keyword)
-    Article.all.select do |article|
-      article.title.include?(keyword) ||
-        article.summary.include?(keyword) ||
-        article.introduction.include?(keyword) ||
-        article.protocol.include?(keyword) ||
-        article.result.include?(keyword) ||
-        article.conclusion.include?(keyword) ||
-        article.references.include?(keyword) ||
-        article.user.first_name.include?(keyword) ||
-        article.user.last_name.include?(keyword)
-    end
+    results = []
+    Article.match_article(keyword).each { |result| results << result }
+    Article.match_user(keyword).each { |result| results << result }
+    results
+  end
+
+  def self.match_article(keyword)
+    Article.where('title ILIKE ?', "%#{keyword}%").or(
+      Article.where('summary ILIKE ?', "%#{keyword}%").or(
+        Article.where('introduction ILIKE ?', "%#{keyword}%").or(
+          Article.where('protocol ILIKE ?', "%#{keyword}%").or(
+            Article.where('result ILIKE ?', "%#{keyword}%").or(
+              Article.where('conclusion ILIKE ?', "%#{keyword}%")
+            )
+          )
+        )
+      )
+    )
+  end
+
+  def self.match_user(keyword)
+    Article.where(user: User.where('first_name ILIKE ?', "%#{keyword}%").or(
+      User.where('last_name ILIKE ?', "%#{keyword}%").or(
+        User.where('first_name ILIKE ? AND last_name ILIKE ?', "%#{keyword.split(' ')[0]}%", "%#{keyword.split(' ')[1]}%")
+      )
+    ))
   end
 
   def short_summary
