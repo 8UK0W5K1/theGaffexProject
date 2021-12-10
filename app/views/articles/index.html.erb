@@ -22,7 +22,7 @@
 
 <%= javascript_include_tag 'paging' %>
 
-<% if @articles.nil? %>
+<% if @articles.nil? || @articles.count < 2 %>
   <%= render 'layouts/footer_sticky' %>
 <% else %>
   <%= render 'layouts/footer' %>
