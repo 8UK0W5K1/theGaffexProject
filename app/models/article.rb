@@ -8,10 +8,6 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 5, maximum: 140 }
 
   def self.search(keyword)
-    # TODO voir pour matcher les resultats en splittant les keywords
-    # TODO trier les resultats par pertinence (score d epertinence = nombre de mot presents dans le resultat + espace
-    # TODO entre les mots, eg: recherche de Chuck Norris sortira en premier  "je suis chuck norris"
-    # TODO puis "moi chuck super norris le bg et enfin "hello i'm chuck"")
     Article.all.select do |article|
       article.match_article(keyword) ||
         article.match_user(keyword)
