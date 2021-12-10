@@ -6,11 +6,11 @@
           <%= form_tag user_path(@user.id), :method => :patch, class: 'text-center form-group,form-control' do %>
          
             <%= label_tag 'Nom de famille' %>
-            <%= text_field_tag 'last_name', nil, class:"form-control" %>
+            <%= text_field_tag 'last_name', nil, placeholder: @user.last_name, class:"form-control" %>
             <br>
             
             <%= label_tag 'Prénom' %>
-            <%= text_field_tag 'first_name', nil, class:"form-control" %>
+            <%= text_field_tag 'first_name', nil, placeholder: @user.first_name, class:"form-control" %>
             <br>
             
             <br>
@@ -19,7 +19,7 @@
           <% end %>
 
           <a href="<%= edit_user_registration_path(current_user.id) %>">Changer de Mot de Passe</a>
-          
+
       </div>
     </div>
   </div>
