@@ -8,26 +8,32 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 5, maximum: 140 }
 
   def self.search(keyword)
-    Article.all.select do |article|
-      article.match_article(keyword) ||
-        article.match_user(keyword)
-    end
+    results = []
+    Article.match_article(keyword).each { |result| results << result }
+    Article.match_user(keyword).each { |result| results << result }
+    results
   end
 
-  def match_article(keyword)
-    true if title.match?(/#{keyword}/i) ||
-      summary.match?(/#{keyword}/i) ||
-      introduction.match?(/#{keyword}/i) ||
-      protocol.match?(/#{keyword}/i) ||
-      result.match?(/#{keyword}/i) ||
-      conclusion.match?(/#{keyword}/i) ||
-      references.match?(/#{keyword}/i)
+  def self.match_article(keyword)
+    Article.where('title ILIKE ?', "%#{keyword}%").or(
+      Article.where('summary ILIKE ?', "%#{keyword}%").or(
+        Article.where('introduction ILIKE ?', "%#{keyword}%").or(
+          Article.where('protocol ILIKE ?', "%#{keyword}%").or(
+            Article.where('result ILIKE ?', "%#{keyword}%").or(
+              Article.where('conclusion ILIKE ?', "%#{keyword}%")
+            )
+          )
+        )
+      )
+    )
   end
 
-  def match_user(keyword)
-    true if user.first_name.match?(/#{keyword}/i) ||
-      user.last_name.match?(/#{keyword}/i) ||
-      "#{user.first_name} #{user.last_name}".match?(/#{keyword}/i)
+  def self.match_user(keyword)
+    Article.where(user: User.where('first_name ILIKE ?', "%#{keyword}%").or(
+      User.where('last_name ILIKE ?', "%#{keyword}%").or(
+        User.where('first_name ILIKE ? AND last_name ILIKE ?', "%#{keyword.split(' ')[0]}%", "%#{keyword.split(' ')[1]}%")
+      )
+    ))
   end
 
   def short_summary
