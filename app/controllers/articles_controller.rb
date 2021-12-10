@@ -28,7 +28,9 @@ class ArticlesController < ApplicationController
     @article = Article.create(
       user: @user, title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references]
     )
+
     if @article.save
+      @article.attach_picture(params)
       redirect_to root_path, notice: "Bravo Doc' !"
     else
       flash.now[:alert] = "Tous les champs sont obligatoires"
