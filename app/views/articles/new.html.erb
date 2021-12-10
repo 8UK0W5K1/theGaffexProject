@@ -11,10 +11,13 @@
         <% else %>
           <%= image_tag(asset_path('default_avatar.png'), class: 'rounded-circle', style: "width: 5em; height: 5em") %>
         <% end %>
+
+          <h4><em><%= current_user.first_name%>
+          <%= current_user.last_name%></em><hr></h4>
          
-          <h3>Publier un article</h3>
+          <h3><b>Publiez un article</b></h3>
           <%= form_tag url_for(action: 'create', method: "post", class: 'text-center form-group,form-control')do %>
-          <div class="card-header"><%= label_tag 'Titre' %></div>
+          <div class="card-header mt-50"><%= label_tag 'Titre' %></div>
           <%= text_field_tag 'title', nil, class:"form-control" %>
           <br>
           <%= label_tag 'Résumé' %>
