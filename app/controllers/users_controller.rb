@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
-  def edit
-  end
   
+  before_action :authenticate_user!
+
+  def edit
+    @user= current_user
+  end
+
   def update
   end
   
