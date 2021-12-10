@@ -4,7 +4,6 @@
   </a>
 </p>
 
-![GitHub](https://github.com/8UK0W5K1/theGaffexProject/)
 [![Rails version 5.2.3](https://img.shields.io/badge/rails-5.2.3-blue)](https://github.com/8UK0W5K1/theGaffexProject/blob/master/Gemfile)
 [![Ruby version 2.7.4](https://img.shields.io/badge/ruby-2.7.4-blue)](https://github.com/8UK0W5K1/theGaffexProject/blob/master/Gemfile)
 </br>
