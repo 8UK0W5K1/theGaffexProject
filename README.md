@@ -26,7 +26,7 @@
 - AWS, Devise, and other APIs
 - Bootstrap
 
-## Author
+## Authors
 
 👤 **Francis Team**
 
