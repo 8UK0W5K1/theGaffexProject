@@ -48,14 +48,16 @@ class Paging {
         this.btn5.firstElementChild.textContent = (this.page + 2).toString();
     }
 
-    addKeyword() {
-        this.url += '&keyword=' + this.keyword;
+    buildUrl() {
+        if (this.keyword !== null){
+            this.url += '?keyword=' + this.keyword + '&page=';
+        } else {
+            this.url += '?page='
+        }
     }
 
     init() {
-        if (this.keyword !== null) {
-            this.addKeyword();
-        }
+        this.buildUrl();
         switch (this.page) {
             case isNaN(this.page) :
                 this.pageNull();

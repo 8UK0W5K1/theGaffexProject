@@ -17,9 +17,9 @@
 
 <script id='paging-script'>
     let ul = document.querySelector('ul.pagination');
-    let url = "<%= articles_path %>" + "?page=";
+    let url = "<%= articles_path %>";
     let page = <%= @page %>;
-    let keyword= <%= @keyword %>;
+    let keyword= "<%= @keyword %>";
 
     let p = new Paging(ul, url, page, keyword)
 

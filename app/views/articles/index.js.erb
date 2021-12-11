@@ -15,7 +15,7 @@ function reload() {
 reload()
 
 ul = document.querySelector('ul.pagination');
-url = "<%= articles_path %>" + "?page="
+url = "<%= articles_path %>"
 page = <%= @page %>
 
 p = new Paging(ul, url, page)
