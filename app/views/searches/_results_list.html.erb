@@ -8,7 +8,7 @@
       <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
       <p class="text-start"><%= article.short_summary %></p>
     </div>
-    <div class="card border-light col-3 bg-light mt-3 ">
+    <div class="card border-0 col-3 bg-light mt-3 ">
       <div class="d-flex justify-content-center ">
         <div row="">
           <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approved"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
