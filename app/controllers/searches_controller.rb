@@ -9,7 +9,9 @@ class SearchesController < ApplicationController
               params[:page].to_i
             end
 
-    @results = search(params)[((@page - 1) * 6)..(@page * 6 - 1)]
+    @results = search(params)
+    @results_count = @results.count
+    @results = @results[((@page - 1) * 6)..(@page * 6 - 1)]
     respond_to do |format|
       format.html { render :index }
       format.js

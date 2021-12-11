@@ -1,5 +1,5 @@
 <% if @results.count > 1 %>
-  <h4 class="text-center fw-blod mt-2 mb-3">Voici les <%= @results.count %> résultats de votre recherche de
+  <h4 class="text-center fw-blod mt-2 mb-3">Voici <%= @results.count %> résultats sur les <%= @results_count %> de votre recherche de
     "<%= @keyword %>"</h4>
 <% elsif @results.count == 1 %>
   <h4 class="text-center fw-blod mt-2 mb-3">Nous n'avons trouvé qu'un seul résultat pour votre recherche de
