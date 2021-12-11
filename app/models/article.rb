@@ -8,6 +8,8 @@ class Article < ApplicationRecord
   validates :title, length: { minimum: 5, maximum: 140 }
 
   def self.search(keyword)
+    return if keyword.nil?
+
     Article.match_article(keyword)
   end
 
@@ -30,8 +32,8 @@ class Article < ApplicationRecord
   def self.match_user(keyword)
     Article.where(user: User.where('first_name ILIKE ?', "%#{keyword}%").or(
       User.where('last_name ILIKE ?', "%#{keyword}%").or(
-        User.where('first_name ILIKE ? AND last_name ILIKE ?', "%#{keyword.split(' ')[0]}%", 
-"%#{keyword.split(' ')[1]}%")
+        User.where('first_name ILIKE ? AND last_name ILIKE ?', "%#{keyword.split(' ')[0]}%",
+                   "%#{keyword.split(' ')[1]}%")
       )
     ))
   end
