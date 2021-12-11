@@ -49,16 +49,13 @@ class Paging {
     }
 
     addKeyword() {
-        this.btn1.firstElementChild.href += '&keyword=' + this.keyword
-        this.btn2.firstElementChild.href += '&keyword=' + this.keyword
-        this.btn3.firstElementChild.href += '&keyword=' + this.keyword
-        this.btn4.firstElementChild.href += '&keyword=' + this.keyword
-        this.btn5.firstElementChild.href += '&keyword=' + this.keyword
-        this.btnPrev.firstElementChild.href += '&keyword=' + this.keyword
-        this.btnNext.firstElementChild.href += '&keyword=' + this.keyword
+        this.url += '&keyword=' + this.keyword;
     }
 
     init() {
+        if (this.keyword !== null) {
+            this.addKeyword();
+        }
         switch (this.page) {
             case isNaN(this.page) :
                 this.pageNull();
@@ -72,10 +69,6 @@ class Paging {
             default:
                 this.pageDefault();
                 this.pageDefaultText();
-        }
-
-        if (this.keyword !== null) {
-            this.addKeyword();
         }
     }
 }
