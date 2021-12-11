@@ -2,7 +2,7 @@ function reload() {
     document.querySelector("#card").innerHTML = '';
     document.querySelector('#footer').remove()
     <% if @results.nil? %>
-    document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'no_more_results' %>")
+    document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'no_more_results', keyword: @keyword %>")
     document.querySelector('#above-card').insertAdjacentHTML('afterend', "<%= j render 'layouts/footer_sticky' %>")
     <% else %>
     document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'results_list' %>")
