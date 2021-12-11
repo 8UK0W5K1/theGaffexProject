@@ -2,7 +2,7 @@
   <div id="card" class="card border-secondary p-4 justify-content-center bg-light above-small">
     <%= render 'results_list' %>
     <div id="paging" class="d-flex justify-content-end mt-4">
-      <%= render 'paging' %>
+      <%= render 'searches/paging' %>
     </div>
   </div>
 </div>
@@ -19,8 +19,9 @@
     let ul = document.querySelector('ul.pagination');
     let url = "<%= articles_path %>" + "?page=";
     let page = <%= @page %>;
+    let keyword= <%= @keyword %>;
 
-    let p = new Paging(ul, url, page)
+    let p = new Paging(ul, url, page, keyword)
 
     p.init()
 </script>

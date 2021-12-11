@@ -16,8 +16,9 @@ reload()
 
 ul = document.querySelector('ul.pagination');
 url = "<%= searches_path %>" + "?page="
-page = <%= @page %>
+page = "<%= @page %>"
+keyword = "<%= @keyword %>"
 
-    p = new Paging(ul, url, page)
+p = new Paging(ul, url, page, keyword)
 
 p.init()
