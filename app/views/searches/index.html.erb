@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<% if @results == [] %>
+<% if @results == [] || @results.count < 3 %>
   <%= render 'layouts/footer_sticky' %>
 <% else %>
   <%= render 'layouts/footer' %>
