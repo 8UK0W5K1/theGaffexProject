@@ -48,7 +48,7 @@ class Paging {
         this.btn5.firstElementChild.textContent = (this.page + 2).toString();
     }
 
-    addKeyword(){
+    addKeyword() {
         this.btn1.firstElementChild.href += '&keyword=' + this.keyword
         this.btn2.firstElementChild.href += '&keyword=' + this.keyword
         this.btn3.firstElementChild.href += '&keyword=' + this.keyword
@@ -59,21 +59,21 @@ class Paging {
     }
 
     init() {
-        if (isNaN(this.page)) {
-            this.pageNull();
-        } else {
-            switch (this.page) {
-                case 1:
-                    this.pageOne();
-                    break
-                case 2:
-                    this.pageTwo();
-                    break
-                default:
-                    this.pageDefault();
-                    this.pageDefaultText();
-            }
+        switch (this.page) {
+            case isNaN(this.page) :
+                this.pageNull();
+                break
+            case 1:
+                this.pageOne();
+                break
+            case 2:
+                this.pageTwo();
+                break
+            default:
+                this.pageDefault();
+                this.pageDefaultText();
         }
+
         if (this.keyword !== null) {
             this.addKeyword();
         }
