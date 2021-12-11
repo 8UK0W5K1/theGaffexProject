@@ -1,16 +1,9 @@
-<div class="offset-2 col-12 col-xl-8 mx-auto">
-  <div class="card border-secondary p-4 justify-content-center bg-light above-small">
-    <% if @results.count > 1 %>
-      <h4 class="text-center fw-blod mt-2 mb-3">Voici les <%= @results.count %> résultats de votre recherche de
-        "<%= @keyword %>"</h4>
-    <% elsif @results.count == 1 %>
-      <h4 class="text-center fw-blod mt-2 mb-3">Nous n'avons trouvé qu'un seul résultat pour votre recherche de
-        "<%= @keyword %>"</h4>
-    <% else %>
-      <h4 class="text-center fw-blod mt-2 mb-3">Désolé, nous n'avons trouvé aucune correspondance pour votre recherche de
-        "<%= @keyword %>"</h4>
-    <% end %>
+<div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above-small">
     <%= render 'results_list' %>
+    <div id="paging" class="d-flex justify-content-end mt-4">
+      <%= render 'paging' %>
+    </div>
   </div>
 </div>
 
@@ -19,3 +12,15 @@
 <% else %>
   <%= render 'layouts/footer' %>
 <% end %>
+
+<%= javascript_include_tag 'paging' %>
+
+<script id='paging-script'>
+    let ul = document.querySelector('ul.pagination');
+    let url = "<%= articles_path %>" + "?page=";
+    let page = <%= @page %>;
+
+    let p = new Paging(ul, url, page)
+
+    p.init()
+</script>

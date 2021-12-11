@@ -1,3 +1,13 @@
+<% if @results.count > 1 %>
+  <h4 class="text-center fw-blod mt-2 mb-3">Voici les <%= @results.count %> résultats de votre recherche de
+    "<%= @keyword %>"</h4>
+<% elsif @results.count == 1 %>
+  <h4 class="text-center fw-blod mt-2 mb-3">Nous n'avons trouvé qu'un seul résultat pour votre recherche de
+    "<%= @keyword %>"</h4>
+<% else %>
+  <h4 class="text-center fw-blod mt-2 mb-3">Désolé, nous n'avons trouvé aucune correspondance pour votre recherche de
+    "<%= @keyword %>"</h4>
+<% end %>
 <% @results.each_with_index do |article, index| %>
   <div class=" preview-article row mt-4" id="<%= index %>">
     <div class="container d-flex justify-content-center col-2 col-md-4 border-primary" style="max-height: 18vh">

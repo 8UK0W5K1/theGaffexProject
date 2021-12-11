@@ -1,0 +1,23 @@
+function reload() {
+    document.querySelector("#card").innerHTML = '';
+    document.querySelector('#footer').remove()
+    <% if @results.nil? %>
+    document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'no_more_results' %>")
+    document.querySelector('#above-card').insertAdjacentHTML('afterend', "<%= j render 'layouts/footer_sticky' %>")
+    <% else %>
+    document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'results_list' %>")
+    document.querySelector('#above-card').insertAdjacentHTML('afterend', "<%= j render 'layouts/footer' %>")
+    <% end %>
+    document.querySelector('#card').insertAdjacentHTML('beforeend', '<div id="paging" class="d-flex justify-content-end mt-4"></div>')
+    document.querySelector('#paging').insertAdjacentHTML('afterbegin', "<%= j render 'searches/paging' %>")
+}
+
+reload()
+
+ul = document.querySelector('ul.pagination');
+url = "<%= searches_path %>" + "?page="
+page = <%= @page %>
+
+    p = new Paging(ul, url, page)
+
+p.init()
