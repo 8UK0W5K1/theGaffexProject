@@ -1,5 +1,5 @@
 class Paging {
-    constructor(ul, url, page) {
+    constructor(ul, url, page, keyword = null) {
         this.ul = ul;
         this.url = url;
         this.page = parseInt(page);
@@ -10,7 +10,7 @@ class Paging {
         this.btn5 = ul.querySelector('#btn-5');
         this.btnPrev = ul.querySelector('#btn-prev');
         this.btnNext = ul.querySelector('#btn-next');
-
+        this.keyword = keyword
     }
 
     pageNull() {
@@ -48,12 +48,20 @@ class Paging {
         this.btn5.firstElementChild.textContent = (this.page + 2).toString();
     }
 
-    init() {
-        if (isNaN(this.page)) {
-            this.pageNull();
-            return
+    buildUrl() {
+        if (this.keyword !== null){
+            this.url += '?keyword=' + this.keyword + '&page=';
+        } else {
+            this.url += '?page='
         }
+    }
+
+    init() {
+        this.buildUrl();
         switch (this.page) {
+            case isNaN(this.page) :
+                this.pageNull();
+                break
             case 1:
                 this.pageOne();
                 break
