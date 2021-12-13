@@ -4,6 +4,9 @@ function reload() {
     <% if @articles.nil? %>
     document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'no_more_articles' %>")
     document.querySelector('#above-card').insertAdjacentHTML('afterend', "<%= j render 'layouts/footer_sticky' %>")
+    <% elsif @articles.count < 2 %>
+    document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'article_list' %>")
+    document.querySelector('#above-card').insertAdjacentHTML('afterend', "<%= j render 'layouts/footer_sticky' %>")
     <% else %>
     document.querySelector('#card').insertAdjacentHTML('afterbegin', "<%= j render 'article_list' %>")
     document.querySelector('#above-card').insertAdjacentHTML('afterend', "<%= j render 'layouts/footer' %>")
