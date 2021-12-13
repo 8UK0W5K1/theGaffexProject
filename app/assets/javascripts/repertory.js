@@ -8,7 +8,7 @@ class Repertory {
         this.pin.addEventListener('click', () => {
             if (this.repertory.style.position === 'absolute') {
                 this.unFix();
-            } else {0
+            } else {
                 this.fix();
             }
         })
