@@ -1,6 +1,6 @@
 <div class="col">
   <div class="offset-2 col-8 mx-auto">
-    <div class="card border-secondary p-4 text-center justify-content-center bg-light above-small ">
+    <div class="card border-secondary p-4 text-center justify-content-center bg-light above-small shadow-lg">
       <h3>Publier un article</h3>
       <%= form_tag(url_for(action: 'create'), method: "post", multipart: true, class: 'text-center form-group,form-control') do %>
         <%= label_tag 'Titre' %>
