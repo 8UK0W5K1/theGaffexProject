@@ -1,14 +1,9 @@
 .above-small {
   position: relative;
   top: -25px;
- 
 }
 
 .above {
   position: relative;
-  top: -70px;
-  
+  top: -70px;  
 }
-
-box-shadow: 0 0 0.8rem 0 #9a9c9c ;
-box-shadow: -0.4em  0.4em 0.7em 0  #9a9c9c ;
