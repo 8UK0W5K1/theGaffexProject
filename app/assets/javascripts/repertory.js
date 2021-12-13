@@ -24,8 +24,8 @@ class Repertory {
     fix() {
         this.pin.firstElementChild.setAttribute('data-icon', 'mdi:pin-off')
         this.repertory.style.position = 'absolute'
-        this.repertory.style.top = '12%'
-        this.repertory.style.left = '97%'
+        this.repertory.style.top = '24vh'
+        this.repertory.style.left = '97.5%'
     }
 }
 
