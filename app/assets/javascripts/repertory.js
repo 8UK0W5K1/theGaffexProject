@@ -19,7 +19,7 @@ class Repertory {
         this.repertory.style.position = 'fixed'
         this.repertory.style.top = '37%'
         this.repertory.classList.remove('repertory-fixed')
-        if (document.querySelector('#nav-opened').display === 'flex') {
+        if (document.querySelector('#nav-opened').style.display === 'flex') {
             this.repertory.style.left = '85%'
         } else {
             this.repertory.style.left = '83.5%'
