@@ -58,27 +58,11 @@ class Paging {
     }
 
     buildPaging() {
-        if (parseInt(this.btn1.firstElementChild.textContent) > this.totalPages) {
-            this.btn1.classList.add('disabled');
-            this.btn2.classList.add('disabled');
-            this.btn3.classList.add('disabled');
-            this.btn4.classList.add('disabled');
-            this.btn5.classList.add('disabled');
-        } else if (parseInt(this.btn2.firstElementChild.textContent) > this.totalPages) {
-            this.btn2.classList.add('disabled');
-            this.btn3.classList.add('disabled');
-            this.btn4.classList.add('disabled');
-            this.btn5.classList.add('disabled');
-        } else if (parseInt(this.btn3.firstElementChild.textContent) > this.totalPages) {
-            this.btn3.classList.add('disabled');
-            this.btn4.classList.add('disabled');
-            this.btn5.classList.add('disabled');
-        } else if (parseInt(this.btn4.firstElementChild.textContent) > this.totalPages) {
-            this.btn4.classList.add('disabled');
-            this.btn5.classList.add('disabled');
-        } else if (parseInt(this.btn5.firstElementChild.textContent) > this.totalPages) {
-            this.btn5.classList.add('disabled');
-        }
+        if (parseInt(this.btn1.firstElementChild.textContent) > this.totalPages) this.btn1.classList.add('disabled');
+        if (parseInt(this.btn2.firstElementChild.textContent) > this.totalPages) this.btn2.classList.add('disabled');
+        if (parseInt(this.btn3.firstElementChild.textContent) > this.totalPages) this.btn3.classList.add('disabled');
+        if (parseInt(this.btn4.firstElementChild.textContent) > this.totalPages) this.btn4.classList.add('disabled');
+        if (parseInt(this.btn5.firstElementChild.textContent) > this.totalPages) this.btn5.classList.add('disabled');
     }
 
     init() {
