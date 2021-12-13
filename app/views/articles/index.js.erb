@@ -19,8 +19,9 @@ reload()
 
 ul = document.querySelector('ul.pagination');
 url = "<%= articles_path %>"
-page = <%= @page %>
+page = <%= @page %>;
+totalPages = <%= @total_pages %>;
 
-p = new Paging(ul, url, page)
+p = new Paging(ul, url, page, totalPages)
 
 p.init()
