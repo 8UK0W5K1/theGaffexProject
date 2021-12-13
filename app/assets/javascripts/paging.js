@@ -68,7 +68,6 @@ class Paging {
 
     init() {
         this.buildUrl();
-        this.buildPaging();
         switch (this.page) {
             case isNaN(this.page) :
                 this.pageNull();
@@ -83,5 +82,6 @@ class Paging {
                 this.pageDefault();
                 this.pageDefaultText();
         }
+        this.buildPaging()
     }
 }
