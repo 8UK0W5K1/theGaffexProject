@@ -1,5 +1,5 @@
 class Paging {
-    constructor(ul, url, page, keyword = null) {
+    constructor(ul, url, page, totalPages, keyword = null) {
         this.ul = ul;
         this.url = url;
         this.page = parseInt(page);
@@ -11,6 +11,7 @@ class Paging {
         this.btnPrev = ul.querySelector('#btn-prev');
         this.btnNext = ul.querySelector('#btn-next');
         this.keyword = keyword
+        this.totalPages = totalPages
     }
 
     pageNull() {
@@ -56,8 +57,18 @@ class Paging {
         }
     }
 
+    buildPaging() {
+        if (parseInt(this.btn1.firstElementChild.textContent) > this.totalPages) this.btn1.classList.add('disabled');
+        if (parseInt(this.btn2.firstElementChild.textContent) > this.totalPages) this.btn2.classList.add('disabled');
+        if (parseInt(this.btn3.firstElementChild.textContent) > this.totalPages) this.btn3.classList.add('disabled');
+        if (parseInt(this.btn4.firstElementChild.textContent) > this.totalPages) this.btn4.classList.add('disabled');
+        if (parseInt(this.btn5.firstElementChild.textContent) > this.totalPages) this.btn5.classList.add('disabled');
+        if (this.page === this.totalPages) this.btnNext.classList.add('disabled')
+    }
+
     init() {
         this.buildUrl();
+        this.buildPaging();
         switch (this.page) {
             case isNaN(this.page) :
                 this.pageNull();
