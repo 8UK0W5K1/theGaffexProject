@@ -11,8 +11,8 @@
     <div class="container d-flex justify-content-center col-2 col-md-4 border-primary" style="max-height: 18vh">
       <%= image_tag(article.picture, class: 'img-thumbnail') %>
     </div>
-    <div class="col-5">
-      <h4 class="word-wrap"><%= article.title %></h4>
+    <div class="col-5 clickable">
+      <a href="<%= article_path(article.id) %>"><h4 class="word-wrap"><%= article.title %></h4></a>
       <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
       <p class="text-start word-wrap"><%= article.short_summary %></p>
     </div>
