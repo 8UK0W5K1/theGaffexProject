@@ -1,3 +1,11 @@
+<div class="d-flex justify-content-center">
+  <div class=" col-5 my-2">
+    <%= form_tag(url_for(controller: 'searches', action: 'index'), method: 'get', class: 'input-group w-auto ml-3') do %>
+      <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
+      <%= image_submit_tag('https://api.iconify.design/mdi/magnify.svg?color=%212529', class: 'ms-2') %>
+    <% end %>
+  </div>
+</div>
 <div class="text-center my-4">
   <h3>Désolé mais nous n'avons pas pu charger plus d'articles...</h3>
 </div>
