@@ -1,9 +1,9 @@
 function fade(element) {
   let op = 1;
   let timer = setInterval(function () {
-    if (op <= 0) {
+    if (op < 0.1) {
       clearInterval(timer);
-      element.style.display = "none";
+      element.remove()
     }
     element.style.opacity = op;
     element.style.filter = "alpha(opacity=" + op * 100 + ")";
