@@ -2,6 +2,10 @@
     border: none !important;
   }
 
+.word-wrap{
+   word-wrap: break-all;  
+}
+
   .clickable a {
     text-decoration: none;
     color:#2c3e50;
