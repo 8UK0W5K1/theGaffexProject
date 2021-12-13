@@ -18,7 +18,8 @@ ul = document.querySelector('ul.pagination');
 url = "<%= searches_path %>"
 page = "<%= @page %>"
 keyword = "<%= @keyword %>"
+totalPages = <%= @total_pages %>;
 
-p = new Paging(ul, url, page, keyword)
+p = new Paging(ul, url, page, totalPages, keyword)
 
 p.init()

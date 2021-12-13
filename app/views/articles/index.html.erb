@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "article_index" %>
 <div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
-  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above">
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above shadow-lg">
     <% if @articles.nil? %>
       <%= render 'no_more_articles' %>
     <% else %>
@@ -14,7 +14,7 @@
 
 <%= javascript_include_tag 'paging' %>
 
-<% if @articles.nil? %>
+<% if @articles.nil?%>
   <%= render 'layouts/footer_sticky' %>
 <% else %>
   <%= render 'layouts/footer' %>
@@ -24,8 +24,9 @@
     let ul = document.querySelector('ul.pagination');
     let url = "<%= articles_path %>"
     let page = <%= @page %>;
+    let totalPages = <%= @total_pages %>;
 
-    let p = new Paging(ul, url, page)
+    let p = new Paging(ul, url, page, totalPages)
 
     p.init()
 </script>
