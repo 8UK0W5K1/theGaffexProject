@@ -1,0 +1,21 @@
+<div%= stylesheet_link_tag "article_show" %>
+<div class="col">
+    <div class="offset-2 col-8 mx-auto">
+        <div class="card border-secondary p-4 justify-content-center bg-light above-small shadow-lg">
+            <h3 class="text-center"><strong>Désolé...!</strong></h3>
+            <div class="card border-light p-4 justify-content-center bg-light ">
+                <div class="card-header text-center"> <img
+          class="m-auto"
+          style="width: 30em"
+          src="<%= asset_path('dodo.png') %>"
+          alt="mascotte"
+        /></div>
+                <div class="card-body text-center">
+                <h3> Une erreur s'est produite.  <br>Vous pouvez revenir à <a class="text-decoration-none" href="<%= contact_path %>">la page d'accueil.</a>
+                </h3>
+                </div>           
+            </div>
+        </div>
+    </div>
+</div>
+
