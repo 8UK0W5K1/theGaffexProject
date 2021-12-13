@@ -20,8 +20,9 @@
     let url = "<%= articles_path %>";
     let page = <%= @page %>;
     let keyword= "<%= @keyword %>";
+    let totalPages = <%= @total_pages %>;
 
-    let p = new Paging(ul, url, page, keyword)
+    let p = new Paging(ul, url, page, totalPages, keyword)
 
     p.init()
 </script>
