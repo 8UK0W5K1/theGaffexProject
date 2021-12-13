@@ -1,14 +1,4 @@
-<div id="flash" class="justify-content-center align-items-center" style="z-index: 4;   width: 15%;
-    height: 100px; 
-    text-align: center;
-    position: absolute;
-    top:10px;
-    bottom: 0;
-    left: 0;
-    right: 0;    
-    margin-left: auto;
-    margin-right: auto;
-    padding: auto">
+<div id="flash" class="d-flex fixed-top justify-content-center align-items-center mt-2 w-50" style="margin-left: 29%;">
   <% flash.each do |type, msg| %>
     <% if type == 'alert' %>
       <div class="alert alert-danger w-60 border-0">

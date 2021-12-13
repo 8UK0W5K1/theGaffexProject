@@ -1,8 +1,11 @@
+<%= stylesheet_link_tag "article_index" %>
 <div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
   <div id="card" class="card border-secondary p-4 justify-content-center bg-light above-small">
     <%= render 'results_list' %>
     <div id="paging" class="d-flex justify-content-end mt-4">
-      <%= render 'searches/paging' %>
+      <% if @results_count > 0 %>
+        <%= render 'searches/paging' %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -19,7 +22,7 @@
     let ul = document.querySelector('ul.pagination');
     let url = "<%= articles_path %>";
     let page = <%= @page %>;
-    let keyword= "<%= @keyword %>";
+    let keyword = "<%= @keyword %>";
     let totalPages = <%= @total_pages %>;
 
     let p = new Paging(ul, url, page, totalPages, keyword)
