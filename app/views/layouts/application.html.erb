@@ -8,9 +8,11 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= favicon_link_tag asset_path('favicon.ico') %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="row d-flex">
+
+<div class="row d-flex" id="website">
   <%= render 'layouts/navbar' %>
   <div class="col">
     <% unless controller_name == "articles" && action_name == "index" %>
@@ -19,6 +21,7 @@
       <%= render 'layouts/header_big' %>
     <% end %>
     <%= render 'layouts/flash' %>
+<%= render 'layouts/loading_animation' %>
     <%= yield %>
     <% if controller_name == "sessions" || controller_name == "users"|| controller_name == "registrations" || controller_name == "passwords" || action_name == "contact" || action_name == "about_us"%> 
       <%= render "layouts/footer_sticky" %>
@@ -33,6 +36,7 @@
 <style>html {
     overflow-x: hidden;
 }</style>
+
 </body>
 
 </html>
