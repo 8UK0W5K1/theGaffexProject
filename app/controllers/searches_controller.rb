@@ -3,6 +3,18 @@ class SearchesController < ApplicationController
 
   def index
     @keyword = params[:keyword]
+    @page = if params[:page].nil? || params[:page].to_i.zero?
+              1
+            else
+              params[:page].to_i
+            end
+
     @results = search(params)
+    @results_count = @results.count
+    @results = @results[((@page - 1) * 6)..(@page * 6 - 1)]
+    respond_to do |format|
+      format.html { render :index }
+      format.js
+    end
   end
 end
