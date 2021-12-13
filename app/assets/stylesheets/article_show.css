@@ -6,6 +6,10 @@
   text-align: justify;
 }
 
+.shadow-show{
+  box-shadow: -1rem 1rem 3rem rgba(0, 0, 0, 0.175)
+}
+
 .summary {
   margin: 2rem 5rem 2rem 5rem;
 }
@@ -36,7 +40,6 @@
   background-color:#E5E9E9 !important;
   box-shadow: 0.1rem 0 0.1rem 0  #9a9c9c ;
 }
-
 
 .list-repertory a {
   text-decoration: none;
