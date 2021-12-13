@@ -63,6 +63,7 @@ class Paging {
         if (parseInt(this.btn3.firstElementChild.textContent) > this.totalPages) this.btn3.classList.add('disabled');
         if (parseInt(this.btn4.firstElementChild.textContent) > this.totalPages) this.btn4.classList.add('disabled');
         if (parseInt(this.btn5.firstElementChild.textContent) > this.totalPages) this.btn5.classList.add('disabled');
+        if (this.page === this.totalPages) this.btnNext.classList.add('disabled')
     }
 
     init() {
