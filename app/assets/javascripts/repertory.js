@@ -19,6 +19,7 @@ class Repertory {
         this.repertory.style.position = 'fixed'
         this.repertory.style.top = '37%'
         this.repertory.style.left = '83.5%'
+        this.repertory.classList.remove('repertory-fixed')
     }
 
     fix() {
@@ -26,6 +27,7 @@ class Repertory {
         this.repertory.style.position = 'absolute'
         this.repertory.style.top = '24vh'
         this.repertory.style.left = '97.5%'
+        this.repertory.classList.add('repertory-fixed')
     }
 }
 
