@@ -1,65 +1,73 @@
 <div class="text-center card border-light bg-light ">
- <div id="summary">
-        <p><br></p>
-        <h3><b><%= @article.title%></b></h3>
-      </div>
+  <div id="summary">
+    <p><br></p>
+    <h3><b><%= @article.title %></b></h3>
+  </div>
+</div>
+
+<div class="text-center mb-2 mt-4">
+  <small class="text-muted">mots clés :</small><br/>
+  <% @article.keywords.each do |keyword| %>
+    <p class="btn btn-primary mt-2" style="cursor: unset"><%= keyword.name %></p>
+  <% end %>
+</div>
+
+<div class="summary">
+  <div class="card border-secondary p-0 m-50 bg-light ">
+
+    <div class="card-header">Résumé</div>
+    <div class="card-body-summary justify-content-center">
+      <%= simple_format(@article.summary) %>
     </div>
 
-      <div class="summary">
-        <div class="card border-secondary p-0 m-50 bg-light ">
-         
-            <div class="card-header">Résumé</div>
-            <div class="card-body-summary justify-content-center">
-              <%= simple_format(@article.summary)%>
-            </div>
-          
-        </div>
-      </div>
+  </div>
+</div>
 
-      <div class="card border-light p-4 justify-content-center bg-light ">
-        <div id="introduction">
-          <div class="card-header">Introduction</div>
-          <div class="card-body justify-content-center">
-            <%= simple_format(@article.introduction)%>
-          </div>
-        </div>
-      </div>
+<div class="card border-light p-4 justify-content-center bg-light ">
+  <div id="introduction">
+    <div class="card-header">Introduction</div>
+    <div class="card-body justify-content-center">
+      <%= simple_format(@article.introduction) %>
+    </div>
+  </div>
+</div>
 
-      <div class="card border-light p-4 justify-content-center bg-light ">
-        <div id="protocol">
-          <div class="card-header">Protocole</div>
-          <div class="card-body justify-content-center">
-              <%=simple_format(@article.protocol)%>
-          </div>
-        </div>
-      </div>
+<div class="card border-light p-4 justify-content-center bg-light ">
+  <div id="protocol">
+    <div class="card-header">Protocole</div>
+    <div class="card-body justify-content-center">
+      <%= simple_format(@article.protocol) %>
+    </div>
+  </div>
+</div>
 
-      <div class="card border-light p-4 justify-content-center bg-light ">
-        <div id="results">
-          <div class="card-header">Résultats</div>
-          <div class="card-body justify-content-center">
-            <%= simple_format(@article.result)%>
-          </div>
-        </div>
-      </div>
+<div class="card border-light p-4 justify-content-center bg-light ">
+  <div id="results">
+    <div class="card-header">Résultats</div>
+    <div class="card-body justify-content-center">
+      <%= simple_format(@article.result) %>
+    </div>
+  </div>
+</div>
 
-      <div class="card border-light p-4 justify-content-center bg-light ">
-        <div id="conclusion">
-          <div class="card-header">Conclusion</div>
-          <div class="card-body justify-content-center">
-            <%= simple_format(@article.conclusion)%>
-          </div>
-        </div>
-      </div>
+<div class="card border-light p-4 justify-content-center bg-light ">
+  <div id="conclusion">
+    <div class="card-header">Conclusion</div>
+    <div class="card-body justify-content-center">
+      <%= simple_format(@article.conclusion) %>
+    </div>
+  </div>
+</div>
 
-      <div class="card border-light p-4 justify-content-center bg-light ">
-        <div id="references">
-          <div class="card-header">Références</div>
-          <div class="card-body card-body-references justify-content-center">
-            <%= simple_format(@article.references)%>
-          </div>
-          <div class="d-flex justify-content-end">
-           <a href="<%= article_path(@article.id, format: :pdf) %>"  target="_blank" class="btn btn-primary hover">Exporter en PDF</a>
-          </div>
-        </div>
-      </div>
+<div class="card border-light p-4 justify-content-center bg-light ">
+  <div id="references">
+    <div class="card-header">Références</div>
+    <div class="card-body card-body-references justify-content-center">
+      <%= simple_format(@article.references) %>
+    </div>
+    <div class="d-flex justify-content-end">
+      <a href="<%= article_path(@article.id, format: :pdf) %>" target="_blank" class="btn btn-primary hover">Exporter en
+        PDF</a>
+    </div>
+  </div>
+</div>
