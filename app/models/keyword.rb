@@ -2,7 +2,7 @@ class Keyword < ApplicationRecord
   has_many :keyword_to_articles, dependent: :destroy
   has_many :keywords, through: :keyword_to_articles
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
 
   def self.assign_keywords(params, article)
     params[:tags].join.split(';').each do |keyword|
