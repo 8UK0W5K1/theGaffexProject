@@ -12,6 +12,9 @@
           <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
           <%= image_submit_tag('https://api.iconify.design/mdi/magnify.svg?color=%23757575', class: 'text-secondary ms-1') %>
         <% end %>
+        <div class="d-flex flex-end me-4 justify-content-end"> <%= link_to_unless_current "fr ", locale: :fr %> /
+          <%= link_to_unless_current " en", locale: :en %></div>
+
       </div>
     <% end %>
   </div>
