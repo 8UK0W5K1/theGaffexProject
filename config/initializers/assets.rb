@@ -19,5 +19,7 @@ Rails.application.config.assets.paths << Rails.root.join("lib", "assets", "javas
 Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
 Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
 
-Rails.application.config.assets.precompile += %w[nav-toggle.js paging.js flash.js repertory.js]
+Rails.application.config.assets.precompile += %w[nav-toggle.js paging.js flash.js repertory.js tags.js]
 Rails.application.config.assets.precompile += %w[article_index.css article_show.css loading_animation.scss paging.css]
+Rails.application.config.assets.precompile += %w[pdf.scss]
+

@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
   belongs_to :user
   has_many :tags, dependent: :destroy
+  has_many :keyword_to_articles, dependent: :destroy
+  has_many :keywords, through: :keyword_to_articles
 
   has_one_attached :picture
 
@@ -55,6 +57,5 @@ class Article < ApplicationRecord
     else
       picture.attach(params[:picture])
     end
-
   end
 end
