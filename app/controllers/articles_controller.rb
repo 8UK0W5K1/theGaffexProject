@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name" , template: "articles/show.html.erb"  # Excluding ".pdf" extension.
+        render pdf: "Article : #{@article.title}" , template: "articles/show.html.erb"  # Excluding ".pdf" extension.
       end
     end
   end
