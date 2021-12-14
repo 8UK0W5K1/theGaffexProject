@@ -1,7 +1,6 @@
 const tagContainer = document.querySelector('.tag-container');
-const inputField = document.querySelector('#tag-input')
-
-let tags = [];
+const inputField = document.querySelector('#tag-input');
+const tagArray = document.querySelector('#tags-array')
 
 function newTag(name) {
     const div = document.createElement('div')
@@ -27,11 +26,11 @@ function init() {
     inputField.addEventListener('keyup', function (e) {
         if (e.key === ';') {
             const name = inputField.value.slice(0, -1)
-            tags.push(name)
             const tag = newTag(name)
             tagContainer.append(tag)
             unFade(tag)
             inputField.value = ''
+            tagArray.value += tag
         }
     })
 }
