@@ -21,6 +21,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name" , template: "articles/show.html.erb"  # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def new; end
