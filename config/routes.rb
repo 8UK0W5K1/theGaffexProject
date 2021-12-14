@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
   
   resources :searches, only: %i[index]
-  resources :users, only: %i[edit update]
+  resources :users, only: %i[edit update show]
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
