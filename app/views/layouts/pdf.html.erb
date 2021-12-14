@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
-    <%= javascript_include_tag wicked_pdf_asset_base64("number_pages") %>
+    <%# <%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
+    <%# <%= javascript_include_tag wicked_pdf_asset_base64("number_pages") %>
 
   </head>
   <body onload='number_pages'>
-    <div class="mb-3">
+      <div class="d-flex justify-content-start h-100">
       <img src="<%= asset_path("logoGaffex.png") %>">
-    </div>
+      </div>
     <div id="content">
       <%= yield %>
       <div class="date d-flex justify-content-end">Pdf généré le : <%= Time.zone.now %>
