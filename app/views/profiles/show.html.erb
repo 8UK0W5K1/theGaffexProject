@@ -16,10 +16,10 @@
         </div> 
       </div> 
 
-      <%if user_signed_in?%> 
+      <%if user_signed_in? && current_user == @user %> 
         <a href="<%= edit_profile_path(@user.id) %>" class="btn btn-secondary float-end">Modifier votre profil</a>
       <%end%>
-      
+
     </div> 
     <%= render 'profile_article_list' %> 
   </div>
