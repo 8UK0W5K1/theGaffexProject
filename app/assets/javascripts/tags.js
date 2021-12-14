@@ -1,0 +1,36 @@
+const tagContainer = document.querySelector('.tag-container');
+const inputField = document.querySelector('#tag-input')
+
+let tags = [];
+
+function newTag(name) {
+    const div = document.createElement('div')
+    div.setAttribute('class', 'tag btn btn-primary mt-3 mx-1')
+    const span = document.createElement('span')
+    span.innerHTML = name
+    const close = document.createElement('span')
+    close.setAttribute('class', 'iconify ml-2')
+    close.setAttribute('data-icon', 'mdi:close')
+    close.setAttribute('id', 'close')
+    div.appendChild(span);
+    div.appendChild(close);
+    div.addEventListener('click', (e) => {
+        if (e.target.id === 'close') {
+            div.remove()
+        }
+    })
+    return div
+}
+
+function init() {
+    inputField.addEventListener('keyup', function (e) {
+        if (e.key === ';') {
+            const name = inputField.value.slice(0, -1)
+            tags.push(name)
+            tagContainer.append(newTag(name))
+            inputField.value = ''
+        }
+    })
+}
+
+init()

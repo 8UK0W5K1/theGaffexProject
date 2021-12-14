@@ -28,12 +28,10 @@
         <%= label_tag 'Mots Clés' %>
         <%= text_field_tag 'tags',
                            nil,
-                           id: 'input-tags',
-                           class: "form-control ",
+                           id: 'tag-input',
+                           class: "form-control",
                            placeholder: 'Mots clés séparés par des ;'
         %>
-        <%= hidden_field :tags, nil, class: 'tags-array' %>
-
         <div class="tag-container">
         </div>
         <br/>
