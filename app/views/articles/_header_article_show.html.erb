@@ -7,7 +7,7 @@
       <% end %>
 
       <div class="ms-md-5 ms-0 clickable">
-        <a href="<%= user_path(@article.user.id) %>">
+        <a href="<%= profile_path(@article.user.id) %>">
           <h5><em><%= @article.user.first_name%><%= @article.user.last_name%></em></h5>
         </a>
       </div>

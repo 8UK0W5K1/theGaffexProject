@@ -33,7 +33,7 @@
         style=""
       >
         <% if user_signed_in? %>
-          <li><a class="dropdown-item" href="<%= edit_user_path(current_user.id) %>">Profil</a></li>
+          <li><a class="dropdown-item" href="<%= edit_profile_path(current_user.id) %>">Profil</a></li>
           <li><%= link_to 'Me Déconnecter', destroy_user_session_path, class: 'dropdown-item', method: 'delete' %></li>
         <% else %>
           <li><a class="dropdown-item" href="<%= new_user_session_path %>">Me Connecter</a></li>
