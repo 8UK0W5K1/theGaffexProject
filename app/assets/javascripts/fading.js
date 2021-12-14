@@ -8,7 +8,7 @@ function fade(element) {
         element.style.opacity = op;
         element.style.filter = "alpha(opacity=" + op * 100 + ")";
         op -= op * 0.1;
-    }, 10);
+    }, 20);
 }
 
 function unFade(element) {
@@ -21,5 +21,5 @@ function unFade(element) {
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
-    }, 10);
+    }, 20);
 }
