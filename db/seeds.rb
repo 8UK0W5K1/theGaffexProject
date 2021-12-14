@@ -9,6 +9,7 @@
 User.destroy_all
 Article.destroy_all
 Tag.destroy_all
+Keyword.destroy_all
 
 # Table Users
 
@@ -34,10 +35,22 @@ puts " two users"
     article.picture.attach(io: File.open('./app/assets/images/default_picture.jpg'), filename: 'default.jpg')
 end
 
-# Table Tag
+# keywords
+
+30.times do
+  Keyword.create(name: Faker::Lorem.word)
+end
+
+# Table Tag + keywords
 
 Article.all.each do |article|
     puts " tag_article created"
     Tag.create(user: user_first, article: article, tag_name: ["Approved", "Not Approved", "Need Review"].sample)
     Tag.create(user: user_second, article: article, tag_name: ["Approved", "Not Approved", "Need Review"].sample)
+    number = rand(5..10)
+    number.times do
+      KeywordToArticle.create(article: article, keyword: Keyword.all.sample)
+    end
 end
+
+
