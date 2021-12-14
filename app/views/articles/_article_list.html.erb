@@ -13,7 +13,7 @@
     </div>
     <div class="col-5 clickable">
       <a href="<%= article_path(article.id) %>"><h4 class="word-wrap"><%= article.title %></h4></a>
-      <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
+      <a href="<%= user_path(article.user.id) %>"><p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p></a>
       <p class="text-start word-wrap"><%= article.short_summary %></p>
     </div>
     <div class="card border-light col bg-light mt-3 ">
