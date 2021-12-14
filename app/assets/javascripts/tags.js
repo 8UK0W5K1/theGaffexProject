@@ -30,7 +30,8 @@ function init() {
             tagContainer.append(tag)
             unFade(tag)
             inputField.value = ''
-            tagArray.value += tag
+            tagArray.value += name + ';'
+            console.log(tagArray.value)
         }
     })
 }
