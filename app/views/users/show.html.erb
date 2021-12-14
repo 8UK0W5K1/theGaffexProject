@@ -1,1 +1,27 @@
-<p><%=@user.last_name%> <%=@user.first_name%></p>
+<div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above-small shadow-lg">  
+    <div class="card-header ">
+      <div class="row">
+        <div class="col">
+          <% if @user.avatar.attached? %>
+                <%= image_tag(@user.avatar, class: 'rounded-circle ms-md-5 ms-0', style: "width: 10em; height: 10em") %>
+          <% else %>
+                <%= image_tag(asset_path('default_avatar.png'), class: 'rounded-circle ms-md-5 ms-0', style: "width: 10em; height: 10em") %>
+          <% end %>
+        </div>   
+        <div class="col-7">
+          <div class="m-5">
+            <h1><%=@user.first_name%> <%=@user.last_name%></h1> 
+          </div>
+        </div> 
+      </div>    
+    </div> 
+    <%= render 'user_article_list' %> 
+  </div>
+</div>
+
+<% if @user.articles.nil?%>
+  <%= render 'layouts/footer_sticky' %>
+<% else %>
+  <%= render 'layouts/footer' %>
+<% end %>
