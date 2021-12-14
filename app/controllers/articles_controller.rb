@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Article : #{@article.title}" , template: "articles/show.html.erb",  layout: "pdf"  # Excluding ".pdf" extension.
+        render pdf: "#{@article.user.first_name} #{@article.user.last_name} - #{@article.title}", template: "articles/show.html.erb",  layout: "pdf"  # Excluding ".pdf" extension.
       end
     end
   end
