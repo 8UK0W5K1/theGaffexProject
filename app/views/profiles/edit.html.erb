@@ -3,7 +3,7 @@
     <div class="card border-secondary p-4 text-center justify-content-center bg-light above-small shadow-lg">
           <h3>Modifier votre profil</h3>
           
-          <%= form_tag user_path(@user.id), :method => :patch, class: 'text-center form-group,form-control' do %>
+          <%= form_tag profile_path(@user.id), :method => :patch, class: 'text-center form-group,form-control' do %>
          
             <%= label_tag 'Nom de famille' %>
             <%= text_field_tag 'last_name', nil, placeholder: @user.last_name, class:"form-control" %>
