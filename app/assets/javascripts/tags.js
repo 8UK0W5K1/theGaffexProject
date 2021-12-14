@@ -16,7 +16,8 @@ function newTag(name) {
     div.appendChild(close);
     div.addEventListener('click', (e) => {
         if (e.target.id === 'close') {
-            div.remove()
+            fade(div)
+            setTimeout(() => {div.remove()}, 1500)
         }
     })
     return div
@@ -27,7 +28,9 @@ function init() {
         if (e.key === ';') {
             const name = inputField.value.slice(0, -1)
             tags.push(name)
-            tagContainer.append(newTag(name))
+            const tag = newTag(name)
+            tagContainer.append(tag)
+            unFade(tag)
             inputField.value = ''
         }
     })
