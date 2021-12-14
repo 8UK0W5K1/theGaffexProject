@@ -58,5 +58,8 @@
           <div class="card-body card-body-references justify-content-center">
             <%= simple_format(@article.references)%>
           </div>
+          <div class="d-flex justify-content-end">
+           <a href="<%= article_path(@article.id, format: :pdf) %>"  target="_blank" class="btn btn-primary hover">Exporter en PDF</a>
+          </div>
         </div>
       </div>
