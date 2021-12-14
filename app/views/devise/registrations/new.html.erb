@@ -1,7 +1,7 @@
   <div class="offset-2 col-6 col-xl-6 mx-auto">
     <div class="card text-center border-secondary py-4 bg-light above-small shadow-lg">
 
-      <h3>M'inscrire</h3>
+      <h3>Inscription</h3>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="actions mt-4 mb-2">
-          <%= f.submit "M'inscrire", class: "btn btn-lg btn-primary border-primary"  %>
+          <%= f.submit "Inscription", class: "btn btn-lg btn-primary border-primary"  %>
         </div>
       <% end %>
 
