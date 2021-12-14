@@ -38,7 +38,7 @@ end
 # keywords
 
 30.times do
-  Keyword.create(name: Faker::Lorem.word)
+  Keyword.create(name: Faker::Lorem.word.capitalize)
 end
 
 # Table Tag + keywords
