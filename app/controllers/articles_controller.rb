@@ -45,6 +45,8 @@ class ArticlesController < ApplicationController
       render :action => 'new'
     end
 
+    Keyword.assign_keywords(params, @article)
+
   end
 
 end
