@@ -14,14 +14,14 @@
 
 <div class="row d-flex" id="website">
   <%= render 'layouts/navbar' %>
-  <div class="col">
+  <div class="col colblur">
     <% unless controller_name == "articles" && action_name == "index" %>
       <%= render 'layouts/header_small' %>
     <% else %>
       <%= render 'layouts/header_big' %>
     <% end %>
     <%= render 'layouts/flash' %>
-<%= render 'layouts/loading_animation' %>
+    <%= render 'layouts/loading_animation' %>
     <%= yield %>
     <% if controller_name == "sessions" || (controller_name == "users" && action_name != "show") || controller_name == "registrations" || controller_name == "passwords" || action_name == "contact" || action_name == "about_us" || action_name == "not_found" || action_name == "internal_error" || action_name == "unacceptable"  %> 
       <%= render "layouts/footer_sticky" %>
