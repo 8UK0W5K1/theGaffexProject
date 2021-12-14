@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.attach_picture(params)
-      redirect_to root_path, notice: "Bravo Doc' !"
+      redirect_to root_path, notice: "L'article à bien été ajouté"
     else
       flash.now[:alert] = "Tous les champs sont obligatoires"
       render :action => 'new'
