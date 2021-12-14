@@ -1,19 +1,11 @@
-<div class="d-flex justify-content-center">
-  <div class=" col-5 my-2">
-    <%= form_tag(url_for(controller: 'searches', action: 'index'), method: 'get', class: 'input-group w-auto ml-3') do %>
-      <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
-      <%= image_submit_tag('https://api.iconify.design/mdi/magnify.svg?color=%212529', class: 'ms-2') %>
-    <% end %>
-  </div>
-</div>
-<% @articles.each_with_index do |article, index| %>
+<% @user.articles.each_with_index do |article, index| %>
   <div class="preview-article row mt-4">
     <div class="container d-flex justify-content-center col-2 col-md-4 border-primary" style="max-height: 18vh">
       <%= image_tag(article.picture, class: 'img-thumbnail') %>
     </div>
     <div class="col-5 clickable">
       <a href="<%= article_path(article.id) %>"><h4 class="word-wrap"><%= article.title %></h4></a>
-      <a href="<%= profile_path(article.user.id) %>"><p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p></a>
+     <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
       <p class="text-start word-wrap"><%= article.short_summary %></p>
     </div>
     <div class="card border-light col bg-light mt-3 ">

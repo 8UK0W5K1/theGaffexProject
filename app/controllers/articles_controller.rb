@@ -21,6 +21,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Article : #{@article.title}" , template: "articles/show.html.erb",  layout: "pdf"  # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def new; end
@@ -33,11 +39,13 @@ class ArticlesController < ApplicationController
 
     if @article.save
       @article.attach_picture(params)
-      redirect_to root_path, notice: "Bravo Doc' !"
+      redirect_to root_path, notice: "L'article à bien été ajouté"
     else
       flash.now[:alert] = "Tous les champs sont obligatoires"
       render :action => 'new'
     end
+
+    Keyword.assign_keywords(params, @article)
 
   end
 

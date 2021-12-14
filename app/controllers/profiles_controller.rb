@@ -1,6 +1,9 @@
-class UsersController < ApplicationController
+class ProfilesController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update]
 
-  before_action :authenticate_user!
+  def show
+    @user = User.find(params[:id])
+  end
 
   def edit
     @user= current_user
@@ -14,8 +17,7 @@ class UsersController < ApplicationController
     else
       @user.update(first_name: params[:first_name], last_name: params[:last_name])
       redirect_to root_path
-    end
- 
+    end 
   end
   
 end

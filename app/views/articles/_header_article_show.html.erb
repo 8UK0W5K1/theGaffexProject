@@ -6,9 +6,10 @@
         <%= image_tag(asset_path('default_avatar.png'), class: 'rounded-circle ms-md-5 ms-0', style: "width: 5em; height: 5em") %>
       <% end %>
 
-      <div class="ms-md-5 ms-0">
-        <h5><em><%= @article.user.first_name%>
-        <%= @article.user.last_name%></em></h5>
+      <div class="ms-md-5 ms-0 clickable">
+        <a href="<%= profile_path(@article.user.id) %>">
+          <h5><em><%= @article.user.first_name%><%= @article.user.last_name%></em></h5>
+        </a>
       </div>
   </div>
 

@@ -13,3 +13,4 @@
 //= require rails-ujs
 //= require activestorage
 //= require bootstrap.bundle
+//= require fading
