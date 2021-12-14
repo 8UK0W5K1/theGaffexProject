@@ -2,13 +2,10 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <%# <%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
-    <%# <%= javascript_include_tag wicked_pdf_asset_base64("number_pages") %>
-
+    <%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
   </head>
   <body onload='number_pages'>
-      <div class="d-flex justify-content-start h-100">
-      <img src="<%= asset_path("logoGaffex.png") %>">
+      <div class="pdf-head d-flex justify-content-start h-100">      
       </div>
     <div id="content">
       <%= yield %>
