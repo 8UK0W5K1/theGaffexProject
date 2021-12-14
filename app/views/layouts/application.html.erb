@@ -12,9 +12,9 @@
 </head>
 <body>
 
-<div class="row d-flex" id="website">
+<div class="row d-flex colblur" id="website">
   <%= render 'layouts/navbar' %>
-  <div class="col colblur">
+  <div class="col">
     <% unless controller_name == "articles" && action_name == "index" %>
       <%= render 'layouts/header_small' %>
     <% else %>
