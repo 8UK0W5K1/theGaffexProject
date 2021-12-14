@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "article_show" %>
+<div class="col">
+  <div class="offset-2 col-8 mx-auto">
+    <div class="card border-secondary p-4 justify-content-center bg-light above-small shadow-show">
+      <div id="repertory" class="card-header repertory">
+        <div id="icon" class="float-end">
+          <span class="iconify" data-icon="mdi:pin"></span>
+        </div>
+        <ul class="list-repertory mt-3 mb-2">
+          <a href="#help1">
+            <li>Aide 1</li>
+          </a>
+          <a href="#help2">
+            <li>Aide 2</li>
+          </a>
+          <a href="#help3">
+            <li>Aide 3</li>
+          </a>
+          <a href="#help4">
+            <li>Aide 4</li>
+          </a>
+          <a href="#helptag">
+            <li>Les tags</li>
+          </a>
+          <a href="#help 6">
+            <li>Aide 6</li>
+          </a>
+        </ul>
+      </div>
+      
+      <%= render 'details_help' %>
+
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'repertory' %>
