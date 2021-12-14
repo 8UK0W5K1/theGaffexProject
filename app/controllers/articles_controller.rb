@@ -39,6 +39,15 @@ class ArticlesController < ApplicationController
       render :action => 'new'
     end
 
+    params[:tags].join.split(';').each do |keyword|
+      @keyword = Keyword.new(name: keyword)
+      if @keyword.save
+        KeywordToArticle.create(article: @article, keyword: @keyword)
+      else
+        KeywordToArticle.create(article: @article, keyword: Keyword.find_by(name: keyword))
+      end
+    end
+
   end
 
 end
