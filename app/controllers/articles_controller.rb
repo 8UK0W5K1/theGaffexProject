@@ -56,6 +56,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @article.update(title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references])
+    @article.attach_picture(params)
     redirect_to profile_path(current_user.id)
    
   end
