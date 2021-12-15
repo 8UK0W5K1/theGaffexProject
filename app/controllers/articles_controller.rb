@@ -57,10 +57,13 @@ class ArticlesController < ApplicationController
 
     Keyword.assign_keywords(params, @article)
 
-  end 
+  end
 
   def edit
     @article = Article.find(params[:id])
+    @keywords = []
+    @article.keywords.each { |keyword| @keywords << keyword.name }
+    @categories = Category.all
   end
 
   def update
@@ -68,7 +71,6 @@ class ArticlesController < ApplicationController
     @article.update(title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references])
     @article.picture.attach(params[:picture]) unless params[:picture].nil?
     redirect_to profile_path(current_user.id)
-   
   end
 
   def destroy

@@ -2,6 +2,16 @@ const tagContainer = document.querySelector('.tag-container');
 const inputField = document.querySelector('#tag-input');
 const tagArray = document.querySelector('#tags-array')
 
+function getTags(tags) {
+    tags.split(' ').forEach(e => {
+        const tag = newTag(e)
+        tagContainer.append(tag)
+        unFade(tag)
+        inputField.value = ''
+        tagArray.value += name + ';'
+    })
+}
+
 function newTag(name) {
     const div = document.createElement('div')
     div.setAttribute('class', 'tag btn btn-primary mt-3 mx-1')
@@ -31,7 +41,6 @@ function init() {
             unFade(tag)
             inputField.value = ''
             tagArray.value += name + ';'
-            console.log(tagArray.value)
         }
     })
 }
