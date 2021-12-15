@@ -9,7 +9,7 @@
       <%= render 'article_list' %>
     <% end %>
     <div id="paging" class="d-flex justify-content-end mt-4">
-      <%= render 'articles/paging' %>
+      <%= render 'paging' unless @articles.nil? %>
     </div>
   </div>
 </div>
@@ -24,7 +24,7 @@
 
 <script id='paging-script'>
     let ul = document.querySelector('ul.pagination');
-    let url = "<%= articles_path %>"
+    let url = "<%= category_path %>"
     let page = <%= @page %>;
     let totalPages = <%= @total_pages %>;
 
