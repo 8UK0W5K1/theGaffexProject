@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :require_profile, only:[:new]
   before_action :authenticate_user!, only: [:new]
 
+
   def index
     @page = if params[:page].nil? || params[:page].to_i.zero?
               1
@@ -72,7 +73,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @keywords = []
     @article.keywords.each { |keyword| @keywords << keyword.name }
-    @article.update(
+    if @article.update(
       title: params[:title],
       summary: params[:summary],
       introduction: params[:introduction],
@@ -82,9 +83,13 @@ class ArticlesController < ApplicationController
       references: params[:references],
       category: Category.find(params[:category])
     )
-    @article.picture.attach(params[:picture]) unless params[:picture].nil?
-    Keyword.update_keywords(params, @article)
-    redirect_to profile_path(current_user.id)
+      @article.picture.attach(params[:picture]) unless params[:picture].nil?
+      Keyword.update_keywords(params, @article)
+      redirect_to profile_path(current_user.id)
+    else
+      flash.now[:alert] = "Aucun champs ne doit être vide"
+      render :edit
+    end
   end
 
   def destroy
@@ -94,8 +99,8 @@ class ArticlesController < ApplicationController
   end
 
   private
-
-  def require_profile
+  
+    def require_profile
     if user_signed_in?
       if current_user.first_name.nil?
         flash[:error] = "Vous devez enregistrer votre profil"
@@ -103,4 +108,5 @@ class ArticlesController < ApplicationController
       end
     end
   end
+
 end
