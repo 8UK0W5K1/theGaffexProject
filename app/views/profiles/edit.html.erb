@@ -5,10 +5,10 @@
       <%= form_tag profile_path(@user.id), :method => :patch, multipart: true, class: 'text-center form-group,form-control' do %>
 
         <%= label_tag 'Prénom' %>
-        <%= text_field_tag 'first_name', nil, placeholder: @user.first_name, class:"form-control" %>
+        <%= text_field_tag 'first_name', @user.first_name, placeholder: @user.first_name, class:"form-control" %>
         <br>
         <%= label_tag 'Nom de famille' %>
-        <%= text_field_tag 'last_name', nil, placeholder: @user.last_name, class:"form-control" %>
+        <%= text_field_tag 'last_name', @user.last_name, placeholder: @user.last_name, class:"form-control" %>
         <br>
         <%= label_tag "Ajouter une photo de profil", nil, class: 'mb-2' %>
         <br>
