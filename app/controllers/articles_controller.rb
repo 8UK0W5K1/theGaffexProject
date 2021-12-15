@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :require_profile, only:[:new]
   before_action :authenticate_user!, only: [:new]
 
+
   def index
     @page = if params[:page].nil? || params[:page].to_i.zero?
               1
@@ -95,4 +96,16 @@ class ArticlesController < ApplicationController
     flash[:info] = "Votre article a bien été supprimé !"
     redirect_to profile_path(current_user.id)    
   end
+
+  private
+  
+    def require_profile
+    if user_signed_in?
+      if current_user.first_name.nil?
+        flash[:error] = "Vous devez enregistrer votre profil"
+        redirect_to edit_profile_path(current_user.id)
+      end
+    end
+  end
+
 end
