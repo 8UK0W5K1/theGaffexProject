@@ -65,9 +65,13 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references])
-    @article.picture.attach(params[:picture]) unless params[:picture].nil?
-    redirect_to profile_path(current_user.id)
+    if @article.update(title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references])
+      @article.picture.attach(params[:picture]) unless params[:picture].nil?
+      redirect_to profile_path(current_user.id)
+    else
+      flash.now[:alert] = "Aucun champs ne doit être vide"
+      render :edit
+    end
    
   end
 
@@ -75,16 +79,5 @@ class ArticlesController < ApplicationController
     Article.find(params[:id]).destroy
     flash[:info] = "Votre article a bien été supprimé !"
     redirect_to profile_path(current_user.id)    
-  end
-
-  private
-
-  def require_profile
-    if user_signed_in?
-      if current_user.first_name.nil?
-        flash[:error] = "Vous devez enregistrer votre profil"
-        redirect_to edit_profile_path(current_user.id)
-      end
-    end
   end
 end
