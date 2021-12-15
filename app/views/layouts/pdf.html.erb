@@ -5,13 +5,17 @@
     <%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
   </head>
   <body onload='number_pages'>
-      <div class="pdf-head">  
+      <div class="pdf-head"> 
+      <%= wicked_pdf_image_tag 'logoGaffex.png' %>
       Projet GAFFEx - Gathering of fundamentally failure experiment 
     <hr>
+     <h5><em><%= @article.user.first_name%> <%= @article.user.last_name%></em></h5>
       </div>
     <div id="content">
       <%= yield %>
-      <div class="date d-flex justify-content-end">Pdf généré le : <%= Time.zone.now %>
+      <br>
+      <hr>
+      <div class="date d-flex justify-content-center">Pdf généré le : <%= Time.zone.now %>
       </div>
     </div>
   </body>
