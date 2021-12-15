@@ -42,7 +42,7 @@
           <a href="<%=article_tags_path(@article.id)%>" data-method="post"><span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Need Review"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:need_review]%></span></span></a>
           <a href="<%=article_tags_path(@article.id)%>" data-method="post"><span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Not Approved"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%=tag_count(@article)[:not_approved]%></span></span></a>
         <%end%>
-      <a href="<%= help_path%>#helptag"><span class="badge badge-help rounded-pill bg-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Aide"><span class="iconify badge-help" data-icon="mdi:help"></span></span></a>
+      <a href="<%= help_path%>"><span class="badge badge-help rounded-pill bg-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Comment ça marche?"><span class="iconify badge-help" data-icon="mdi:help"></span></span></a>
       </div>
     </div>
   </div>
