@@ -29,12 +29,22 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def new; end
+  def new
+    @categories = Category.all
+  end
 
   def create
     @user = current_user 
     @article = Article.create(
-      user: @user, title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references]
+      user: @user,
+      title: params[:title],
+      summary: params[:summary],
+      introduction: params[:introduction],
+      protocol: params[:protocol],
+      result: params[:result],
+      conclusion: params[:conclusion],
+      references: params[:references],
+      category: Category.find(params[:category])
     )
 
     if @article.save
@@ -48,6 +58,24 @@ class ArticlesController < ApplicationController
     Keyword.assign_keywords(params, @article)
 
   end 
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.update(title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references])
+    @article.picture.attach(params[:picture]) unless params[:picture].nil?
+    redirect_to profile_path(current_user.id)
+   
+  end
+
+  def destroy
+    Article.find(params[:id]).destroy
+    flash[:info] = "Votre article a bien été supprimé !"
+    redirect_to profile_path(current_user.id)    
+  end
 
   private
 
