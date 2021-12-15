@@ -70,7 +70,8 @@ class ArticlesController < ApplicationController
   def update
     @categories = Category.all
     @article = Article.find(params[:id])
-    @article.update(
+
+    if @article.update(
       title: params[:title],
       summary: params[:summary],
       introduction: params[:introduction],
@@ -80,25 +81,18 @@ class ArticlesController < ApplicationController
       references: params[:references],
       category: Category.find(params[:category])
     )
-    @article.picture.attach(params[:picture]) unless params[:picture].nil?
-    Keyword.update_keywords(params, @article)
-    redirect_to profile_path(current_user.id)
+      @article.picture.attach(params[:picture]) unless params[:picture].nil?
+      Keyword.update_keywords(params, @article)
+      redirect_to profile_path(current_user.id)
+    else
+      flash.now[:alert] = "Aucun champs ne doit être vide"
+      render :edit
+    end
   end
 
   def destroy
     Article.find(params[:id]).destroy
     flash[:info] = "Votre article a bien été supprimé !"
     redirect_to profile_path(current_user.id)    
-  end
-
-  private
-
-  def require_profile
-    if user_signed_in?
-      if current_user.first_name.nil?
-        flash[:error] = "Vous devez enregistrer votre profil"
-        redirect_to edit_profile_path(current_user.id)
-      end
-    end
   end
 end
