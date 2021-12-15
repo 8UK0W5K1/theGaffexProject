@@ -1,7 +1,6 @@
-<%= stylesheet_link_tag "article_index" %>
 <div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
-  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above shadow-lg rellax" data-rellax-speed="2">
-    <h3 class="text-center mb-2"><%= @category.name %></h3>
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above-small shadow-lg rellax" data-rellax-speed="2">
+    <h3 class="text-center mb-3"><%= @category.name %></h3>
     <% if @articles.nil? %>
       <div class="text-center my-4">
         <h3>Désolé mais nous n'avons pas pu charger plus d'articles...</h3>
