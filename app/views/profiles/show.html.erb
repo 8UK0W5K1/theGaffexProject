@@ -30,7 +30,9 @@
     </div>
     
     <%if @user.articles.length == 0%>
-      <p>pas d'articles encore publiés<p>
+      <div class="m-auto">
+        <p>Pas d'articles encore publiés<p>
+      </div>
     <%else%>
     <%= render 'profile_article_list' %> 
     <%end%>
