@@ -21,11 +21,23 @@
       <%end%>
 
     </div> 
+    <div class="m-3">
+      <%if user_signed_in? && current_user == @user %> 
+        <h3>Vos articles publiés :</h3>
+      <%else%>
+        <h3>Articles publiés :</h3>
+      <%end%>
+    </div>
+    
+    <%if @user.articles.length == 0%>
+      <p>pas d'articles encore publiés<p>
+    <%else%>
     <%= render 'profile_article_list' %> 
+    <%end%>
   </div>
 </div>
 
-<% if @user.articles.nil?%>
+<% if @user.articles.length == 0%>
   <%= render 'layouts/footer_sticky' %>
 <% else %>
   <%= render 'layouts/footer' %>

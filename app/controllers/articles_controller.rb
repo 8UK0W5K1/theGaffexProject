@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :require_profile
+  before_action :require_profile, only:[:new]
   before_action :authenticate_user!, only: [:new]
 
   def index
