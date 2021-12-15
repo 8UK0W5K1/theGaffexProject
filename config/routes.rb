@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   root 'articles#index'
 
-
   resources :articles do
     resources :tags, only: %i[create destroy] 
   end
@@ -22,6 +21,14 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[edit update show]
   resources :categories, only: %i[show]
 
-  devise_for :users
+  devise_for :users, skip: [:sessions]
+  as :user do
+    get    'Inscription' => 'devise/sessions#new',      :as => :new_user_session
+    post   'Connecte_Toi' => 'devise/sessions#create',   :as => :user_session
+    delete 'Se déconnecter' => 'devise/sessions#destroy', :as => :destroy_user_session
+    get    'Modifie_ton_compte' => 'devise/registrations#edit', :as => :edit_user_registation
+   
+
+end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
