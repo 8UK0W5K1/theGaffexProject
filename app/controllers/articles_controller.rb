@@ -29,7 +29,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def new; end
+  def new
+    @categories = Category.all
+  end
 
   def create
     @user = current_user 
