@@ -23,7 +23,7 @@ puts " two users"
 
 categories = ['physique', 'chimie', 'physique quantique', 'physique nucléaire', 'bioscience', 'biologie', 'bactériologie']
 categories.each do |category|
-  Category.new(name: category)
+  Category.create(name: category)
 end
 
 # Table Articles
