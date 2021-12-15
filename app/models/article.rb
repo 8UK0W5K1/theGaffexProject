@@ -12,7 +12,29 @@ class Article < ApplicationRecord
   def self.search(keyword)
     return if keyword.nil?
 
-    Article.match_article(keyword)
+    results = []
+    Article.match_keywords(keyword).each { |result| results << result }
+    Article.match_article(keyword).each { |result| results << result unless results.include?(result) }
+    Article.filter_results(results)
+  end
+
+  def self.filter_results(results)
+    filtered_results = []
+    results.group_by { |e| e }.map { |key, value| [key, value.size] }.each do |filtered|
+      filtered_results << filtered[0]
+    end
+    filtered_results
+  end
+
+  def self.match_keywords(keyword)
+    @keywords = keyword.split(' ')
+    @results = []
+    @keywords.each do |key|
+      KeywordToArticle.where(keyword: Keyword.find_by('name ILIKE ?', "#{key}")).find_each do |key_to_art|
+        @results << key_to_art.article unless @results.include?(key_to_art.article)
+      end
+    end
+    @results
   end
 
   def self.match_article(keyword)
