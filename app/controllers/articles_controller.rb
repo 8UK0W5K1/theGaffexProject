@@ -21,6 +21,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@article.user.first_name} #{@article.user.last_name} - #{@article.title}", template: "articles/show.html.erb",  layout: "pdf"  # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def new; end
@@ -38,6 +44,8 @@ class ArticlesController < ApplicationController
       flash.now[:alert] = "Tous les champs sont obligatoires"
       render :action => 'new'
     end
+
+    Keyword.assign_keywords(params, @article)
 
   end
 

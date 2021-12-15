@@ -1,8 +1,7 @@
 .container-animation {
   z-index: 999;
   position: absolute;
-  top: auto;
-  bottom: auto;
+  top: 25%;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -87,7 +86,7 @@
 @for $i from 1 through 8 {
   .loader_3-item:nth-child(#{$i}) {
     animation-delay: -$i/10 + s;
-  }
+  } 
 }
 
 @keyframes animate {
@@ -119,3 +118,8 @@
     width: 2px;
   }
 }
+
+.colblur {
+  filter: blur(10px);
+}
+

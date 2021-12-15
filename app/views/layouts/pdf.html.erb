@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
+  </head>
+  <body onload='number_pages'>
+      <div class="pdf-head"> 
+      <%= wicked_pdf_image_tag 'logoGaffex.png' %>
+      Projet GAFFEx - Gathering of fundamentally failure experiment 
+    <hr>
+     <h5><em><%= @article.user.first_name%> <%= @article.user.last_name%></em></h5>
+      </div>
+    <div id="content">
+      <%= yield %>
+      <br>
+      <hr>
+      <div class="date d-flex justify-content-center">Pdf généré le : <%= Time.zone.now %>
+      </div>
+    </div>
+  </body>
+</html>
+
