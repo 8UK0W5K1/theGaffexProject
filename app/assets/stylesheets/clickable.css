@@ -6,3 +6,7 @@
 .clickable a:hover {
   color:black;
 }
+
+.none-underline {
+  text-decoration: none;
+}
