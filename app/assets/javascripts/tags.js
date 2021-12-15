@@ -8,7 +8,8 @@ function getTags(tags) {
         tagContainer.append(tag)
         unFade(tag)
         inputField.value = ''
-        tagArray.value += name + ';'
+        tagArray.value += e + ';'
+        console.log(tagArray.value)
     })
 }
 
@@ -25,11 +26,19 @@ function newTag(name) {
     div.appendChild(close);
     div.addEventListener('click', (e) => {
         if (e.target.id === 'close') {
-            fade(div)
-            setTimeout(() => {div.remove()}, 1500)
+            removeTag(div, name)
         }
     })
     return div
+}
+
+function removeTag(div, name) {
+    fade(div)
+    setTimeout(() => {div.remove()}, 1500)
+    let tags = tagArray.value.split(';');
+    tags.splice(tags.indexOf(name), 1);
+    tagArray.value = tags.join(';')
+    console.log(tagArray.value)
 }
 
 function init() {
