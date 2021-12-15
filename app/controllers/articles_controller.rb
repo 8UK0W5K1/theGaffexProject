@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @user = current_user 
     @article = Article.create(
       user: @user,
@@ -67,6 +68,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @categories = Category.all
     @article = Article.find(params[:id])
     @article.update(
       title: params[:title],
