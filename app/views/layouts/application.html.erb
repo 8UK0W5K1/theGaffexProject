@@ -22,10 +22,10 @@
     <% end %>
     <%= render 'layouts/flash' %>
     <%= yield %>
-    <% if controller_name == "sessions" || (controller_name == "users" && action_name != "show") || controller_name == "registrations" || controller_name == "passwords" || action_name == "contact" || action_name == "about_us" || action_name == "not_found" || action_name == "internal_error" || action_name == "unacceptable"  %> 
+    <% if controller_name == "sessions" || controller_name == "users" || controller_name == "registrations" || controller_name == "passwords" || action_name == "contact" || action_name == "about_us" || action_name == "not_found" || action_name == "internal_error" || action_name == "unacceptable" || (controller_name == "profiles" && action_name == "edit")  %> 
       <%= render "layouts/footer_sticky" %>
     <% else %>
-      <% unless (controller_name == "articles" && action_name == "index") || (controller_name == "searches" && action_name == "index") || (controller_name == "users" && action_name == "show")%>
+      <% unless (controller_name == "articles" && action_name == "index") || (controller_name == "searches" && action_name == "index") || (controller_name == "profiles" && action_name == "show")%>
         <%= render 'layouts/footer' %>
       <% end %>
     <% end %>
@@ -37,6 +37,7 @@
 }</style>
 
 <script>
+  const rellax = new Rellax('.rellax');
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)

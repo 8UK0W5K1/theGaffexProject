@@ -4,11 +4,12 @@
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field mt-2">
-          <%= f.label :email, "Email", class:"mt-3"%></br>
+          <%= f.label :email, "Email", class:"mt-3"%><small class="text-danger ms-1 fs-5">*</small></br>
           <%= f.email_field :email, class: 'form-control-lg', autofocus: true, autocomplete: "email" %>
         </div>
         <div class="actions m-2">
           <%= f.submit "Envoie des instructions", class: "btn btn-lg btn-primary m-2" %>
+          <p class="mt-4"><small class="text-danger me-2 fs-5">*</small>champs obligatoires</p>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>

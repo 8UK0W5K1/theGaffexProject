@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "article_index" %>
 <div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
-  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above shadow-lg">
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above shadow-lg rellax" data-rellax-speed="2">
     <% if @articles.nil? %>
       <%= render 'no_more_articles' %>
     <% else %>

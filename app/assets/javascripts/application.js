@@ -14,3 +14,4 @@
 //= require activestorage
 //= require bootstrap.bundle
 //= require fading
+//= require rellax.min
