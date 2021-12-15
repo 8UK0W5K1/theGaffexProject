@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about_gaffex', to: 'static_pages#what_is_gaffex'
   get 'about_us', to: 'static_pages#about_us'
   get 'contact', to: 'static_pages#contact'
+  get 'help', to: 'static_pages#help'
 
   get "/404", to: 'errors#not_found'
   get "/422", to: 'errors#unacceptable'
