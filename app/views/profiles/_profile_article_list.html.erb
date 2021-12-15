@@ -1,4 +1,4 @@
-<% @user.articles.each_with_index do |article, index| %>
+<% @user.articles.order("updated_at DESC").each_with_index do |article, index| %>
   <div class="preview-article row mt-4">
     <div class="container d-flex justify-content-center col-2 col-md-4 border-primary" style="max-height: 18vh">
       <%= image_tag(article.picture, class: 'img-thumbnail') %>
