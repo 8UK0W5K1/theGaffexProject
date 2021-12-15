@@ -14,7 +14,7 @@
           <%if user_signed_in?%> 
 
             <%if whith_tag(current_user,article) == "Approved"%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Validé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Validé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <%else%>
             <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Validé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <%end%> 
