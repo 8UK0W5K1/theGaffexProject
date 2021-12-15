@@ -6,11 +6,11 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @user= current_user
+    @user = current_user
   end
 
   def update
-    @user= current_user
+    @user = current_user
     if params[:first_name].nil? || params[:last_name].nil?
       flash.now[:alert] = 'Erreur, vous devez remplir les champs'
       render :edit
