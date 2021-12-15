@@ -2,6 +2,17 @@ const tagContainer = document.querySelector('.tag-container');
 const inputField = document.querySelector('#tag-input');
 const tagArray = document.querySelector('#tags-array')
 
+function getTags(tags) {
+    tags.split(' ').forEach(e => {
+        const tag = newTag(e)
+        tagContainer.append(tag)
+        unFade(tag)
+        inputField.value = ''
+        tagArray.value += e + ';'
+        console.log(tagArray.value)
+    })
+}
+
 function newTag(name) {
     const div = document.createElement('div')
     div.setAttribute('class', 'tag btn btn-primary mt-3 mx-1')
@@ -15,11 +26,19 @@ function newTag(name) {
     div.appendChild(close);
     div.addEventListener('click', (e) => {
         if (e.target.id === 'close') {
-            fade(div)
-            setTimeout(() => {div.remove()}, 1500)
+            removeTag(div, name)
         }
     })
     return div
+}
+
+function removeTag(div, name) {
+    fade(div)
+    setTimeout(() => {div.remove()}, 1500)
+    let tags = tagArray.value.split(';');
+    tags.splice(tags.indexOf(name), 1);
+    tagArray.value = tags.join(';')
+    console.log(tagArray.value)
 }
 
 function init() {
@@ -31,7 +50,6 @@ function init() {
             unFade(tag)
             inputField.value = ''
             tagArray.value += name + ';'
-            console.log(tagArray.value)
         }
     })
 }
