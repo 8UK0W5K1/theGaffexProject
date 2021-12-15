@@ -3,7 +3,7 @@ const inputField = document.querySelector('#tag-input');
 const tagArray = document.querySelector('#tags-array')
 
 function getTags(tags) {
-    tags.split(' ').forEach(e => {
+    tags.split(';').forEach(e => {
         const tag = newTag(e)
         tagContainer.append(tag)
         unFade(tag)
