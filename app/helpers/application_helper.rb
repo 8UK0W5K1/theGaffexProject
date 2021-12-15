@@ -19,5 +19,8 @@ module ApplicationHelper
   def categories
     Category.all
   end
- 
+
+  def admin?
+    current_user.admin
+  end
 end
