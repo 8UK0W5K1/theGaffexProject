@@ -36,7 +36,7 @@
                            placeholder: 'Mots clés séparés par des ;'
         %>
         <%= hidden_field :keywords, nil, id: 'keywords-array' %>
-        <div class="tag-container">
+        <div class="keywords-container">
         </div>
         <br/>
         <%= label_tag "Ajouter une image a l'article", nil, class: 'mb-2' %>
@@ -54,5 +54,5 @@
 <%= javascript_include_tag 'keywords' %>
 
 <script>
-  getTags("<%= @keywords.join(';') %>")
+  getKeywords("<%= @keywords.join(';') %>")
 </script>
