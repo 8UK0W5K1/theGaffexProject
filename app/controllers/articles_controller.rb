@@ -71,7 +71,8 @@ class ArticlesController < ApplicationController
   def update
     @categories = Category.all
     @article = Article.find(params[:id])
-
+    @keywords = []
+    @article.keywords.each { |keyword| @keywords << keyword.name }
     if @article.update(
       title: params[:title],
       summary: params[:summary],
