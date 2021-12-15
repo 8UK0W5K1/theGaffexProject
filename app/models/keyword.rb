@@ -5,7 +5,7 @@ class Keyword < ApplicationRecord
   validates :name, presence: true
 
   def self.assign_keywords(params, article)
-    params[:tags].join.split(';').each do |keyword|
+    params[:keywords].join.split(';').each do |keyword|
       if Keyword.find_by(name: keyword).nil?
         @keyword = Keyword.new(name: keyword.capitalize)
         KeywordToArticle.create(article: article, keyword: @keyword) if @keyword.save
@@ -17,7 +17,7 @@ class Keyword < ApplicationRecord
 
   def self.update_keywords(params, article)
     article.keywords.destroy_all
-    params[:tags].join.split(';').each do |keyword|
+    params[:keywords].join.split(';').each do |keyword|
       if Keyword.find_by(name: keyword).nil?
         @keyword = Keyword.new(name: keyword.capitalize)
         KeywordToArticle.create(article: article, keyword: @keyword) if @keyword.save

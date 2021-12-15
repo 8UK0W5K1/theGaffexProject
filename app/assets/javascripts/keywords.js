@@ -1,6 +1,6 @@
 const tagContainer = document.querySelector('.tag-container');
-const inputField = document.querySelector('#tag-input');
-const tagArray = document.querySelector('#tags-array')
+const inputField = document.querySelector('#keyword-input');
+const tagArray = document.querySelector('#keywords-array')
 
 function getTags(tags) {
     tags.split(';').forEach(e => {
