@@ -67,7 +67,11 @@
     </div>
 </div>
 <div class="d-flex" style="justify-content: space-between;">
-  <div class="date">Article créé le <%= Time.zone.now %></div>
+    <%if @article.created_at.strftime("%d/%m/%Y %k:%M:%S") == @article.updated_at.strftime("%d/%m/%Y %k:%M:%S")%>
+      <div class="date">Article créé le <%= @article.created_at.strftime("%d/%m/%Y") %>.</div>
+    <% else %>
+      <div class="date">Article mis à jour le <%= @article.updated_at.strftime("%d/%m/%Y") %>.</div>
+    <% end %>
   <a href="<%= article_path(@article.id, format: :pdf) %>" target="_blank" class="btn btn-primary hover">Exporter en
     PDF</a>
 </div>
