@@ -4,7 +4,7 @@
       <h3>Publier un article</h3>
       <%= form_tag article_path(@article.id), :method => :patch, multipart: true, class: 'text-center form-group,form-control' do %>
         <%= label_tag 'Catégorie' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= select_tag 'category', options_from_collection_for_select(@categories, 'id', 'name'), class: "form-control" %>
+        <%= select_tag 'category', options_from_collection_for_select(@categories, 'id', 'name'), class: "form-control form-select" %>
         <br/>
         <%= label_tag 'Titre' %><small class="text-danger ms-1 fs-5">*</small>
 
