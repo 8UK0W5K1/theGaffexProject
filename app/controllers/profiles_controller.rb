@@ -16,8 +16,10 @@ class ProfilesController < ApplicationController
       render :edit
     else
       @user.update(first_name: params[:first_name], last_name: params[:last_name])
+      @user.avatar.attach(params[:avatar])
       redirect_to stored_location_for(:user)
-    end
+    end 
+
   end
 end
 

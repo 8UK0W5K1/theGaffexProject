@@ -14,13 +14,32 @@
             <h1><%=@user.first_name%> <%=@user.last_name%></h1> 
           </div>
         </div> 
-      </div>    
+      </div> 
+
+      <%if user_signed_in? && current_user == @user %> 
+        <a href="<%= edit_profile_path(@user.id) %>" class="btn btn-secondary float-end">Modifier votre profil</a>
+      <%end%>
+
     </div> 
-    <%= render 'user_article_list' %> 
+    <div class="m-3">
+      <%if user_signed_in? && current_user == @user %> 
+        <h3>Vos articles publiés :</h3>
+      <%else%>
+        <h3>Articles publiés :</h3>
+      <%end%>
+    </div>
+    
+    <%if @user.articles.length == 0%>
+      <div class="m-auto">
+        <p>Pas d'articles encore publiés<p>
+      </div>
+    <%else%>
+    <%= render 'profile_article_list' %> 
+    <%end%>
   </div>
 </div>
 
-<% if @user.articles.nil?%>
+<% if @user.articles.length == 0%>
   <%= render 'layouts/footer_sticky' %>
 <% else %>
   <%= render 'layouts/footer' %>
