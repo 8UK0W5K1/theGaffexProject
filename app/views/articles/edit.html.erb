@@ -29,14 +29,14 @@
         <%= text_area_tag 'references', @article.references, class: "form-control" %>
         <br>
         <%= label_tag 'Mots Clés' %>
-        <%= text_field_tag 'tags_input',
+        <%= text_field_tag 'keywords_input',
                            nil,
-                           id: 'tag-input',
+                           id: 'keyword-input',
                            class: "form-control",
                            placeholder: 'Mots clés séparés par des ;'
         %>
-        <%= hidden_field :tags, nil, id: 'tags-array' %>
-        <div class="tag-container">
+        <%= hidden_field :keywords, nil, id: 'keywords-array' %>
+        <div class="keywords-container">
         </div>
         <br/>
         <%= label_tag "Ajouter une image a l'article", nil, class: 'mb-2' %>
@@ -51,8 +51,8 @@
   </div>
 </div>
 
-<%= javascript_include_tag 'tags' %>
+<%= javascript_include_tag 'keywords' %>
 
 <script>
-  getTags("<%= @keywords.join(';') %>")
+  getKeywords("<%= @keywords.join(';') %>")
 </script>
