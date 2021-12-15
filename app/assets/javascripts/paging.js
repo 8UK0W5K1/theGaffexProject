@@ -58,12 +58,13 @@ class Paging {
     }
 
     buildPaging() {
-        if (parseInt(this.btn1.firstElementChild.textContent) > this.totalPages) this.btn1.classList.add('disabled');
-        if (parseInt(this.btn2.firstElementChild.textContent) > this.totalPages) this.btn2.classList.add('disabled');
-        if (parseInt(this.btn3.firstElementChild.textContent) > this.totalPages) this.btn3.classList.add('disabled');
-        if (parseInt(this.btn4.firstElementChild.textContent) > this.totalPages) this.btn4.classList.add('disabled');
-        if (parseInt(this.btn5.firstElementChild.textContent) > this.totalPages) this.btn5.classList.add('disabled');
-        if (this.page === this.totalPages) this.btnNext.classList.add('disabled')
+        if (parseInt(this.btn1.firstElementChild.textContent) > this.totalPages) this.btn1.remove();
+        if (parseInt(this.btn2.firstElementChild.textContent) > this.totalPages) this.btn2.remove();
+        if (parseInt(this.btn3.firstElementChild.textContent) > this.totalPages) this.btn3.remove();
+        if (parseInt(this.btn4.firstElementChild.textContent) > this.totalPages) this.btn4.remove();
+        if (parseInt(this.btn5.firstElementChild.textContent) > this.totalPages) this.btn5.remove();
+        if (this.page === this.totalPages) this.btnNext.remove();
+        if (this.btnPrev.classList.contains('disabled')) this.btnPrev.remove()
     }
 
     init() {

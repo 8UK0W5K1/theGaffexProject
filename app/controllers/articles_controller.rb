@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-
+  before_action :require_profile, only:[:new]
   before_action :authenticate_user!, only: [:new]
 
   def index
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Article : #{@article.title}" , template: "articles/show.html.erb",  layout: "pdf"  # Excluding ".pdf" extension.
+        render pdf: "#{@article.user.first_name} #{@article.user.last_name} - #{@article.title}", template: "articles/show.html.erb",  layout: "pdf"  # Excluding ".pdf" extension.
       end
     end
   end
@@ -47,6 +47,16 @@ class ArticlesController < ApplicationController
 
     Keyword.assign_keywords(params, @article)
 
-  end
+  end 
 
+  private
+
+  def require_profile
+    if user_signed_in?
+      if current_user.first_name.nil?
+        flash[:error] = "Vous devez enregistrer votre profil"
+        redirect_to edit_profile_path(current_user.id)
+      end
+    end
+  end
 end
