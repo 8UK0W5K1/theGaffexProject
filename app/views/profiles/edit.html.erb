@@ -14,9 +14,11 @@
         <br>
         <%= file_field_tag :avatar %>
         <br>  
-        <a href="<%= edit_user_registration_path(current_user.id) %>" class="none-underline">Modifier mon compte</a>           
+        <div class="mt-4">
+          <a href="<%= edit_user_registration_path(current_user.id) %>" class="none-underline ">Modifier mon compte</a> 
+        </div>          
         <br>
-        <%= submit_tag "Enregistrer", class: "mt-3 btn btn-lg btn btn-success"  %>
+        <%= submit_tag "Enregistrer", class: "mt-1 btn btn-lg btn btn-success"  %>
         <p class="mt-4"><small class="text-danger me-2 fs-5">*</small>champs obligatoires</p>
       <% end %>
     </div>   
