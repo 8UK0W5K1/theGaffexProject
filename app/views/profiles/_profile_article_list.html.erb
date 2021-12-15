@@ -37,6 +37,7 @@
             <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Validé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
           <%end%>
         </div>
+        <button class="btn-danger"><%= link_to "Editer", edit_article_path(article.id), class: "btn btn-border-warning" %></button>
       </div>
       <div class="d-flex justify-content-center mt-4">
         <a href="<%= article_path(article.id) %>" class="btn btn-primary hover">Voir article</a>
