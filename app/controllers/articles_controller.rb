@@ -36,7 +36,15 @@ class ArticlesController < ApplicationController
   def create
     @user = current_user 
     @article = Article.create(
-      user: @user, title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references]
+      user: @user,
+      title: params[:title],
+      summary: params[:summary],
+      introduction: params[:introduction],
+      protocol: params[:protocol],
+      result: params[:result],
+      conclusion: params[:conclusion],
+      references: params[:references],
+      category: Category.find(params[:category])
     )
 
     if @article.save
