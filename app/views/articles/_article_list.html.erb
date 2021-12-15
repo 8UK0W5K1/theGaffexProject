@@ -22,9 +22,9 @@
           <%if user_signed_in?%> 
 
             <%if whith_tag(current_user,article) == "Approved"%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Validé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <%else%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Validé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <%end%> 
 
             <%if whith_tag(current_user,article) == "Need Review"%>
@@ -34,15 +34,15 @@
             <%end%> 
 
             <%if whith_tag(current_user,article) == "Not Approved"%>
-              <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Validé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
+              <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
             <%else%>
-              <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Validé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
+              <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
             <%end%> 
 
           <%else%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Validé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
-            <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Validé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
+            <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
           <%end%>
         </div>
       </div>
