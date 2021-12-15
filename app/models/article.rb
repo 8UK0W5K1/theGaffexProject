@@ -15,7 +15,15 @@ class Article < ApplicationRecord
     results = []
     Article.match_keywords(keyword).each { |result| results << result }
     Article.match_article(keyword).each { |result| results << result unless results.include?(result) }
-    results
+    Article.filter_results(results)
+  end
+
+  def self.filter_results(results)
+    filtered_results = []
+    results.group_by { |e| e }.map { |key, value| [key, value.size] }.each do |filtered|
+      filtered_results << filtered[0]
+    end
+    filtered_results
   end
 
   def self.match_keywords(keyword)
