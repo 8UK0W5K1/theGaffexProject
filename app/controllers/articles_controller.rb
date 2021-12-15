@@ -60,6 +60,12 @@ class ArticlesController < ApplicationController
    
   end
 
+  def destroy
+    Article.find(params[:id]).destroy
+    flash[:info] = "Votre article a bien été supprimé !"
+    redirect_to profile_path(current_user.id)    
+  end
+
   private
 
   def require_profile
