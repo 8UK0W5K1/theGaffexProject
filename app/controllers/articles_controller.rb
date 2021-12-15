@@ -53,6 +53,13 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def update
+    @article = Article.find(params[:id])
+    @article.update(title: params[:title], summary: params[:summary], introduction: params[:introduction], protocol: params[:protocol], result: params[:result], conclusion: params[:conclusion], references: params[:references])
+    redirect_to profile_path(current_user.id)
+   
+  end
+
   private
 
   def require_profile
