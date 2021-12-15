@@ -18,21 +18,30 @@ user_first.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), 
 user_second = User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456", first_name: "Chuck", last_name: "Norris")
 user_second.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
 puts " two users"
+
+# categories
+
+categories = ['physique', 'chimie', 'physique quantique', 'physique nucléaire', 'bioscience', 'biologie', 'bactériologie']
+categories.each do |category|
+  Category.create(name: category)
+end
+
 # Table Articles
 
 10.times do |article|
-    puts " article created "
-    article = Article.create(
-        user: User.all[rand(0..1)],
-        title: Faker::Movie.title,
-        summary: Faker::Lorem.paragraph(sentence_count: 10),
-        introduction: Faker::Lorem.paragraph(sentence_count: 20),
-        protocol: Faker::Lorem.paragraph(sentence_count: 60),
-        result: Faker::Lorem.paragraph(sentence_count: 40),
-        conclusion: Faker::Lorem.paragraph(sentence_count: 30),
-        references: Faker::Internet.url
-    )
-    article.picture.attach(io: File.open('./app/assets/images/default_picture.jpg'), filename: 'default.jpg')
+  puts " article created "
+  article = Article.create(
+    user: User.all[rand(0..1)],
+    title: Faker::Movie.title,
+    summary: Faker::Lorem.paragraph(sentence_count: 10),
+    introduction: Faker::Lorem.paragraph(sentence_count: 20),
+    protocol: Faker::Lorem.paragraph(sentence_count: 60),
+    result: Faker::Lorem.paragraph(sentence_count: 40),
+    conclusion: Faker::Lorem.paragraph(sentence_count: 30),
+    references: Faker::Internet.url,
+    category: Category.all.sample
+  )
+  article.picture.attach(io: File.open('./app/assets/images/default_picture.jpg'), filename: 'default.jpg')
 end
 
 # keywords
@@ -44,13 +53,13 @@ end
 # Table Tag + keywords
 
 Article.all.each do |article|
-    puts " tag_article created"
-    Tag.create(user: user_first, article: article, tag_name: ["Approved", "Not Approved", "Need Review"].sample)
-    Tag.create(user: user_second, article: article, tag_name: ["Approved", "Not Approved", "Need Review"].sample)
-    number = rand(5..10)
-    number.times do
-      KeywordToArticle.create(article: article, keyword: Keyword.all.sample)
-    end
+  puts " tag_article created"
+  Tag.create(user: user_first, article: article, tag_name: ["Approved", "Not Approved", "Need Review"].sample)
+  Tag.create(user: user_second, article: article, tag_name: ["Approved", "Not Approved", "Need Review"].sample)
+  number = rand(5..10)
+  number.times do
+    KeywordToArticle.create(article: article, keyword: Keyword.all.sample)
+  end
 end
 
 

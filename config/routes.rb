@@ -17,9 +17,10 @@ Rails.application.routes.draw do
   resources :articles do
     resources :tags, only: %i[create destroy] 
   end
-  
+
   resources :searches, only: %i[index]
   resources :profiles, only: %i[edit update show]
+  resources :categories, only: %i[show]
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
