@@ -45,8 +45,8 @@
         <% end %>
         <a href="<%= help_path %>" target="_blank"><span class="badge badge-help rounded-pill bg-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Comment ça marche?"><span class="iconify badge-help" data-icon="mdi:help"></span></span></a>
       </div>
-      <div class="d-flex justify-content-center mt-5 bg-light">
-        <a href="<%= category_path(@article.category.id) %>" style="text-decoration: none; color: black;"><%= @article.category.name %></a>
+      <div class="d-flex justify-content-end me-4 mt-5 bg-light">
+        <h5 href="<%= category_path(@article.category.id) %>" style="text-decoration: none; color: black;"><%= @article.category.name %></h5>
       </div>
     </div>
   </div>
