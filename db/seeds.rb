@@ -10,12 +10,13 @@ User.destroy_all
 Article.destroy_all
 Tag.destroy_all
 Keyword.destroy_all
+Category.destroy_all
 
 # Table Users
 
-user_first = User.create(email: "francis@gmail.com", password: "123456", first_name: "Francis", last_name: "Fake", is_admin?: "true")
+user_first = User.create(email: "francis@gmail.com", password: "123456", first_name: "Francis", last_name: "Fake", admin: true)
 user_first.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
-user_second = User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456", first_name: "Chuck", last_name: "Norris", is_admin?: "false")
+user_second = User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456", first_name: "Chuck", last_name: "Norris", admin: false)
 user_second.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
 puts " two users"
 
