@@ -43,7 +43,7 @@ function removeKeyword(div, name) {
 
 function init() {
     inputField.addEventListener('keyup', function (e) {
-        if (e.key === ';') {
+        if (e.key === ' ') {
             const name = inputField.value.slice(0, -1)
             const keyword = newKeyword(name)
             keywordContainer.append(keyword)

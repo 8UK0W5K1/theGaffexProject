@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "article_show" %>
 <div class="col">
-  <div class="offset-2 col-8 mx-auto">
+  <div class="offset-2 col-12 col-xl-8 mx-auto">
     <div class="card border-secondary p-4 justify-content-center bg-light above-small shadow-lg">
       <div class="text-center card border-light bg-light ">
         <div>
@@ -9,21 +9,19 @@
         </div>
       </div>
       <div class="card border-light p-4 justify-content-center bg-light ">
-        <div class="card-header">En tant qu'inscrit, vous pouvez donnez votre avis sur l'article que vous venez de
-          lire.
+        <div class="card-header">En vous inscrivant, vous pouvez évaluer la pertinence des articles en tant qu’échecs scientifiques, parmi les trois catégories suivantes:
         </div>
         <div class="card-body mt-2">
           <div class="row ">
             <p>
               <span class="badge rounded-pill bg-success me-5"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20" data-height="20"></span></span>
-              Soit, vous estimez qu'il s'agit effectivement d'une expérience non-concluante.</p>
+              Approuvé : Vous estimez que la méthodologie employée et l'interprétation des résultats sont adéquates, il s’agit d’un échec véritable.</p>
             <p>
               <span class="badge rounded-pill bg-warning me-5"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span></span>
-              Soit, vous estimez que l'expérience nécessite d'être retravaillée avant de conclure à un échec.</p>
+              A retravailler : Vous estimez qu'il y a un problème dans le protocole de cette étude. Celle-ci pourrait ne pas être un échec si elle était retravaillée. </p>
             <p>
               <span class="badge rounded-pill bg-danger me-5"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span></span>
-              Soit, vous estimez que l'expérience est une réussite, contrairement à ce que son auteur pensait en la
-              publiant sur le Gaffex. </p>
+              Non Approuvé : Vous estimez que l’échec de cette étude est due à un manque de sérieux dans la démarche scientifique et qu'il n’est pas profitable à la communauté.</p>
           </div>
         </div>
       </div>

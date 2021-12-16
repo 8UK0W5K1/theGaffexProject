@@ -13,7 +13,10 @@ Keyword.destroy_all
 Category.destroy_all
 
 # Table Users
-
+#
+# used hardcoded path because i couldn't fiond any way to use the asset pipeline to generate the right path for the
+# images, I watched the doc files for asset pipeline and active storage and a lot of stack overflow, neither of them gave me
+# even clues on how to do this
 user_first = User.create(email: "francis@gmail.com", password: "123456", first_name: "Francis", last_name: "Fake", admin: true)
 user_first.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
 user_second = User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456", first_name: "Chuck", last_name: "Norris", admin: false)
@@ -22,7 +25,22 @@ puts " two users"
 
 # categories
 
-categories = ['Physique', 'Chimie', 'Physique Quantique', 'Physique Nucléaire', 'Bioscience', 'Biologie', 'Bactériologie']
+categories = [
+  'Astronomie',
+  'Biochimie',
+  'Biologie',
+  'Chimie',
+  'Energie',
+  'Environement',
+  'Informatique',
+  'Ingenieurie',
+  'Mathematiques',
+  'Médecine',
+  'Physique',
+  'Pharmacie',
+  'Sciences humaines'
+]
+
 categories.each do |category|
   Category.create(name: category)
 end
@@ -62,5 +80,3 @@ Article.all.each do |article|
     KeywordToArticle.create(article: article, keyword: Keyword.all.sample)
   end
 end
-
-
