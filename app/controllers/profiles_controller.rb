@@ -11,8 +11,11 @@ class ProfilesController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:first_name].nil? || params[:last_name].nil?
+    if params[:first_name].blank? || params[:last_name].blank? 
       flash.now[:alert] = 'Erreur, vous devez remplir les champs'
+      render :edit
+    elsif params[:first_name].length  >= 50 || params[:last_name].length >= 50
+      flash.now[:alert] = "Désolé, maximum 50 caractères pour ces champs"
       render :edit
     else
       @user.update(first_name: params[:first_name], last_name: params[:last_name])
