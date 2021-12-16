@@ -1,0 +1,23 @@
+<ul class="pagination">
+  <li class="page-item disabled" id="btn-prev">
+    <%= link_to '<<', category_path(page: 0), class: 'page-link', remote: true %>
+  </li>
+  <li class="page-item" id="btn-1">
+    <%= link_to '1', category_path(page: 1), class: 'page-link', remote: true %>
+  </li>
+  <li class="page-item" id="btn-2">
+    <%= link_to '2', category_path(page: 2), class: 'page-link', remote: true %>
+  </li>
+  <li class="page-item" id="btn-3">
+    <%= link_to '3', category_path(page: 3), class: 'page-link', remote: true %>
+  </li>
+  <li class="page-item" id="btn-4">
+    <%= link_to '4', category_path(page: 4), class: 'page-link', remote: true %>
+  </li>
+  <li class="page-item" id="btn-5">
+    <%= link_to '5', category_path(page: 5), class: 'page-link', remote: true %>
+  </li>
+  <li class="page-item" id="btn-next">
+    <%= link_to '>>', category_path(page: 2), class: 'page-link', remote: true %>
+  </li>
+</ul>

@@ -13,15 +13,25 @@ Rails.application.routes.draw do
 
   root 'articles#index'
 
-
   resources :articles do
-    resources :tags, only: %i[create destroy] 
+    resources :tags, only: %i[create destroy]
   end
 
-  resources :searches, only: %i[index]
-  resources :profiles, only: %i[edit update show destroy]
-  resources :categories, only: %i[show]
-
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :searches, only: %i[index], path: 'recherche'
+  resources :profiles, only: %i[edit update show destroy], path: 'profil'
+  resources :categories, only: %i[show], path: "catégories"
+      
+  devise_for :users,
+             :path => '',
+             :path_names => { :sign_in =>       'connexion',
+                              :sign_out =>      'déconnexion',
+                              :sign_up =>       '',
+                              :registration =>  'inscription',
+                              :edit =>          'éditer',
+                              :cancel =>        'retour',
+                              :confirmation =>  'vérification',
+                              :password =>      'mot-de-passe',
+                              }
+                                
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
