@@ -1,52 +1,59 @@
 <div class="col">
   <div class="offset-2 col-8 mx-auto">
     <div class="card border-secondary p-4 text-center justify-content-center bg-light above-small shadow-lg">
-      <h3>Publier un article</h3>
-      <%= form_tag(url_for(action: 'create'), method: "post", multipart: true, class: 'text-center form-group,form-control') do %>
-        <%= label_tag 'Catégorie' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= select_tag 'category', options_from_collection_for_select(@categories, 'id', 'name'), class: "form-control form-select" %>
-        <br/>
-        <%= label_tag 'Titre' %><small class="text-danger ms-1 fs-5">*</small>
-
-        <%= text_field_tag 'title', nil, class: "form-control" %>
-        <br>
-        <%= label_tag 'Résumé' %> <small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'summary', nil, class: "form-control" %>
-        <br>
-        <%= label_tag 'Introduction' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'introduction', nil, class: "form-control" %>
-        <br>
-        <%= label_tag 'Protocole' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'protocol', nil, class: "form-control" %>
-        <br>
-        <%= label_tag 'Résultats' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'result', nil, class: "form-control" %>
-        <br>
-        <%= label_tag 'Conclusion' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'conclusion', nil, class: "form-control" %>
-        <br>
-        <%= label_tag 'Références' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'references', nil, class: "form-control" %>
-        <br>
-        <%= label_tag 'Mots Clés' %>
-        <%= text_field_tag 'keywords_input',
-                           nil,
-                           id: 'keyword-input',
-                           class: "form-control",
-                           placeholder: 'Mots clés séparés par des ;'
-        %>
-        <%= hidden_field :keywords, nil, id: 'keywords-array' %>
-        <div class="keywords-container">
-        </div>
-        <br/>
-        <%= label_tag "Ajouter une image a l'article", nil, class: 'mb-2' %>
-        <br>
-        <%= file_field_tag :picture %>
-        <br>
-        <br>
-        <%= submit_tag "Publier mon article", class: "mt-3 btn btn-lg btn btn-success" %>
-        <p class="mt-4"><small class="text-danger me-2 fs-5">*</small>champs obligatoires</p>
-      <% end %>
+      <h3 class="m-4">Publier un article</h3>
+        <div class="mt-4 col-2 mx-auto text-center">
+          <%= form_tag(url_for(action: 'create'), method: "post", multipart: true, class: 'text-center form-group,form-control') do %>
+            <%= label_tag 'Catégorie' %><small class="text-danger ms-1 fs-5">*</small>
+            <%= select_tag 'category', options_from_collection_for_select(@categories, 'id', 'name'), class: "form-control form-select" %>
+            <br/>
+            </div>
+            <div class="col-5 mx-auto text-center">
+            <%= label_tag 'Titre' %><small class="text-danger ms-1 fs-5">*</small>
+            <%= text_field_tag 'title', nil, class: "form-control" %>
+            <br>
+            </div>
+            <div class="col-12 ms-2 mx-auto text-center">
+              <%= label_tag 'Résumé' %> <small class="text-danger ms-1 fs-5">*</small>
+              <%= text_area_tag 'summary', nil, class: "form-control" %>
+              <br>
+              <%= label_tag 'Introduction' %><small class="text-danger ms-1 fs-5">*</small>
+              <%= text_area_tag 'introduction', nil, class: "form-control" %>
+              <br>
+              <%= label_tag 'Protocole' %><small class="text-danger ms-1 fs-5">*</small>
+              <%= text_area_tag 'protocol', nil, class: "form-control" %>
+              <br>
+              <%= label_tag 'Résultats' %><small class="text-danger ms-1 fs-5">*</small>
+              <%= text_area_tag 'result', nil, class: "form-control" %>
+              <br>
+              <%= label_tag 'Conclusion' %><small class="text-danger ms-1 fs-5">*</small>
+              <%= text_area_tag 'conclusion', nil, class: "form-control" %>
+              <br>
+              <%= label_tag 'Références' %><small class="text-danger ms-1 fs-5">*</small>
+              <%= text_area_tag 'references', nil, class: "form-control" %>
+              <br>
+              <div class="col-5 mx-auto text-center">
+              <%= label_tag 'Mots Clés' %>
+              <%= text_field_tag 'keywords_input',
+                                nil,
+                                id: 'keyword-input',
+                                class: "form-control",
+                                placeholder: 'Mots clés séparés par des ;'
+              %>
+              <%= hidden_field :keywords_list, nil, id: 'keywords-array' %>
+              <div class="keywords-container">
+              </div>
+              <br/>
+              </div>
+              <%= label_tag "Ajouter une image à l'article", nil, class: 'mb-2' %>
+              <br>
+              <%= file_field_tag :picture %>
+              <br>
+              <br>
+              <%= submit_tag "Publier mon article", class: "mt-3 btn btn-lg btn btn-success" %>
+              <p class="mt-4"><small class="text-danger me-2 fs-5">*</small>champs obligatoires</p>
+            <% end %>
+          </div>
     </div>
   </div>
 </div>
