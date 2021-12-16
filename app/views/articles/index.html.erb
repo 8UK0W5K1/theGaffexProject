@@ -14,12 +14,6 @@
 
 <%= javascript_include_tag 'paging' %>
 
-<% if @articles.nil?%>
-  <%= render 'layouts/footer_sticky' %>
-<% else %>
-  <%= render 'layouts/footer' %>
-<% end %>
-
 <script id='paging-script'>
     let ul = document.querySelector('ul.pagination');
     let url = "<%= articles_path %>"
