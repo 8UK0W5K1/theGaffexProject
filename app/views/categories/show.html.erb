@@ -9,7 +9,7 @@
       <%= render 'article_list' %>
     <% end %>
     <div id="paging" class="d-flex justify-content-end mt-4">
-      <%= render 'paging' unless @articles.nil? %>
+      <%= render 'paging'  unless @total_pages < 2 %>
     </div>
   </div>
 </div>

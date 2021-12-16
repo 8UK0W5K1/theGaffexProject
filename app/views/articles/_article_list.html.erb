@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-center">
-  <div class=" col-5 my-2">
+  <div class="col-5 my-2">
     <%= form_tag(url_for(controller: 'searches', action: 'index'), method: 'get', class: 'input-group w-auto ml-3') do %>
-      <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
-      <%= image_submit_tag("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%221em%22%20height%3D%221em%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9.5%203A6.5%206.5%200%200%201%2016%209.5c0%201.61-.59%203.09-1.56%204.23l.27.27h.79l5%205l-1.5%201.5l-5-5v-.79l-.27-.27A6.516%206.516%200%200%201%209.5%2016A6.5%206.5%200%200%201%203%209.5A6.5%206.5%200%200%201%209.5%203m0%202C7%205%205%207%205%209.5S7%2014%209.5%2014S14%2012%2014%209.5S12%205%209.5%205z%22%20fill%3D%22currentColor%22%2F%3E%3C%2Fsvg%3E", class: 'ms-2') %>
+      <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher", id: 'search-form' %>
+      <%= image_submit_tag("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%221em%22%20height%3D%221em%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9.5%203A6.5%206.5%200%200%201%2016%209.5c0%201.61-.59%203.09-1.56%204.23l.27.27h.79l5%205l-1.5%201.5l-5-5v-.79l-.27-.27A6.516%206.516%200%200%201%209.5%2016A6.5%206.5%200%200%201%203%209.5A6.5%206.5%200%200%201%209.5%203m0%202C7%205%205%207%205%209.5S7%2014%209.5%2014S14%2012%2014%209.5S12%205%209.5%205z%22%20fill%3D%22currentColor%22%2F%3E%3C%2Fsvg%3E", class: 'ms-2 search-icon') %>
     <% end %>
   </div>
 </div>
@@ -19,25 +19,25 @@
     <div class="card border-light col bg-light mt-3 ">
       <div class="d-flex justify-content-center ">
         <div row="">
-          <%if user_signed_in?%> 
+          <%if user_signed_in?%>
 
             <%if whith_tag(current_user,article) == "Approved"%>
             <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <%else%>
             <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
-            <%end%> 
+            <%end%>
 
             <%if whith_tag(current_user,article) == "Need Review"%>
               <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
             <%else%>
               <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
-            <%end%> 
+            <%end%>
 
             <%if whith_tag(current_user,article) == "Not Approved"%>
               <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
             <%else%>
               <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
-            <%end%> 
+            <%end%>
 
           <%else%>
             <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
@@ -48,7 +48,19 @@
       </div>
       <div class="d-flex justify-content-center mt-4">
         <a href="<%= article_path(article.id) %>" class="btn btn-primary hover">Voir article</a>
+          <% if user_signed_in? && current_user.admin%>
+            <a href="<%= article_path(article.id) %>" data-confirm="Voulez vous vraiment supprimer cet article ?" data-method="delete" class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer l'article"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/><path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/></svg></a>
+          <%end%>
       </div>
     </div>
   </div>
 <% end %>
+
+<script>
+  const searchIcon = document.querySelector('.search-icon');
+  searchIcon.addEventListener('click', () => {
+      searchIcon.click();
+      searchIcon.remove();
+      document.querySelector('#search-form').insertAdjacentHTML('afterend', '<div class="lds-dual-ring"></div>');
+  }, {once: true})
+</script>
