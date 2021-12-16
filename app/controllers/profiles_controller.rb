@@ -6,11 +6,11 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     if params[:first_name].nil? || params[:last_name].nil?
       flash.now[:alert] = 'Erreur, vous devez remplir les champs'
       render :edit
@@ -19,8 +19,19 @@ class ProfilesController < ApplicationController
       @user.avatar.attach(params[:avatar]) unless params[:avatar].nil?
       redirect_to stored_location_for(:user)
     end 
-
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    if current_user.admin
+      flash[:info] = "Le profil a bien été supprimé !"
+      redirect_to root_path
+    else
+      flash[:info] = "Votre profil a bien été supprimé !"
+      redirect_to root_path
+    end   
+  end
+
 end
 
 
