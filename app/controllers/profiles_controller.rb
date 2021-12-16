@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
       flash.now[:alert] = "Désolé, maximum 50 caractères pour ces champs"
       render :edit
     else
-      @user.update(first_name: params[:first_name], last_name: params[:last_name])
+      @user.update(first_name: params[:first_name].capitalize, last_name: params[:last_name].upcase)
       @user.avatar.attach(params[:avatar]) unless params[:avatar].nil?
       redirect_to stored_location_for(:user)
     end 
