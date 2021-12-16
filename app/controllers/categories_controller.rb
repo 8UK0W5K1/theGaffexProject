@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
             end
 
     @category = Category.find(params[:id])
-    @articles = Article.where(category: @category).order("updated_at DESC")
+    @articles = Article.where(category: @category).order("updated_at DESC").limit(60 + (@page * 6))
     @total_pages = (@articles.count / 6.to_f).ceil
     @articles = @articles[((@page - 1) * 6)..(@page * 6 - 1)]
     @articles = nil if @articles == []
