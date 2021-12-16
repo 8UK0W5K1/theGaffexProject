@@ -95,7 +95,11 @@ class ArticlesController < ApplicationController
   def destroy
     Article.find(params[:id]).destroy
     flash[:info] = "Votre article a bien été supprimé !"
-    redirect_to profile_path(current_user.id)    
+    if current_user.admin
+      redirect_to root_path
+    else
+      redirect_to profile_path(current_user.id) 
+    end   
   end
 
   private
