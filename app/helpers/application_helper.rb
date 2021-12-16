@@ -19,4 +19,16 @@ module ApplicationHelper
   def categories
     Category.all
   end
+
+  def store_location!
+    store_location_for(:user, request.fullpath)
+  end
+
+  def after_sign_in_path_for(resource_or_scope)
+    if (Time.zone.now - current_user.created_at) < 20
+      edit_profile_path(current_user.id)
+    else
+      stored_location_for(resource)
+    end
+  end
 end
