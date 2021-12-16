@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'errors/not_found'
-  get 'errors/unacceptable'
-  get 'errors/internal_error'
   get 'about_gaffex', to: 'static_pages#what_is_gaffex'
   get 'about_us', to: 'static_pages#about_us'
   get 'contact', to: 'static_pages#contact'
