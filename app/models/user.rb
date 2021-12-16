@@ -21,6 +21,9 @@ class User < ApplicationRecord
   end
 
   def attach_default_avatar
+    # used hardcoded path because i couldn't fiond any way to use the asset pipeline to generate the right path for the
+    # images, I watched the doc files for asset pipeline and active storage and a lot of stack overflow, neither of them gave me
+    # even clues on how to do this
     avatar.attach(io: File.open('./app/assets/images/default_avatar.png'), filename: 'default.png')
   end
 end

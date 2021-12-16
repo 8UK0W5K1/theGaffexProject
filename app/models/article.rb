@@ -23,6 +23,9 @@ class Article < ApplicationRecord
 
   def attach_picture(params)
     if params[:picture].nil?
+      # used hardcoded path because i couldn't fiond any way to use the asset pipeline to generate the right path for the
+      # images, I watched the doc files for asset pipeline and active storage and a lot of stack overflow, neither of them gave me
+      # even clues on how to do this
       picture.attach(io: File.open('./app/assets/images/default_picture.jpg'), filename: 'default.jpg')
     else
       picture.attach(params[:picture])
