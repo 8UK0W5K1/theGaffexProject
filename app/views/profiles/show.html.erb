@@ -17,7 +17,7 @@
       </div> 
 
       <%if user_signed_in? && current_user == @user %> 
-        <a href="<%= edit_profile_path(@user.id) %>" class="btn btn-secondary float-end">Modifier votre profil</a>
+        <a href="<%= edit_profile_path(@user.id) %>" class="btn btn-primary float-end">Modifier votre profil</a>
       <% elsif user_signed_in? && current_user.admin%>
         <a href="<%= edit_profile_path(@user.id) %>" class="btn btn-primary float-end">Modifier le profil</a>
         <a href="<%= profile_path(@user.id) %>" data-confirm="Voulez vous vraiment supprimer ce profil ?" data-method="delete" class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer le profil"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/><path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/></svg></a>
