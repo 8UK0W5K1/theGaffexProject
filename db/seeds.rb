@@ -23,19 +23,19 @@ puts " two users"
 # categories
 
 categories = [
-  'astronomie',
-  'biochimie',
-  'biologie',
-  'chimie',
-  'energie',
-  'environement',
-  'informatique',
-  'ingenieurie',
-  'mathematiques',
-  'medecine',
-  'physique',
-  'pharmacie',
-  'sciences humaines'
+  'Astronomie',
+  'Biochimie',
+  'Biologie',
+  'Chimie',
+  'Energie',
+  'Environement',
+  'Informatique',
+  'Ingenieurie',
+  'Mathematiques',
+  'Médecine',
+  'Physique',
+  'Pharmacie',
+  'Sciences humaines'
 ]
 
 categories.each do |category|
@@ -77,5 +77,3 @@ Article.all.each do |article|
     KeywordToArticle.create(article: article, keyword: Keyword.all.sample)
   end
 end
-
-
