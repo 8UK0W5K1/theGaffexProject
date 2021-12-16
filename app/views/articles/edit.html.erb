@@ -1,56 +1,57 @@
 <div class="col">
   <div class="offset-2 col-8 mx-auto">
-    <div class="card border-secondary p-4 text-center justify-content-center bg-light above-small shadow-lg">
+    <div class="card border-secondary text-center justify-content-center  p-4 bg-light above-small shadow-lg">
       <h3 class="m-4">Modifier un article</h3>
-         <div class="col-2 mx-auto text-center">
+        <div class="mt-4 col-2 mx-auto text-center">
           <%= form_tag article_path(@article.id), :method => :patch, multipart: true, class: 'text-center form-group,form-control' do %>
             <%= label_tag 'Catégorie' %><small class="text-danger ms-1 fs-5">*</small>
             <%= select_tag 'category', options_from_collection_for_select(@categories, 'id', 'name'), class: "form-control form-select" %>
             <br/>
+        </div>
+        <div class="col-5 mx-auto text-center">
+          <%= label_tag 'Titre' %><small class="text-danger ms-1 fs-5">*</small>
+          <%= text_field_tag 'title', @article.title, class: "form-control" %>
+          <br>
+        </div>
+        <div class="col-12 ms-2 text-center mx-auto">
+          <%= label_tag 'Résumé' %> <small class="text-danger ms-1 fs-5">*</small>
+          <%= text_area_tag 'summary', @article.summary, class: "form-control" %>
+          <br>
+          <%= label_tag 'Introduction' %><small class="text-danger ms-1 fs-5">*</small>
+          <%= text_area_tag 'introduction', @article.introduction, class: "form-control" %>
+          <br>
+          <%= label_tag 'Protocole' %><small class="text-danger ms-1 fs-5">*</small>
+          <%= text_area_tag 'protocol', @article.protocol, class: "form-control" %>
+          <br>
+          <%= label_tag 'Résultats' %><small class="text-danger ms-1 fs-5">*</small>
+          <%= text_area_tag 'result', @article.result, class: "form-control" %>
+          <br>
+          <%= label_tag 'Conclusion' %><small class="text-danger ms-1 fs-5">*</small>
+          <%= text_area_tag 'conclusion', @article.conclusion, class: "form-control" %>
+          <br>
+          <%= label_tag 'Références' %><small class="text-danger ms-1 fs-5">*</small>
+          <%= text_area_tag 'references', @article.references, class: "form-control" %>
+          <br>
+          <%= label_tag 'Mots Clés' %>
+          <%= text_field_tag 'keywords_input',
+                            nil,
+                            id: 'keyword-input',
+                            class: "form-control",
+                            placeholder: 'Mots clés séparés par des ;'
+          %>
+          <%= hidden_field :keywords_list, nil, id: 'keywords-array' %>
+          <div class="keywords-container">
           </div>
-          <div class="col-5 mx-auto text-center">
-        <%= label_tag 'Titre' %><small class="text-danger ms-1 fs-5">*</small>
-
-        <%= text_field_tag 'title', @article.title, class: "form-control" %>
-        <br>
-        </div>
-        <%= label_tag 'Résumé' %> <small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'summary', @article.summary, class: "form-control" %>
-        <br>
-        <%= label_tag 'Introduction' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'introduction', @article.introduction, class: "form-control" %>
-        <br>
-        <%= label_tag 'Protocole' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'protocol', @article.protocol, class: "form-control" %>
-        <br>
-        <%= label_tag 'Résultats' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'result', @article.result, class: "form-control" %>
-        <br>
-        <%= label_tag 'Conclusion' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'conclusion', @article.conclusion, class: "form-control" %>
-        <br>
-        <%= label_tag 'Références' %><small class="text-danger ms-1 fs-5">*</small>
-        <%= text_area_tag 'references', @article.references, class: "form-control" %>
-        <br>
-        <%= label_tag 'Mots Clés' %>
-        <%= text_field_tag 'keywords_input',
-                           nil,
-                           id: 'keyword-input',
-                           class: "form-control",
-                           placeholder: 'Mots clés séparés par des ;'
-        %>
-        <%= hidden_field :keywords_list, nil, id: 'keywords-array' %>
-        <div class="keywords-container">
-        </div>
-        <br/>
-        <%= label_tag "Ajouter une image a l'article", nil, class: 'mb-2' %>
-        <br>
-        <%= file_field_tag :picture %>
-        <br>
-        <br>
-        <%= submit_tag "Editer mon article", class: "mt-3 btn btn-lg btn btn-success" %>
-        <p class="mt-4"><small class="text-danger me-2 fs-5">*</small>champs obligatoires</p>
-      <% end %>
+          <br/>
+          <%= label_tag "Ajouter une image a l'article", nil, class: 'mb-2' %>
+          <br>
+          <%= file_field_tag :picture %>
+          <br>
+          <br>
+          <%= submit_tag "Editer mon article", class: "mt-3 btn btn-lg btn btn-success" %>
+          <p class="mt-4"><small class="text-danger me-2 fs-5">*</small>champs obligatoires</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
