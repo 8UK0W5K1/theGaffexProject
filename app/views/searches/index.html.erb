@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "article_index" %>
 <div id="above-card" class="offset-2 col-12 col-xl-8 mx-auto">
-  <div id="card" class="card border-secondary p-4 justify-content-center bg-light above-small">
+  <div id="card" class="card border-secondary p-4 justify-content-center bg-light shadow-lg above-small">
     <%= render 'results_list' %>
     <div id="paging" class="d-flex justify-content-end mt-4">
       <%= render 'searches/paging' unless @total_pages < 2 %>
