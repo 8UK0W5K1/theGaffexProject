@@ -1,5 +1,4 @@
 class Tag < ApplicationRecord
-belongs_to :user
-belongs_to :article
-
+  belongs_to :user
+  belongs_to :article
 end
