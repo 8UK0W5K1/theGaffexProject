@@ -40,9 +40,3 @@
     <%end%>
   </div>
 </div>
-
-<% if @user.articles.length <= 1%>
-  <%= render 'layouts/footer_sticky' %>
-<% else %>
-  <%= render 'layouts/footer' %>
-<% end %>
