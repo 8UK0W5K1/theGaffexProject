@@ -32,6 +32,7 @@
               <%= label_tag 'Références' %><small class="text-danger ms-1 fs-5">*</small>
               <%= text_area_tag 'references', nil, class: "form-control" %>
               <br>
+              <div class="col-5 mx-auto text-center">
               <%= label_tag 'Mots Clés' %>
               <%= text_field_tag 'keywords_input',
                                 nil,
@@ -43,7 +44,8 @@
               <div class="keywords-container">
               </div>
               <br/>
-              <%= label_tag "Ajouter une image a l'article", nil, class: 'mb-2' %>
+              </div>
+              <%= label_tag "Ajouter une image à l'article", nil, class: 'mb-2' %>
               <br>
               <%= file_field_tag :picture %>
               <br>
