@@ -16,7 +16,7 @@
 
 .card-body {
   text-align: justify;
-  text-indent: 3rem;
+  text-indent: 0rem;
 }
 
 .card-body-references {
@@ -61,4 +61,8 @@
 
 .list-repertory a:hover {
   color:#f39c12;
+}
+
+.badge-help:hover {
+  box-shadow: none;
 }
