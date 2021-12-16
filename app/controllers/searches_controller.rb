@@ -9,7 +9,7 @@ class SearchesController < ApplicationController
               params[:page].to_i
             end
 
-    @results = search(params)
+    @results = Search.new(params[:keyword]).results
     @results_count = @results.count
     @total_pages = (@results_count / 6.to_f).ceil
     @results = @results[((@page - 1) * 6)..(@page * 6 - 1)]
