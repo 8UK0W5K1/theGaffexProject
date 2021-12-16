@@ -40,11 +40,11 @@
                             class: "form-control",
                             placeholder: 'Mots clés séparés par des ;'
           %>
+          </div>
           <%= hidden_field :keywords_list, nil, id: 'keywords-array' %>
           <div class="keywords-container">
           </div>
           <br/>
-          </div>
           <%= label_tag "Ajouter une image à l'article", nil, class: 'mb-2' %>
           <br>
           <%= file_field_tag :picture %>
