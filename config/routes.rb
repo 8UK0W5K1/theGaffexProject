@@ -30,7 +30,7 @@ Rails.application.routes.draw do
                               :edit =>          'éditer',
                               :cancel =>        'retour',
                               :confirmation =>  'vérification',
-                              :password => 'mot-de-passe',
+                              :password =>      'mot-de-passe',
                               }
                                 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
