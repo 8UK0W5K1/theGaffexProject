@@ -13,9 +13,10 @@
         <%= label_tag "Ajouter une photo de profil", nil, class: 'mb-2' %>        
         <%= file_field_tag :avatar %>         
         <div class="mt-4">
-          <a href="<%= edit_user_registration_path(current_user.id) %>" class="none-underline ">Modifier mon compte</a> 
+          <%if @user == current_user%>
+            <a href="<%= edit_user_registration_path(current_user.id) %>" class="none-underline ">Modifier mon compte</a> 
+          <%end%>
         </div>          
-        
         <%= submit_tag "Enregistrer", class: "mt-4 btn btn-lg btn btn-success"  %>
         <p class="mt-4"><small class="text-danger me-2 fs-5">*</small>champs obligatoires</p>
       <% end %>
