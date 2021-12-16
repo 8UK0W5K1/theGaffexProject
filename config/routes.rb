@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :searches, only: %i[index]
-  resources :profiles, only: %i[edit update show]
+  resources :profiles, only: %i[edit update show destroy]
   resources :categories, only: %i[show]
 
   devise_for :users
