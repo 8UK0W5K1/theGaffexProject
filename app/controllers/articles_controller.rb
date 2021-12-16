@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :require_profile, only:[:new]
-  before_action :authenticate_user!, only: [:new]
+  include ArticlesHelper
 
+  before_action :require_profile, only: [:new]
+  before_action :authenticate_user!, only: [:new]
 
   def index
     @page = if params[:page].nil? || params[:page].to_i.zero?
@@ -25,7 +26,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "#{@article.user.first_name} #{@article.user.last_name} - #{@article.title}", template: "articles/show.html.erb",  layout: "pdf"  # Excluding ".pdf" extension.
+        render pdf: "#{@article.user.first_name} #{@article.user.last_name} - #{@article.title}", template: "articles/show.html.erb", layout: "pdf" # Excluding ".pdf" extension.
       end
     end
   end
@@ -36,7 +37,7 @@ class ArticlesController < ApplicationController
 
   def create
     @categories = Category.all
-    @user = current_user 
+    @user = current_user
     @article = Article.create(
       user: @user,
       title: params[:title],
@@ -98,19 +99,7 @@ class ArticlesController < ApplicationController
     if current_user.admin
       redirect_to root_path
     else
-      redirect_to profile_path(current_user.id) 
-    end   
-  end
-
-  private
-  
-    def require_profile
-    if user_signed_in?
-      if current_user.first_name.nil?
-        flash[:error] = "Vous devez enregistrer votre profil"
-        redirect_to edit_profile_path(current_user.id)
-      end
+      redirect_to profile_path(current_user.id)
     end
   end
-
 end
