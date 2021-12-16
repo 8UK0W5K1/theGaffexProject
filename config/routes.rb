@@ -21,14 +21,22 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[edit update show]
   resources :categories, only: %i[show]
 
-  devise_for :users, skip: [:sessions]
-  as :user do
-    get    'Inscription' => 'devise/sessions#new',      :as => :new_user_session
-    post   'Connecte_Toi' => 'devise/sessions#create',   :as => :user_session
-    delete 'Se déconnecter' => 'devise/sessions#destroy', :as => :destroy_user_session
-    get    'Modifie_ton_compte' => 'devise/registrations#edit', :as => :edit_user_registation
-   
-
-end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    get 'profile/edit'    => 'devise/registrations#edit',   :as => :edit_user_registration
+    get 'profile/cancel'  => 'devise/registrations#cancel', :as => :cancel_user_registration
+  end
+  
+  devise_for :users,
+             :path => '',
+             :path_names => { :sign_in =>       'connecte-toi',
+                              :sign_out =>      'se-déconnecter',
+                              :sign_up =>       '',
+                              :registration =>  'inscription',
+                              :edit =>          'edit',
+                              :cancel =>        'retour',
+                              :confirmation =>  'vérification',
+                              :password => 'mot-de-passe',                              
+                              }
+                                
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
