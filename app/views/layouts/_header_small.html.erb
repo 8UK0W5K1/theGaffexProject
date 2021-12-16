@@ -10,7 +10,7 @@
       <div class="offset-4 col-3 mt-3">
         <%= form_tag(url_for(controller: 'searches', action: 'index'), method: 'get', class: 'input-group w-auto ml-3') do %>
           <%= text_field_tag 'keyword', nil, class: "form-control rounded border-muted", placeholder: "rechercher" %>
-          <%= image_submit_tag('https://api.iconify.design/mdi/magnify.svg?color=%23757575', class: 'text-secondary ms-1') %>
+          <%= image_submit_tag("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%221em%22%20height%3D%221em%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9.5%203A6.5%206.5%200%200%201%2016%209.5c0%201.61-.59%203.09-1.56%204.23l.27.27h.79l5%205l-1.5%201.5l-5-5v-.79l-.27-.27A6.516%206.516%200%200%201%209.5%2016A6.5%206.5%200%200%201%203%209.5A6.5%206.5%200%200%201%209.5%203m0%202C7%205%205%207%205%209.5S7%2014%209.5%2014S14%2012%2014%209.5S12%205%209.5%205z%22%20fill%3D%22currentColor%22%2F%3E%3C%2Fsvg%3E", class: 'ms-2') %>
         <% end %>
       </div>
     <% end %>
