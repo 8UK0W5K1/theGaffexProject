@@ -22,7 +22,22 @@ puts " two users"
 
 # categories
 
-categories = ['astronomie', 'biochimie', 'medecine', 'chimie', 'informatique', 'energie', 'ingenieurie', 'environement', 'biologie', 'sciences humaines', 'physique', 'mathematiques', 'pharmacie']
+categories = [
+  'astronomie',
+  'biochimie',
+  'biologie',
+  'chimie',
+  'energie',
+  'environement',
+  'informatique',
+  'ingenieurie',
+  'mathematiques',
+  'medecine',
+  'physique',
+  'pharmacie',
+  'sciences humaines'
+]
+
 categories.each do |category|
   Category.create(name: category)
 end
