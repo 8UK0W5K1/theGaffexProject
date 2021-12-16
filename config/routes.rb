@@ -14,28 +14,23 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :articles do
-    resources :tags, only: %i[create destroy] 
+    resources :tags, only: %i[create destroy]
   end
 
-  resources :searches, only: %i[index]
-  resources :profiles, only: %i[edit update show]
-  resources :categories, only: %i[show]
-
-  devise_scope :user do
-    get 'profile/edit'    => 'devise/registrations#edit',   :as => :edit_user_registration
-    get 'profile/cancel'  => 'devise/registrations#cancel', :as => :cancel_user_registration
-  end
-  
+  resources :searches, only: %i[index], path: 'recherche'
+  resources :profiles, only: %i[edit update show], path: 'profil'
+  resources :categories, only: %i[show], path: "catégories"
+      
   devise_for :users,
              :path => '',
-             :path_names => { :sign_in =>       'connecte-toi',
-                              :sign_out =>      'se-déconnecter',
+             :path_names => { :sign_in =>       'connexion',
+                              :sign_out =>      'déconnexion',
                               :sign_up =>       '',
                               :registration =>  'inscription',
-                              :edit =>          'edit',
+                              :edit =>          'éditer',
                               :cancel =>        'retour',
                               :confirmation =>  'vérification',
-                              :password => 'mot-de-passe',                              
+                              :password => 'mot-de-passe',
                               }
                                 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
