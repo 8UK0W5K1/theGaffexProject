@@ -11,6 +11,7 @@ class Search
     match_article_head
     match_article_body
     match_user
+    match_category
     filter_results
   end
 
@@ -47,14 +48,22 @@ class Search
   end
 
   def match_user
-    Article.where(user: User.where('first_name ILIKE ?', "%#{@search_input}%")).find_each do |article|
-      @results << article
+    @search_input.split(' ').each do |keyword|
+      Article.where(user: User.where('first_name ILIKE ?', "%#{keyword}%")).find_each do |article|
+        @results << article
+      end
+      Article.where(user: User.where('last_name ILIKE ?', "%#{keyword}%")).find_each do |article|
+        @results << article
+      end
     end
-    Article.where(user: User.where('last_name ILIKE ?', "%#{@search_input}%")).find_each do |article|
-      @results << article
+  end
+
+  def match_category
+    @search_input.split(' ').each do |keyword|
+      Article.where(category: Category.where('name ILIKE ?', "%#{keyword}")).find_each do |article|
+        @results << article
+      end
     end
-    Article.where(user: User.where('first_name ILIKE ? AND last_name ILIKE ?', "%#{@search_input.split(' ')[0]}%",
-                                   "%#{@search_input.split(' ')[1]}%")).find_each { |article| @results << article }
   end
 
   def filter_results
