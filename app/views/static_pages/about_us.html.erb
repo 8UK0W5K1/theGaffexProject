@@ -1,4 +1,4 @@
-<div%= stylesheet_link_tag "article_show" %>
+<%= stylesheet_link_tag "article_show" %>
 <div class="col">
     <div class="offset-2 col-12 col-xl-8 mx-auto">
         <div class="card border-secondary p-4 justify-content-center bg-light above-small shadow-lg">
@@ -6,8 +6,8 @@
             <div class="card border-light p-4 justify-content-center bg-light ">
                 <div class="card-header text-center">Le concept "GAFFEx"</div>
                 <div class="card-body text-center">
-                Le Projet GAFFEx est soutenu par l'association « Science Unchained » autour d'une équipe de bénévoles. Si vous avez le sentiment que vous pouvez apporter vos compétences au sein de celle-ci, pour améliorer la plateforme web ou développer de nouveaux services, n'hésitez pas à <a class="text-decoration-none" href="<%= contact_path %>"> nous contacter.</a>
-                </div>           
+                Le Projet GAFFEx est soutenu par l'association « Science Unchained » autour d'une équipe de bénévoles. Si vous avez le sentiment que vous pouvez apporter vos compétences au sein de celle-ci, pour améliorer la plateforme web ou développer de nouveaux services, n'hésitez pas à<%= link_to ' nous contacter.', contact_path, class: 'text-decoration-none' %>
+                </div>
             </div>
         </div>
     </div>
