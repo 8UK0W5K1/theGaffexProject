@@ -1,6 +1,54 @@
+
+
 <nav class=" d-flex d-xl-none navbar navbar-expand-xl navbar-dark bg-primary">
   <div class="container-fluid">
-    <%=link_to "GAFFEx", root_path, class:"navbar-brand"%>
+  <div class="dropdown">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+      <a
+        href="#"
+        class="
+            ms-4
+            d-flex
+            text-center
+            align-items-center
+            link-dark
+            text-decoration-none
+            dropdown-toggle
+          "
+        id="dropdownUser2"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <% if user_signed_in? && current_user.avatar.attached? %>
+          <%= image_tag(current_user.avatar, class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+          <strong><%= current_user.first_name %></strong>
+        <% elsif user_signed_in? %>
+          <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+          <strong><%= current_user.first_name %></strong>
+        <% else %>
+          <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+          <strong>Visiteur</strong>
+        <% end %>
+      </a>
+      <ul
+        class="dropdown-menu text-small shadow bg-light"
+        aria-labelledby="dropdownUser2"
+        style=""
+      >
+        <% if user_signed_in? %>
+          <li><a class="dropdown-item" href="<%= profile_path(current_user.id) %>">Profil</a></li>
+          <li><%= link_to 'Me Déconnecter', destroy_user_session_path, class: 'dropdown-item', method: 'delete' %></li>
+        <% else %>
+          <li><a class="dropdown-item" href="<%= new_user_session_path %>">Me Connecter</a></li>
+          <li><a class="dropdown-item" href="<%= new_user_registration_path %>">M'Inscrire</a></li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</div>
+   
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
       aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,6 +56,7 @@
 
     <div class="collapse navbar-collapse" id="navbarColor03">
       <ul class="navbar-nav me-auto">
+        <div class="dropdown-divider"></div>
         <li class="nav-item">
           <%=link_to "Accueil", root_path, class:"nav-link active"%>
           <span class="visually-hidden">(current)</span>
@@ -17,7 +66,7 @@
           <%=link_to "Nouvel Article", new_article_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%=link_to "Qu'est-ce que le Gaffex ?", about_gaffex_path, class:"nav-link" %>
+          <%=link_to "Qu'est-ce que le GAFFEx ?", about_gaffex_path, class:"nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
