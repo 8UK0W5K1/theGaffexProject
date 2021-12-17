@@ -2,7 +2,6 @@
   <ul class="nav nav-pills flex-column">
     <li class="nav-item mt-3">
       <a
-        href="#"
         class="
             d-flex
             justify-content-center
@@ -30,11 +29,12 @@
         style=""
       >
         <% if user_signed_in? %>
-          <li><a class="dropdown-item" href="<%= profile_path(current_user.id) %>">Profil</a></li>
+
+          <li><%= link_to 'Profil', profile_path(current_user.id), class: 'dropdown-item' %></li>
           <li><%= link_to 'Me Déconnecter', destroy_user_session_path, class: 'dropdown-item', method: 'delete' %></li>
         <% else %>
-          <li><a class="dropdown-item" href="<%= new_user_session_path %>">Me Connecter</a></li>
-          <li><a class="dropdown-item" href="<%= new_user_registration_path %>">M'Inscrire</a></li>
+          <li><%= link_to 'Me Connecter', new_user_session_path, class: 'dropdown-item' %></li>
+          <li><%= link_to "M'Inscrire", new_user_registration_path, class:  'dropdown-item' %></li>
         <% end %>
       </ul>
     </li>
