@@ -13,10 +13,7 @@ Keyword.destroy_all
 Category.destroy_all
 
 # Table Users
-#
-# used hardcoded path because i couldn't fiond any way to use the asset pipeline to generate the right path for the
-# images, I watched the doc files for asset pipeline and active storage and a lot of stack overflow, neither of them gave me
-# even clues on how to do this
+
 user_first = User.create(email: "francis@gmail.com", password: "123456", first_name: "Francis", last_name: "Fake", admin: true)
 user_first.avatar.attach(
 
