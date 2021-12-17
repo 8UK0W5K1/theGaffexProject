@@ -18,9 +18,18 @@ Category.destroy_all
 # images, I watched the doc files for asset pipeline and active storage and a lot of stack overflow, neither of them gave me
 # even clues on how to do this
 user_first = User.create(email: "francis@gmail.com", password: "123456", first_name: "Francis", last_name: "Fake", admin: true)
-user_first.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
+user_first.avatar.attach(
+
+  io: File.open(Rails.root.join('app', 'assets', 'images', 'chuck-norris.jpg')),
+  filename: 'default.jpg',
+  content_type: 'image/jpg'
+)
 user_second = User.create(email: "hiprapenepo-8910@yopmail.com", password: "123456", first_name: "Chuck", last_name: "Norris", admin: false)
-user_second.avatar.attach(io: File.open('./app/assets/images/chuck-norris.jpg'), filename: 'default.png')
+user_second.avatar.attach(
+  io: File.open(Rails.root.join('app', 'assets', 'images', 'chuck-norris.jpg')),
+  filename: 'default.jpg',
+  content_type: 'image/jpg'
+)
 puts " two users"
 
 # categories
