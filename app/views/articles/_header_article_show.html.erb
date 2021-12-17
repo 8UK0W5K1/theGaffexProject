@@ -7,9 +7,9 @@
     <% end %>
 
     <div class="ms-md-5 ms-0 clickable">
-      <a href="<%= profile_path(@article.user.id) %>">
+      <%= link_to profile_path(@article.user.id) do %>
         <h5><em><%= @article.user.first_name %> <%= @article.user.last_name %></em></h5>
-      </a>
+      <% end %>
     </div>
   </div>
 
@@ -20,33 +20,54 @@
         <% if user_signed_in? %>
 
           <% if whith_tag(current_user, @article) == "Approved" %>
-            <a href="<%= article_tag_path(@article.id, @article.tags.find_by(user: current_user).id) %>" data-method="delete" data-remote="true"><span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:approved] %></span></span></a>
+            <%= link_to article_tag_path(@article.id, @article.tags.find_by(user: current_user).id), method: 'delete', remote: 'true' do %>
+              <span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:approved] %></span></span>
+            <% end %>
           <% else %>
-            <a href="<%= article_tags_path(@article.id, :tag_name => "Approved") %>" data-method="post" data-remote="true"><span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:approved] %></span></span>
-            </a>
+            <%= link_to article_tags_path(@article.id, tag_name: "Approved"), method: 'post', remote: true do %>
+              <span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:approved] %></span></span>
+            <% end %>
           <% end %>
 
           <% if whith_tag(current_user, @article) == "Need Review" %>
-            <a href="<%= article_tag_path(@article.id, @article.tags.find_by(user: current_user).id) %>" data-method="delete" data-remote="true"><span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: #2c3e50;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:need_review] %></span></span></a>
+            <%= link_to article_tag_path(@article.id, @article.tags.find_by(user: current_user).id), method: 'delete', remote: 'true' do %>
+              <span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: #2c3e50;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:need_review] %></span></span>
+            <% end %>
           <% else %>
-            <a href="<%= article_tags_path(@article.id, :tag_name => "Need Review") %>" data-method="post" data-remote="true"><span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:need_review] %></span></span></a>
+            <%= link_to article_tags_path(@article.id, tag_name: "Need Review"), method: 'post', remote: true do %>
+              <span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:need_review] %></span></span>
+            <% end %>
           <% end %>
 
           <% if whith_tag(current_user, @article) == "Not Approved" %>
-            <a href="<%= article_tag_path(@article.id, @article.tags.find_by(user: current_user).id) %>" data-method="delete" data-remote="true"><span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:not_approved] %></span></span></a>
+            <%= link_to article_tag_path(@article.id, @article.tags.find_by(user: current_user).id), method: 'delete', remote: 'true' do %>
+              <span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:not_approved] %></span></span>
+            <% end %>
           <% else %>
-            <a href="<%= article_tags_path(@article.id, :tag_name => "Not Approved") %>" data-method="post" data-remote="true"><span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:not_approved] %></span></span></a>
+            <%= link_to article_tags_path(@article.id, tag_name: "Not Approved"), method: 'post', remote: true do %>
+              <span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:not_approved] %></span></span>
+            <% end %>
           <% end %>
 
         <% else %>
-          <a href="<%= article_tags_path(@article.id) %>" data-method="post"><span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:approved] %></span></span></a>
-          <a href="<%= article_tags_path(@article.id) %>" data-method="post"><span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:need_review] %></span></span></a>
-          <a href="<%= article_tags_path(@article.id) %>" data-method="post"><span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:not_approved] %></span></span></a>
+          <%= link_to article_tags_path(@article.id), method: 'post' do %>
+            <span class="badge badge-fake rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:approved] %></span></span>
+          <% end %>
+          <%= link_to article_tags_path(@article.id), method: 'post' do %>
+            <span class="badge badge-fake rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="25" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:need_review] %></span></span>
+          <% end %>
+          <%= link_to article_tags_path(@article.id), method: 'post' do %>
+            <span class="badge badge-fake rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="30" data-height="25"></span><span class="badge rounded-pill bg-primary"><%= tag_count(@article)[:not_approved] %></span></span>
+          <% end %>
         <% end %>
-        <a href="<%= help_path %>" target="_blank"><span class="badge badge-help rounded-pill bg-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Comment ça marche?"><span class="iconify badge-help" data-icon="mdi:help"></span></span></a>
+        <%= link_to help_path target: '_blank' do %>
+          <span class="badge badge-help rounded-pill bg-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Comment ça marche?"><span class="iconify badge-help" data-icon="mdi:help"></span></span>
+        <% end %>
       </div>
       <div class="d-flex justify-content-end me-4 mt-5 bg-light">
-        <h5><a href="<%= category_path(@article.category.id) %>" style="text-decoration: none; text-success;"><%= @article.category.name %></a></h5>
+        <h5>
+          <%= link_to @article.category.name, category_path(@article.category.id), class: 'text-sucess', style: 'text-decoration: none;' %>
+        </h5>
       </div>
     </div>
   </div>
