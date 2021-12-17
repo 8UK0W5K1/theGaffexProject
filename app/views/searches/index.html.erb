@@ -8,11 +8,7 @@
   </div>
 </div>
 
-<% if @results == [] || @results.count < 3 %>
-  <%= render 'layouts/footer_sticky' %>
-<% else %>
-  <%= render 'layouts/footer' %>
-<% end %>
+
 
 <%= javascript_include_tag 'paging' %>
 
