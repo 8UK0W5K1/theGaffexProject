@@ -1,4 +1,4 @@
-<div%= stylesheet_link_tag "article_show" %>
+<%= stylesheet_link_tag "article_show" %>
 <div class="col">
     <div class="offset-2 col-8 mx-auto">
         <div class="card border-secondary p-4 justify-content-center bg-light above-small shadow-lg">
@@ -11,7 +11,7 @@
           alt="mascotte"
         /></div>
                 <div class="card-body text-center">
-                <h3>La page est introuvable ou n'existe pas ! <br>Vous pouvez revenir à <a class="text-decoration-none" href="<%= root_path %>">la page d'accueil.</a>
+                <h3>La page est introuvable ou n'existe pas ! <br>Vous pouvez revenir à <%= link_to "la page d'accueil.", root_path, class: 'text-decoration-none' %>
                 </h3>
                 </div>           
             </div>
