@@ -4,49 +4,60 @@
       <%= image_tag(article.picture, class: 'img-thumbnail') %>
     </div>
     <div class="col-5 clickable">
-      <a href="<%= article_path(article.id) %>"><h4 class="word-wrap"><%= article.title %></h4></a>
-     <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
+      <%= link_to article_path(article.id), class: 'word-wrap' do %>
+        <h4 class=""><%= article.title %></h4>
+      <% end %>
+      <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
       <p class="text-start word-wrap"><%= article.short_summary %></p>
     </div>
     <div class="card border-light col bg-light mt-3 ">
       <div class="d-flex justify-content-center ">
         <div row="">
-          <%if user_signed_in?%> 
+          <% if user_signed_in? %>
 
-            <%if whith_tag(current_user,article) == "Approved"%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
-            <%else%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
-            <%end%> 
+            <% if whith_tag(current_user, article) == "Approved" %>
+              <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <% else %>
+              <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <% end %>
 
-            <%if whith_tag(current_user,article) == "Need Review"%>
+            <% if whith_tag(current_user, article) == "Need Review" %>
               <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
-            <%else%>
+            <% else %>
               <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
-            <%end%> 
+            <% end %>
 
-            <%if whith_tag(current_user,article) == "Not Approved"%>
+            <% if whith_tag(current_user, article) == "Not Approved" %>
               <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
-            <%else%>
+            <% else %>
               <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
-            <%end%> 
+            <% end %>
 
-          <%else%>
+          <% else %>
             <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
             <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
-          <%end%>
-        </div> 
-      </div> 
+          <% end %>
+        </div>
+      </div>
       <div class="d-flex justify-content-center mt-4">
-        <a href="<%= article_path(article.id) %>" class="btn btn-primary hover">Voir article</a>
-      </div>   
-      <%if current_user == article.user %>    
+        <%= link_to 'Voir article', article_path(article.id), class: 'btn btn-primary hover' %>
+      </div>
+      <% if current_user == article.user %>
         <div class="d-flex justify-content-center mt-3">
-          <a href="<%= edit_article_path(article.id) %>" class="text-warning hover" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editer l'article"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path d="M6.4 14.1l1.3 1.3l6.9-6.9l-1.3-1.3l-6.9 6.9zm6.3-7.5l-1.3-1.3l-6.9 6.9l1.4 1.4l6.8-7zm2.1-4.7l3.3 3.3c.6.6.5 1.5 0 2l-9.9 9.9l-6.9 1.4l1.4-6.9c6.2-6.3 9.5-9.6 9.9-9.9c.6-.4 1.6-.4 2.2.2z" fill="currentColor"/></svg></a>
-          <a href="<%= article_path(article.id) %>" data-confirm="Voulez vous vraiment supprimer cet article ?" data-method="delete" class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer l'article"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/><path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/></svg></a>
-        </div> 
-      <%end%>     
+          <%= link_to edit_article_path(article.id), class: 'text-warning hover' do %>
+            <svg data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editer l'article" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+              <path d="M6.4 14.1l1.3 1.3l6.9-6.9l-1.3-1.3l-6.9 6.9zm6.3-7.5l-1.3-1.3l-6.9 6.9l1.4 1.4l6.8-7zm2.1-4.7l3.3 3.3c.6.6.5 1.5 0 2l-9.9 9.9l-6.9 1.4l1.4-6.9c6.2-6.3 9.5-9.6 9.9-9.9c.6-.4 1.6-.4 2.2.2z" fill="currentColor"/>
+            </svg>
+          <% end %>
+          <%= link_to article_path(article.id), method: 'delete', data: { confirm: 'Voulez vous vraiment supprimer cet article ?' }, class: 'text-danger hover ms-3' do %>
+            <svg data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer l'article" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+              <path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/>
+              <path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/>
+            </svg>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>
