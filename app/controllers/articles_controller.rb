@@ -86,9 +86,10 @@ class ArticlesController < ApplicationController
     )
       @article.picture.attach(params[:picture]) unless params[:picture].nil?
       Keyword.update_keywords(params, @article)
+      flash[:info] = "Votre article a bien été modifié"
       redirect_to profile_path(current_user.id)
     else
-      flash.now[:alert] = "Aucun champs ne doit être vide"
+      flash.now[:alert] = @article.errors.full_messages[0]
       render :edit
     end
   end
