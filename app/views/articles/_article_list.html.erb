@@ -8,61 +8,70 @@
 </div>
 <% @articles.each_with_index do |article, index| %>
   <div class="preview-article row mt-4">
-    <div class="container d-flex justify-content-center col-2 col-md-4 border-primary" style="max-height: 18vh">
+    <div class=" d-none d-md-flex container justify-content-center col-2 col-md-4 border-primary" style="max-height: 18vh">
       <%= image_tag(article.picture, class: 'img-thumbnail') %>
     </div>
-    <div class="col-5 clickable">
-      <a href="<%= article_path(article.id) %>"><h4 class="word-wrap"><%= article.title %></h4></a>
-      <a href="<%= profile_path(article.user.id) %>"><p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p></a>
+    <div class="col-8 col-md-5 clickable ms-2">
+      <%= link_to article_path(article.id) do %>
+        <h4 class="word-wrap"><%= article.title %></h4>
+      <% end %>
+      <%= link_to profile_path(article.user.id) do %>
+        <p class="text-end fst-italic fs-6"><%= article.user.first_name %> <%= article.user.last_name %></p>
+      <% end %>
       <p class="text-start word-wrap"><%= article.short_summary %></p>
     </div>
     <div class="card border-light col bg-light mt-3 ">
       <div class="d-flex justify-content-center ">
         <div row="">
-          <%if user_signed_in?%>
+          <% if user_signed_in? %>
 
-            <%if whith_tag(current_user,article) == "Approved"%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
-            <%else%>
-            <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
-            <%end%>
+            <% if whith_tag(current_user, article) == "Approved" %>
+              <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: #2c3e50;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <% else %>
+              <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
+            <% end %>
 
-            <%if whith_tag(current_user,article) == "Need Review"%>
+            <% if whith_tag(current_user, article) == "Need Review" %>
               <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
-            <%else%>
+            <% else %>
               <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
-            <%end%>
+            <% end %>
 
-            <%if whith_tag(current_user,article) == "Not Approved"%>
+            <% if whith_tag(current_user, article) == "Not Approved" %>
               <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: #2c3e50;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
-            <%else%>
+            <% else %>
               <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
-            <%end%>
+            <% end %>
 
-          <%else%>
+          <% else %>
             <span class="badge rounded-pill bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Approuvé"><span class="iconify" data-icon="mdi:check-bold" style="color: white;" data-width="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:approved] %></span></span>
             <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="À Retravailler"><span class="iconify" data-icon="jam:write-f" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:need_review] %></span></span>
             <span class="badge rounded-pill bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Non Approuvé"><span class="iconify" data-icon="emojione-monotone:cross-mark" style="color: white;" data-width="20" data-height="20"></span><span class="badge rounded-pill bg-primary"><%= tag_count(article)[:not_approved] %></span></span>
-          <%end%>
+          <% end %>
         </div>
       </div>
       <div class="d-flex justify-content-center mt-4">
-        <a href="<%= article_path(article.id) %>" class="btn btn-primary hover">Voir article</a>
-          <div class ="mt-1">
-            <% if user_signed_in? && current_user.admin%>
-              <a href="<%= article_path(article.id) %>" data-confirm="Voulez vous vraiment supprimer cet article ?" data-method="delete" class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Supprimer l'article"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/><path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/></svg></a>
-            <%end%>
-          </div>
+        <%= link_to 'Voir article', article_path(article.id), class: 'btn btn-primary hover' %>
+        <div class="mt-1">
+          <% if user_signed_in? && current_user.admin %>
+            <%= link_to article_path(article.id), method: 'delete', data: {confirm: 'Voulez vous vraiment supprimer cet article ?'} do %>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Supprimer l'article">
+                <path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/>
+                <path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/>
+              </svg>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 <% end %>
 
 <script>
-  const searchIcon = document.querySelector('.search-icon');
-  searchIcon.addEventListener('click', () => {
-      searchIcon.click();
-      searchIcon.remove();
-      document.querySelector('#search-form').insertAdjacentHTML('afterend', '<div class="lds-dual-ring"></div>');
-  }, {once: true})
+    const searchIcon = document.querySelector('.search-icon');
+    searchIcon.addEventListener('click', () => {
+        searchIcon.click();
+        searchIcon.remove();
+        document.querySelector('#search-form').insertAdjacentHTML('afterend', '<div class="lds-dual-ring"></div>');
+    }, {once: true})
 </script>

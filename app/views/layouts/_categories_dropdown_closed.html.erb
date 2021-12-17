@@ -2,7 +2,6 @@
   <ul class="nav nav-pills flex-column">
     <li class="nav-item mt-4">
       <a
-        href="#"
         class="
             d-flex
             justify-content-center
@@ -26,7 +25,7 @@
         style=""
       >
         <% categories.each do |category| %>
-          <li><a class="dropdown-item" href="<%= category_path(category.id) %>"><%= category.name %></a></li>
+          <li><%= link_to category.name, category_path(category.id), class: 'dropdown-item' %></li>
         <% end %>
       </ul>
     </li>

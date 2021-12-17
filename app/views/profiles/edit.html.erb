@@ -19,7 +19,7 @@
         <%= file_field_tag :avatar %>         
         <div class="mt-4">
           <%if @user == current_user%>
-            <a href="<%= edit_user_registration_path(current_user.id) %>" class="none-underline ">Modifier mon compte</a> 
+            <%= link_to 'Modifier mon compte', edit_user_registration_path(current_user.id), class: 'none-underline' %>
           <%end%>
         </div>          
         <%= submit_tag "Enregistrer", class: "mt-4 btn btn-lg btn btn-primary"  %>

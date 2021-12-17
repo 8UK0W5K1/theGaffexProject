@@ -13,7 +13,7 @@
         <div class="col-7 d-flex justify-content-between">
           <div class="col-2">
             <h6 class="text-uppercase fw-bold">
-              <a class="text-decoration-none" href="<%= contact_path %>">Nous Contacter</a>
+              <%= link_to 'Nous Contacter', contact_path, class: 'text-decoration-none' %>
             </h6>
           </div>
           <div class="col-2">
@@ -27,12 +27,12 @@
           </div>
           <div class="col-2">
             <h6 class="text-uppercase fw-bold">
-              <a class="text-decoration-none" href="<%= about_us_path %>">À propos</a>
+              <%= link_to 'À propos', about_us_path, class: 'text-decoration-none' %>
             </h6>
           </div>
           <div class="col-2">
             <h6 class="text-uppercase fw-bold">
-              <a class="text-decoration-none" href="<%= about_gaffex_path %>">Qu'est-ce que Gaffex ?</a>
+              <%= link_to "Qu'est-ce que Gaffex ?", about_gaffex_path, class: 'text-decoration-none' %>
             </h6>
           </div>
         </div>

@@ -3,16 +3,31 @@
     <p><br></p>
     <h3><b><%= @article.title %> </b></h3>
   </div>
-  <% if user_signed_in?%>
-    <% if current_user == @article.user %>    
+  <% if user_signed_in? %>
+    <% if current_user == @article.user %>
       <div class="d-flex justify-content-center mt-3">
-        <a href="<%= edit_article_path(@article.id) %>" class="text-warning hover" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editer l'article"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path d="M6.4 14.1l1.3 1.3l6.9-6.9l-1.3-1.3l-6.9 6.9zm6.3-7.5l-1.3-1.3l-6.9 6.9l1.4 1.4l6.8-7zm2.1-4.7l3.3 3.3c.6.6.5 1.5 0 2l-9.9 9.9l-6.9 1.4l1.4-6.9c6.2-6.3 9.5-9.6 9.9-9.9c.6-.4 1.6-.4 2.2.2z" fill="currentColor"/></svg></a>
-        <a href="<%= article_path(@article.id) %>" data-confirm="Voulez vous vraiment supprimer cet article ?" data-method="delete" class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer l'article"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/><path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/></svg></a>
+        <%= link_to edit_article_path(@article.id) do %>
+          <svg class="text-warning hover" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editer l'article" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+            <path d="M6.4 14.1l1.3 1.3l6.9-6.9l-1.3-1.3l-6.9 6.9zm6.3-7.5l-1.3-1.3l-6.9 6.9l1.4 1.4l6.8-7zm2.1-4.7l3.3 3.3c.6.6.5 1.5 0 2l-9.9 9.9l-6.9 1.4l1.4-6.9c6.2-6.3 9.5-9.6 9.9-9.9c.6-.4 1.6-.4 2.2.2z" fill="currentColor"/>
+          </svg>
+        <% end %>
+        <%= link_to article_path(@article.id), method: 'delete', data: { confirm: 'Voulez vous vraiment supprimer cet article ?' } do %>
+
+          <svg class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer l'article" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+            <path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/>
+            <path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/>
+          </svg>
+        <% end %>
       </div>
-    <%elsif current_user.admin%>
-      <a href="<%= article_path(@article.id) %>" data-confirm="Voulez vous vraiment supprimer cet article ?" data-method="delete" class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer l'article"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/><path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/></svg></a>
-    <%end%>
-  <%end%>  
+    <% elsif current_user.admin %>
+      <%= link_to article_path(@article.id), method: 'delete', data: { confirm: 'Voulez vous vraiment supprimer cet article ?' } do %>
+        <svg class="text-danger hover ms-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Supprimer l'article" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.7em" height="1.7em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+          <path d="M2 5v10c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V5H2zm3 9H4V7h1v7zm2 0H6V7h1v7zm2 0H8V7h1v7zm2 0h-1V7h1v7z" fill="currentColor"/>
+          <path d="M13.25 2H10V.75A.753.753 0 0 0 9.25 0h-3.5A.753.753 0 0 0 5 .75V2H1.75a.752.752 0 0 0-.75.75V4h13V2.75a.752.752 0 0 0-.75-.75zM9 2H6v-.987h3V2z" fill="currentColor"/>
+        </svg>
+      <% end %>
+    <% end %>
+  <% end %>
 
 </div>
 
@@ -78,13 +93,12 @@
     </div>
   </div>
   <div class="d-flex" style="justify-content: space-between;">
-    <%if @article.created_at.strftime("%d/%m/%Y %k:%M:%S") == @article.updated_at.strftime("%d/%m/%Y %k:%M:%S")%>
+    <% if @article.created_at.strftime("%d/%m/%Y %k:%M:%S") == @article.updated_at.strftime("%d/%m/%Y %k:%M:%S") %>
       <div class="date">Article créé le <%= @article.created_at.strftime("%d/%m/%Y") %>.</div>
     <% else %>
       <div class="date">Article mis à jour le <%= @article.updated_at.strftime("%d/%m/%Y") %>.</div>
     <% end %>
-    <a href="<%= article_path(@article.id, format: :pdf) %>" target="_blank" class="btn btn-primary hover">Exporter en
-      PDF</a>
-  </div>
+    <%= link_to 'Exporter en PDF', article_path(@article.id, format: :pdf), class: 'btn btn-primary hover', target: '_blank' %>
   </div>
 </div>
+

@@ -1,0 +1,67 @@
+<nav class=" d-flex d-xl-none navbar navbar-expand-xl navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="dropdown">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="ms-4 d-flex text-center align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if user_signed_in? && current_user.avatar.attached? %>
+            <%= image_tag(current_user.avatar, class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+            <strong><%= current_user.first_name %></strong>
+            <% elsif user_signed_in? %>
+            <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+            <strong><%= current_user.first_name %></strong>
+            <% else %>
+            <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+            <strong>Visiteur</strong>
+            <% end %>
+          </a>
+          <ul class="dropdown-menu text-small shadow bg-light" aria-labelledby="dropdownUser2" style="">
+            <% if user_signed_in? %>
+            <li><%= link_to 'Profil', profile_path(current_user.id), class: 'dropdown-item'%></li>
+            <li><%= link_to 'Me Déconnecter', destroy_user_session_path, class: 'dropdown-item', method: 'delete' %>
+            </li>
+
+            <% else %>
+            <li><%= link_to 'Me Connecter', new_user_session_path, class: 'dropdown-item'%></li>
+            <li><%= link_to 'Inscription', new_user_registration_path, class: 'dropdown-item'%></li>
+
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+      aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <div class="dropdown-divider"></div>
+        <li class="nav-item">
+          <%=link_to "Accueil", root_path, class:"nav-link active"%>
+          <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <%=link_to "Nouvel Article", new_article_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%=link_to "Qu'est-ce que le GAFFEx ?", about_gaffex_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Catégories</a>
+          <div class="dropdown-menu bg-light">
+            <% categories.each do |category| %>
+            <%=link_to category.name, category_path(category.id), class:"dropdown-item bg-light"%>
+            <% end %>
+
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
