@@ -39,7 +39,7 @@ categories = [
   'Energie',
   'Environnement',
   'Informatique',
-  'Ingénieurie',
+  'Iingénierie',
   'Mathématiques',
   'Médecine',
   'Physique',
