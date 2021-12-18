@@ -3,7 +3,7 @@
     <div class="dropdown">
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-          <a class="ms-4 d-flex text-center align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="ms-md-4 d-flex text-center align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
             <% if user_signed_in? && current_user.avatar.attached? %>
             <%= image_tag(current_user.avatar, class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
             <strong><%= current_user.first_name %></strong>
