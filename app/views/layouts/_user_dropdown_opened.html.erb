@@ -1,6 +1,6 @@
 <div class="dropdown">
   <ul class="nav nav-pills flex-column">
-    <li class="nav-item mt-3">
+    <li class="nav-item mt-xl-3">
       <a
         href="#"
         class="
@@ -17,13 +17,13 @@
         aria-expanded="false"
       >
         <% if user_signed_in? && current_user.avatar.attached? %>
-          <%= image_tag(current_user.avatar, class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+          <%= image_tag(current_user.avatar, class: 'ms-md-4 ms-2 rounded-circle me-2', width: 38, height: 38) %>
           <strong><%= current_user.first_name %></strong>
         <% elsif user_signed_in? %>
-          <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+          <%= image_tag(asset_path('default_avatar.png'), class: 'ms-md-4 ms-2 rounded-circle me-2', width: 38, height: 38) %>
           <strong><%= current_user.first_name %></strong>
         <% else %>
-          <%= image_tag(asset_path('default_avatar.png'), class: 'ms-4 rounded-circle me-2', width: 38, height: 38) %>
+          <%= image_tag(asset_path('default_avatar.png'), class: 'ms-md-4 ms-2 rounded-circle me-2', width: 38, height: 38) %>
           <strong>Visiteur</strong>
         <% end %>
       </a>
